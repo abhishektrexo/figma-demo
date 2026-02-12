@@ -1,0 +1,121 @@
+---
+const deliveryItems = [
+  {
+    icon: "/assets/validate.svg",
+    title: "Validate",
+    description: "Verify bibliographic details, priority claims, and assignee data with bulk downloads across jurisdictions—minimizing errors."
+  },
+  {
+    icon: "/assets/generate.svg",
+    title: "Generate Documents",
+    description: "Instantly create POA transmittals, 3.73 statements, and Office Action shells—automated from case data and claims."
+  },
+  {
+    icon: "/assets/search.svg",
+    title: "Search & Download",
+    description: "Bulk-download US & non-US patents with translations, manage IDS references, and auto-calculate USPTO fees."
+  },
+  {
+    icon: "/assets/standardize.svg",
+    title: "Standardize",
+    description: "Convert PDFs into USPTO-compliant formats and maintain consistent, accurate IP records."
+  }
+];
+---
+<section class="delivers">
+  <div class="delivers-container">
+    <div class="delivers-header">
+      <h2 class="delivers-title">What JUNE Delivers</h2>
+      <p class="delivers-subtitle">
+        JUNE is your trusted assistant for smarter IP management—delivering efficiency, compliance, and results at scale.
+      </p>
+    </div>
+    <div class="delivers-grid">
+      {deliveryItems.map((item) => (
+        <div class="delivers-card">
+          <div class="delivers-icon">
+            <img src={item.icon} alt={item.title} />
+          </div>
+          <h3 class="delivers-item-title">{item.title}</h3>
+          <p class="delivers-description">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .delivers {
+    padding: var(--section-padding);
+    background-color: var(--color-white);
+  }
+
+  .delivers-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--content-padding);
+  }
+
+  .delivers-header {
+    margin-bottom: 60px;
+    max-width: 800px;
+  }
+
+  .delivers-title {
+    font-family: var(--font-family);
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 16px;
+  }
+
+  .delivers-subtitle {
+    font-family: var(--font-family);
+    font-size: 20px;
+    color: #4A4A4A;
+    line-height: 1.4;
+  }
+
+  .delivers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+
+  .delivers-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .delivers-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Styles for the container if needed */
+  }
+
+  .delivers-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .delivers-item-title {
+    font-family: var(--font-family);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+  }
+
+  .delivers-description {
+    font-family: var(--font-family);
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+  }
+</style>

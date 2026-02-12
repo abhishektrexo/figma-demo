@@ -1,0 +1,114 @@
+---
+const stats = [
+  { value: "96%", title: "Automated SLA Compliance", description: "On-time delivery against agreed service levels." },
+  { value: "110X", title: "Faster Turnaround", description: "Quick delivery with improved speed." },
+  { value: "85%", title: "Efficiency Gain", description: "Improved performance through smarter processes." },
+  { value: "80%", title: "Reduced Time", description: "Minimized turnaround for quicker delivery." },
+  { value: "70%", title: "Better Utilisation", description: "Maximizing efficiency through smarter resource use." },
+  { value: "631%", title: "Volume Throughput via Automation", description: "The amount of workload or transactions processed within a given time." }
+];
+---
+<section class="stats">
+  <div class="stats-container">
+    <div class="stats-grid">
+      {stats.map((stat, index) => (
+        <div class="stat-card">
+          <h3 class="stat-value">{stat.value}</h3>
+          <h4 class="stat-title">{stat.title}</h4>
+          <p class="stat-description">{stat.description}</p>
+        </div>
+      ))}
+    </div>
+    <div class="stats-image-container">
+       <!-- Placeholder for "top-view-statistics..." image -->
+       <div class="stats-image-placeholder"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats {
+    background-color: var(--color-light); /* Assuming light bg based on context, checking if there's a fill on parent... Frame 711 had no fill? Let's assume light for now or transparent. */
+    /* Frame 715 (parent of 711) had fill F3F8FC (VariableID.../1953:33) which is --color-light. */
+    padding: var(--section-padding);
+  }
+
+  .stats-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--content-padding);
+    padding-top: 60px; /* Adjust spacing */
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px; /* Approximate based on frames */
+    max-width: 840px; /* Frame 672 width */
+    z-index: 2; /* Ensure above image if overlap */
+  }
+
+  .stat-card {
+    background: white;
+    padding: 24px;
+    border-radius: 16px; /* Frame cornder radius */
+    box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* Approx standard shadow, need exact from Figma if available. */
+  }
+
+  .stat-value {
+    font-family: var(--font-family);
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+  }
+
+  .stat-title {
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+  }
+
+  .stat-description {
+    font-family: var(--font-family);
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .stats-image-container {
+    position: absolute;
+    right: 156px; /* Aligned with content padding right? */
+    /* Coordinate check: 
+       Stats Grid x: 10101.
+       Image x: 10874.
+       Content Padding Left is 156px.
+       10101 + 156 = ... wait.
+       Frame 715 x is 10101.
+       So Grid is at left: 0 of container.
+       Image is at x: 10874.
+       10874 - 10101 = 773px.
+       So Image is 773px from left of container.
+    */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 406px;
+    height: 354px;
+    z-index: 1;
+    opacity: 0.8; 
+    pointer-events: none;
+  }
+
+  .stats-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 92, 185, 0.1); /* Light blue placeholder */
+    border-radius: 20px;
+  }
+</style>

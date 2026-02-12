@@ -1,0 +1,91 @@
+---
+const features = [
+  { icon: "zap", text: "Faster, automated IP workflows" },
+  { icon: "layers", text: "Standardized, error-free processes" },
+  { icon: "trending-up", text: "Scalable for growing IP portfolios" },
+  { icon: "check-circle", text: "Improved compliance & accuracy" },
+  { icon: "award", text: "Competitive advantage through efficiency" }
+];
+---
+<section class="features">
+  <div class="features-container">
+    <div class="features-grid">
+      {features.map((feature) => (
+        <div class="feature-item">
+          <div class="feature-icon">
+            {/* Using Lucide-like icons for now as SVG download was empty */}
+            <div class={`icon-box icon-${feature.icon}`}></div>
+          </div>
+          <p class="feature-text">{feature.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    padding: var(--section-padding);
+    background-color: var(--color-white);
+  }
+
+  .features-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--content-padding);
+  }
+
+  .features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 500px; /* Aligned with Frame 712 width */
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .icon-box {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .icon-box::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-primary);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  .icon-zap::before { mask-image: url('https://unpkg.com/lucide-static@latest/icons/zap.svg'); }
+  .icon-layers::before { mask-image: url('https://unpkg.com/lucide-static@latest/icons/layers.svg'); }
+  .icon-trending-up::before { mask-image: url('https://unpkg.com/lucide-static@latest/icons/trending-up.svg'); }
+  .icon-check-circle::before { mask-image: url('https://unpkg.com/lucide-static@latest/icons/check-circle.svg'); }
+  .icon-award::before { mask-image: url('https://unpkg.com/lucide-static@latest/icons/award.svg'); }
+
+  .feature-text {
+    font-family: var(--font-family);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--color-dark);
+    line-height: 1.2;
+  }
+</style>

@@ -1,0 +1,117 @@
+---
+---
+<section class="hero">
+  <!-- Watermark "june" - Top Right & Top Left positions from Figma -->
+  <div class="watermark watermark-top">june</div>
+  <div class="watermark watermark-bottom">june</div>
+
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 class="hero-text">
+        JUNE is Trexo’s latest innovation in IP management, built to simplify and accelerate patent and trademark prosecution workflows. By automating critical tasks, JUNE saves time, reduces costs, and ensures unmatched accuracy—helping IP teams work smarter, faster, and more efficiently.
+      </h1>
+      <a href="#" class="btn-hero">Book a Demo</a>
+    </div>
+    
+    <div class="hero-image-container">
+      <!-- Placeholder for Image 5 -->
+      <div class="hero-image-placeholder"></div> 
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background-color: var(--color-primary); /* #005CB9 */
+    height: 895px; /* Exact Height */
+    border-radius: 0 0 100px 100px; /* Exact Radius */
+    position: relative;
+    overflow: hidden;
+    padding-top: 273px; /* Top padding to text start */
+  }
+
+  .watermark {
+    position: absolute;
+    font-family: var(--font-display);
+    font-size: 213px; /* Exact Size */
+    line-height: 266px;
+    color: #004C99; /* Exact Watermark Color */
+    opacity: 1; /* No opacity needed as color is set */
+    pointer-events: none;
+    text-transform: lowercase;
+  }
+
+  .watermark-top {
+    top: 60px; /* Approx based on y=14498 vs frame start 14438 */
+    right: -100px; /* Allowing bleed */
+  }
+
+  .watermark-bottom {
+    top: 677px; /* Approx based on y=15115 vs 14438 */
+    left: 450px; /* Rough positioning based on visual */
+  }
+
+  .hero-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--content-padding); /* 156px sides */
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .hero-content {
+    width: 456px; /* Exact width */
+  }
+
+  .hero-text {
+    font-family: var(--font-family);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+    color: var(--color-white);
+    margin-bottom: 18px; /* Gap to button */
+  }
+
+  .btn-hero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white); /* White Button? Figma said fill white for text? No, button bg is usually the solid color. */
+    /* Wait, Figma JSON:
+       Button Instance Fills: r:0.99 (White used for text? or bg?)
+       Actually, `Button` text fill was #005CB9 (Blue). 
+       So Button BG is White.
+    */
+    background-color: var(--color-white);
+    color: var(--color-primary); 
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    height: 40px;
+    box-sizing: border-box;
+  }
+
+  .hero-image-container {
+    width: 648px;
+    height: 342px;
+    /* Absolute pos in Figma: x: 10581. Frame x: 9945. Diff = 636px.
+       Since Padding is 156px, and content is 456px wide.
+       156 + 456 = 612.
+       Image starts at 636 relative to frame.
+       So gap is 24px.
+    */
+    margin-left: 24px;
+  }
+
+  .hero-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 7px;
+  }
+</style>
