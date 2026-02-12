@@ -101,6 +101,33 @@ const securityNodes = [
     align-items: center;
   }
 
+  @media (max-width: 768px) {
+    .security-diagram {
+      height: auto;
+      flex-direction: column;
+      gap: 30px;
+      padding-top: 40px;
+    }
+    .diagram-center, .pulse-ring, .nodes-container {
+      position: static;
+      transform: none !important;
+    }
+    .nodes-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .security-node {
+      position: static;
+      flex-direction: row !important;
+      text-align: left !important;
+      max-width: 100%;
+    }
+    .node-content h3 {
+       font-size: 16px;
+    }
+  }
+
   .diagram-center {
     position: relative;
     z-index: 2;

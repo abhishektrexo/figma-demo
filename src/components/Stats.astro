@@ -46,9 +46,22 @@ const stats = [
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px; /* Approximate based on frames */
-    max-width: 840px; /* Frame 672 width */
-    z-index: 2; /* Ensure above image if overlap */
+    gap: 24px;
+    max-width: 840px;
+    z-index: 2;
+  }
+
+  @media (max-width: 768px) {
+    .stats-container {
+      flex-direction: column;
+    }
+    .stats-grid {
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+    .stats-image-container {
+      display: none; /* Hide abstract image on mobile for simplicity, or stack it */
+    }
   }
 
   .stat-card {

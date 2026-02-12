@@ -91,6 +91,25 @@ const juneItems = [
     gap: 40px;
   }
 
+  @media (max-width: 900px) {
+    .comparison-grid {
+      flex-direction: column;
+      gap: 60px;
+    }
+    .comparison-divider {
+      transform: rotate(90deg);
+      height: 50px;
+      padding: 0;
+      margin: 20px 0;
+    }
+    .divider-line {
+      height: 100px;
+    }
+    .vs-badge {
+       transform: translate(-50%, -50%) rotate(-90deg);
+    }
+  }
+
   .comparison-column {
     flex: 1;
   }
