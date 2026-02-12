@@ -1,127 +1,159 @@
 ---
 const stats = [
-  { value: "96%", title: "Automated SLA Compliance", description: "On-time delivery against agreed service levels." },
-  { value: "110X", title: "Faster Turnaround", description: "Quick delivery with improved speed." },
-  { value: "85%", title: "Efficiency Gain", description: "Improved performance through smarter processes." },
-  { value: "80%", title: "Reduced Time", description: "Minimized turnaround for quicker delivery." },
-  { value: "70%", title: "Better Utilisation", description: "Maximizing efficiency through smarter resource use." },
-  { value: "631%", title: "Volume Throughput via Automation", description: "The amount of workload or transactions processed within a given time." }
+  { value: "96%", label: "Automated SLA Compliance", description: "On-time delivery against agreed service levels." },
+  { value: "110X", label: "Faster Turnaround", description: "Quick delivery with improved speed." },
+  { value: "85%", label: "Efficiency Gain", description: "Improved performance through smarter processes." },
+  { value: "80%", label: "Reduced Time", description: "Minimized turnaround for quicker delivery." },
+  { value: "70%", label: "Better Utilisation", description: "Maximizing efficiency through smarter resource use." },
+  { value: "631%", label: "Volume Throughput via Automation", description: "The amount of workload or transactions processed within a given time." },
 ];
 ---
 <section class="stats">
   <div class="stats-container">
     <div class="stats-grid">
-      {stats.map((stat, index) => (
-        <div class="stat-card">
+      {stats.map(stat => (
+        <div class="stat-item">
           <h3 class="stat-value">{stat.value}</h3>
-          <h4 class="stat-title">{stat.title}</h4>
-          <p class="stat-description">{stat.description}</p>
+          <h4 class="stat-label">{stat.label}</h4>
+          <p class="stat-desc">{stat.description}</p>
         </div>
       ))}
     </div>
-    <div class="stats-image-container">
-       <!-- Placeholder for "top-view-statistics..." image -->
-       <div class="stats-image-placeholder"></div>
+    
+    <div class="stats-graphic">
+       <!-- CSS Fan Chart Placeholder -->
+       <div class="fan-chart-placeholder">
+          <div class="fan-segment seg-1"></div>
+          <div class="fan-segment seg-2"></div>
+          <div class="fan-segment seg-3"></div>
+          <div class="fan-segment seg-4"></div>
+       </div>
     </div>
   </div>
 </section>
 
 <style>
   .stats {
-    background-color: var(--color-light); /* Assuming light bg based on context, checking if there's a fill on parent... Frame 711 had no fill? Let's assume light for now or transparent. */
-    /* Frame 715 (parent of 711) had fill F3F8FC (VariableID.../1953:33) which is --color-light. */
+    background-color: #1a1a1a; /* Dark background */
     padding: var(--section-padding);
+    padding-top: 120px;
+    padding-bottom: 120px;
+    color: white;
+    position: relative;
+    z-index: 5;
+    margin-top: -100px; /* Pull up to overlap/connect with hero if needed */
   }
 
   .stats-container {
     max-width: var(--container-max-width);
     margin: 0 auto;
     padding: var(--content-padding);
-    padding-top: 60px; /* Adjust spacing */
-    position: relative;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    gap: 60px;
   }
 
   .stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 840px;
-    z-index: 2;
+    grid-template-columns: repeat(2, 1fr); /* 2 cols */
+    gap: 60px 40px; /* Larger vertical gap */
+    flex: 1;
+    max-width: 700px;
   }
 
-  @media (max-width: 768px) {
-    .stats-container {
-      flex-direction: column;
-    }
-    .stats-grid {
-      grid-template-columns: 1fr;
-      width: 100%;
-    }
-    .stats-image-container {
-      display: none; /* Hide abstract image on mobile for simplicity, or stack it */
-    }
-  }
-
-  .stat-card {
-    background: white;
-    padding: 24px;
-    border-radius: 16px; /* Frame cornder radius */
-    box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
-    /* Approx standard shadow, need exact from Figma if available. */
+  .stat-item {
+    text-align: left;
   }
 
   .stat-value {
     font-family: var(--font-family);
-    font-size: 48px;
-    font-weight: 900;
-    color: var(--color-primary);
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--color-white);
     margin-bottom: 8px;
+    line-height: 1;
   }
 
-  .stat-title {
+  .stat-label {
     font-family: var(--font-family);
     font-size: 18px;
     font-weight: 700;
-    color: var(--color-dark);
+    color: var(--color-white);
     margin-bottom: 8px;
   }
 
-  .stat-description {
+  .stat-desc {
     font-family: var(--font-family);
     font-size: 14px;
-    color: #666;
     line-height: 1.5;
+    color: #ccc; /* Lighter text for description */
+    max-width: 250px;
   }
 
-  .stats-image-container {
-    position: absolute;
-    right: 156px; /* Aligned with content padding right? */
-    /* Coordinate check: 
-       Stats Grid x: 10101.
-       Image x: 10874.
-       Content Padding Left is 156px.
-       10101 + 156 = ... wait.
-       Frame 715 x is 10101.
-       So Grid is at left: 0 of container.
-       Image is at x: 10874.
-       10874 - 10101 = 773px.
-       So Image is 773px from left of container.
-    */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 406px;
-    height: 354px;
-    z-index: 1;
-    opacity: 0.8; 
-    pointer-events: none;
+  .stats-graphic {
+     flex: 0 0 400px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 400px;
   }
 
-  .stats-image-placeholder {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 92, 185, 0.1); /* Light blue placeholder */
-    border-radius: 20px;
+  /* CSS Fan Chart Placeholder */
+  .fan-chart-placeholder {
+     width: 400px;
+     height: 200px;
+     position: relative;
+     overflow: hidden;
+     /* display: flex; */
+  }
+  
+  .fan-segment {
+     position: absolute;
+     bottom: 0;
+     left: 50%;
+     transform-origin: bottom left; /* Pivot from bottom center relative to parent? No, tricky with CSS sectors. */
+     /* Easier approach: solid semicircles rotated */
+     width: 100%;
+     height: 100%;
+     border-radius: 200px 200px 0 0;
+     /* This placeholder is simplified. For real fan, need SVG or complex CSS. */
+  }
+  
+  /* Simple placeholder approximation using overlapping circles/sectors */
+  .fan-segment {
+     transform-origin: 50% 100%;
+     width: 300px;
+     height: 150px;
+     border-radius: 150px 150px 0 0;
+     left: 50px;
+  }
+  
+  .seg-1 { background: #00AEEF; transform: rotate(-60deg); z-index: 1; }
+  .seg-2 { background: #0072BC; transform: rotate(-30deg); z-index: 2; }
+  .seg-3 { background: #2E3192; transform: rotate(0deg); z-index: 3; }
+  .seg-4 { background: #8FD6F4; transform: rotate(30deg); z-index: 4; }
+
+
+  @media (max-width: 900px) {
+    .stats-container {
+      flex-direction: column;
+      gap: 60px;
+    }
+    .stats-grid {
+      width: 100%;
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .stat-item {
+       text-align: center;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+    }
+    .stats {
+       margin-top: 0;
+       border-radius: 0;
+    }
   }
 </style>

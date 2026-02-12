@@ -1,5 +1,8 @@
 ---
-const deliveryItems = [
+const title = "What JUNE Delivers";
+const subtitle = "JUNE is your trusted assistant for smarter IP management—delivering efficiency, compliance, and results at scale.";
+
+const deliversItems = [
   {
     icon: "/assets/validate.svg",
     title: "Validate",
@@ -24,30 +27,39 @@ const deliveryItems = [
 ---
 <section class="delivers">
   <div class="delivers-container">
-    <div class="delivers-header">
-      <h2 class="delivers-title">What JUNE Delivers</h2>
-      <p class="delivers-subtitle">
-        JUNE is your trusted assistant for smarter IP management—delivering efficiency, compliance, and results at scale.
-      </p>
-    </div>
-    <div class="delivers-grid">
-      {deliveryItems.map((item) => (
-        <div class="delivers-card">
-          <div class="delivers-icon">
-            <img src={item.icon} alt={item.title} />
+    <div class="delivers-card-wrapper">
+      <div class="delivers-header">
+        <h2 class="section-title">{title}</h2>
+        <p class="section-subtitle">{subtitle}</p>
+      </div>
+
+      <div class="delivers-items-list">
+        {deliversItems.map((item, index) => (
+          <div class="delivers-row">
+            <div class="delivers-text-content">
+               <h3>• {item.title}:</h3>
+               <p>{item.description}</p>
+            </div>
           </div>
-          <h3 class="delivers-item-title">{item.title}</h3>
-          <p class="delivers-description">{item.description}</p>
-        </div>
-      ))}
+        ))}
+      </div>
+      
+      <!-- Bottom Icons Row from Figma -->
+      <div class="delivers-bottom-icons">
+         <div class="bottom-icon-circle"><img src="/assets/validate.svg" alt="" /></div>
+         <div class="bottom-icon-rect"><img src="/assets/search.svg" alt="" /></div>
+         <div class="bottom-icon-rect"><img src="/assets/generate.svg" alt="" /></div>
+         <div class="bottom-icon-circle"><img src="/assets/standardize.svg" alt="" /></div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .delivers {
+    background-color: #1a1a1a; /* Match Stats Dark Background */
     padding: var(--section-padding);
-    background-color: var(--color-white);
+    padding-bottom: 120px; /* Extra spacing at bottom */
   }
 
   .delivers-container {
@@ -56,78 +68,100 @@ const deliveryItems = [
     padding: var(--content-padding);
   }
 
-  .delivers-header {
-    margin-bottom: 60px;
-    max-width: 800px;
+  .delivers-card-wrapper {
+    background: #e6eef5; /* Light grey/blueish card background */
+    border-radius: 32px;
+    padding: 80px 100px;
   }
 
-  .delivers-title {
+  .delivers-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-title {
     font-family: var(--font-family);
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 700;
     color: var(--color-dark);
     margin-bottom: 16px;
   }
-
-  .delivers-subtitle {
-    font-family: var(--font-family);
-    font-size: 20px;
-    color: #4A4A4A;
-    line-height: 1.4;
+  
+  .section-subtitle {
+     font-family: var(--font-family);
+     font-size: 18px;
+     color: #444; /* Darker than grey */
+     max-width: 700px;
+     margin: 0 auto;
+     line-height: 1.5;
   }
 
-  .delivers-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
+  .delivers-items-list {
+     display: flex;
+     flex-direction: column;
+     gap: 12px;
+     margin-bottom: 80px;
+     max-width: 900px;
+     margin-left: auto;
+     margin-right: auto;
+  }
+  
+  .delivers-row {
+     display: flex;
+     gap: 10px;
+  }
+  
+  .delivers-text-content h3 {
+     display: inline;
+     font-weight: 900;
+     font-size: 16px;
+     color: #222;
+  }
+  
+  .delivers-text-content p {
+     display: inline;
+     font-size: 16px;
+     color: #444;
+     line-height: 1.6;
+  }
+  
+  .delivers-bottom-icons {
+     display: flex;
+     justify-content: center;
+     gap: 60px;
+     align-items: center;
+  }
+  
+  .bottom-icon-circle, .bottom-icon-rect {
+     background: transparent;
+     /* Actually these look like big colored icons in screenshot */
+     width: 100px;
+     height: 100px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+  }
+  
+  .bottom-icon-circle img, .bottom-icon-rect img {
+     width: 100%;
+     height: 100%;
+     object-fit: contain;
   }
 
   @media (max-width: 900px) {
-    .delivers-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .delivers-card-wrapper {
+       padding: 40px 20px;
     }
-  }
-
-  @media (max-width: 600px) {
-    .delivers-grid {
-      grid-template-columns: 1fr;
+    .delivers-bottom-icons {
+       flex-wrap: wrap;
+       gap: 30px;
     }
-  }
-
-  .delivers-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .delivers-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Styles for the container if needed */
-  }
-
-  .delivers-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .delivers-item-title {
-    font-family: var(--font-family);
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--color-dark);
-    margin-bottom: 12px;
-  }
-
-  .delivers-description {
-    font-family: var(--font-family);
-    font-size: 16px;
-    color: #666;
-    line-height: 1.6;
+    .bottom-icon-circle, .bottom-icon-rect {
+       width: 60px;
+       height: 60px;
+    }
+    .delivers-items-list {
+       text-align: left;
+    }
   }
 </style>
