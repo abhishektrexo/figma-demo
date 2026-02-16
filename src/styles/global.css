@@ -1,9 +1,9 @@
 @font-face {
-  font-family: "Dune Rise";
-  src: url("https://assets.website-files.com/65742d13149179213710492c/65742d131491792137104936_DuneRise-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Dune Rise";
+    src: url("https://assets.website-files.com/65742d13149179213710492c/65742d131491792137104936_DuneRise-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 :root {
@@ -31,11 +31,12 @@ button {
 
 .main-container {
     position: relative;
-    width: 1440px;
-    height: 5734px;
+    width: 100%;
+    max-width: 1440px;
+    height: auto;
     margin: 0 auto;
     background: #232427;
-    overflow: hidden;
+    overflow-x: hidden !important;
 }
 
 .frame {
@@ -44,18 +45,20 @@ button {
     justify-content: space-between;
     flex-wrap: nowrap;
     position: relative;
-    width: 1128px;
-    margin: 58px 0 0 156px;
-    z-index: 101;
+    width: 90%;
+    max-width: 1128px;
+    margin: 58px auto 0 auto;
+    z-index: 9999;
 }
 
 .trexo-blue {
     flex-shrink: 0;
     position: relative;
     width: 250px;
+    max-width: calc(100% - 60px);
     height: 19.623px;
-    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/gQGJiZwJhb.png) no-repeat center;
-    background-size: cover;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/gQGJiZwJhb.png) no-repeat left center;
+    background-size: contain;
     z-index: 102;
 }
 
@@ -276,7 +279,7 @@ button {
     left: 853px;
     background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/MgRk99KZk3.png) no-repeat center;
     background-size: cover;
-    z-index: 164;
+    z-index: 175;
 }
 
 .arrow {
@@ -483,7 +486,7 @@ button {
     left: 698px;
     background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/fif70SBut5.png) no-repeat center;
     background-size: cover;
-    z-index: 168;
+    z-index: 176;
 }
 
 .frame-9 {
@@ -2941,4 +2944,42 @@ button {
     background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/EK7BwxSqcK.png) no-repeat center;
     background-size: cover;
     z-index: 130;
+}
+
+/* --- Section 1: Responsive Navbar Patch --- */
+@media (max-width: 992px) {
+    .frame {
+        width: 95% !important;
+        margin-top: 20px !important;
+    }
+
+    .frame-1 {
+        gap: 20px !important;
+        width: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .frame {
+        flex-direction: column !important;
+        gap: 20px !important;
+        align-items: center !important;
+    }
+
+    .frame-1 {
+        width: 100% !important;
+        justify-content: center !important;
+        gap: 15px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .trexo-blue {
+        width: 180px !important;
+    }
+
+    .frame-1 {
+        flex-wrap: wrap !important;
+        gap: 10px 20px !important;
+    }
 }

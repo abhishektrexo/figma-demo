@@ -2,23 +2,310 @@
 ---
 <div class="frame">
   <div class="trexo-blue"></div>
-  <div class="frame-1">
-    <span class="home">Home </span>
-    <div class="frame-2">
-      <span class="products">Products</span>
-      <div class="keyboard-arrow-down"></div>
+  
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+  <label for="nav-toggle" class="hamburger-label">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <div class="frame-1 nav-menu">
+    <span class="home nav-link">Home</span>
+    
+    <div class="nav-item has-dropdown">
+      <input type="checkbox" id="products-toggle" class="sub-toggle" />
+      <label for="products-toggle" class="cat-header">
+        <span class="products nav-link">Products</span>
+        <div class="keyboard-arrow-down active-arrow"></div>
+      </label>
+      <div class="dropdown-menu-wrapper">
+        <div class="dropdown-menu">
+          <span>June- Your IP Assistant</span>
+          <span>AppGen</span>
+          <span>DocGen</span>
+          <span>OA Shell</span>
+          <span>DRM</span>
+          <span>ADIM</span>
+          <span>IDS</span>
+        </div>
+      </div>
     </div>
-    <div class="frame-3">
-      <span class="services">Services</span>
-      <div class="keyboard-arrow-down-4"></div>
+
+    <div class="nav-item has-dropdown">
+      <input type="checkbox" id="services-toggle" class="sub-toggle" />
+      <label for="services-toggle" class="cat-header">
+        <span class="services nav-link">Services</span>
+        <div class="keyboard-arrow-down-4 active-arrow"></div>
+      </label>
+      <div class="dropdown-menu-wrapper">
+        <div class="dropdown-menu">
+          <span>Patent Support Services</span>
+          <span>Trademark Support Services</span>
+          <span>IP Data Validation Services</span>
+          <span>Patent Search & Analytics</span>
+          <span>Patent Drafting & Illustration</span>
+          <span>IP Consulting</span>
+        </div>
+      </div>
     </div>
-    <span class="resources">Resources</span>
+
+    <div class="nav-item has-dropdown">
+      <input type="checkbox" id="resources-toggle" class="sub-toggle" />
+      <label for="resources-toggle" class="cat-header">
+        <span class="resources nav-link">Resources</span>
+        <div class="keyboard-arrow-down active-arrow"></div>
+      </label>
+      <div class="dropdown-menu-wrapper">
+        <div class="dropdown-menu">
+          <span>Thought Leadership</span>
+          <span>Quality Policy</span>
+          <span>Partnerships</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<script is:inline>
+  // Smart Accordion Logic: Close others when one opens.
+  // Checkboxes allow the "toggle self" behavior by default.
+  document.addEventListener('DOMContentLoaded', () => {
+    const subToggles = document.querySelectorAll('.sub-toggle');
+    
+    subToggles.forEach(toggle => {
+      toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+          subToggles.forEach(other => {
+            if (other !== toggle) other.checked = false;
+          });
+        }
+      });
+    });
+
+    // Close all sub-menus when the main nav is closed
+    const navToggle = document.getElementById('nav-toggle');
+    if (navToggle) {
+      navToggle.addEventListener('change', () => {
+        if (!navToggle.checked) {
+          subToggles.forEach(t => t.checked = false);
+        }
+      });
+    }
+  });
+</script>
+
 <style>
-  /* Styles are now handled by global.css (original master CSS) */
-  .frame {
-    /* Ensure absolute context if needed, but master CSS should handle it */
+  /* Hidden toggles - absolutely hidden */
+  .nav-toggle, .sub-toggle {
+    display: none !important;
+  }
+
+  /* GLOBAL RESET for Tap Highlight - Aggressive */
+  html, body, .frame, .nav-menu, .nav-item, .cat-header, .dropdown-menu span, label {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+  }
+
+  .hamburger-label {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+    user-select: none;
+  }
+
+  .hamburger-label span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #fdfdfd;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Desktop Styles */
+  .nav-item {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .cat-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    text-transform: none !important;
+  }
+
+  /* Shared Typography - Matching "Home" */
+  .nav-link, .dropdown-menu span {
+    color: #fdfdfd !important;
+    font-family: Lato, var(--default-font-family) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 24px !important;
+    text-decoration: none !important;
+    text-transform: none !important;
+  }
+
+  /* Desktop Dropdown Wrapper Animation */
+  .dropdown-menu-wrapper {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 10001;
+    min-width: 240px;
+    border-radius: 8px;
+    pointer-events: none; /* Prevent accidental hover on hidden */
+  }
+
+  .dropdown-menu {
+    background: #1a1b1e;
+    border: 1px solid #333;
+    padding: 10px 0;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    display: flex; 
+  }
+
+  /* Show on Hover - Desktop Only */
+  @media (min-width: 993px) {
+    .has-dropdown:hover .dropdown-menu-wrapper {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: 10px;
+      pointer-events: auto;
+    }
+
+    .has-dropdown::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      z-index: 10000;
+    }
+  }
+
+  .dropdown-menu span {
+    padding: 10px 24px;
+    white-space: nowrap;
+    transition: all 0.2s;
+    text-align: center;
+    display: block;
+  }
+
+  .dropdown-menu span:hover {
+    background: #232427;
+    color: #005cb9 !important;
+  }
+
+  /* Mobile/Tablet Styles */
+  @media (max-width: 992px) {
+    .hamburger-label {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .nav-menu {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-10px);
+      width: 100vw !important;
+      background: #232427;
+      flex-direction: column !important;
+      align-items: center !important;
+      padding: 40px 0 !important;
+      gap: 15px !important;
+      border-bottom: 1px solid #333;
+      z-index: 999;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+      justify-content: flex-start !important;
+      box-sizing: border-box;
+    }
+
+    .nav-toggle:checked ~ .nav-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+      display: flex !important;
+    }
+
+    .nav-item {
+      width: 100%;
+      text-align: center;
+    }
+
+    .cat-header {
+      justify-content: center;
+      width: 100%;
+      padding: 12px 0;
+    }
+
+    /* Reset Desktop Wrapper Styles for Mobile */
+    .dropdown-menu-wrapper {
+      position: static;
+      transform: none;
+      min-width: 100%;
+      opacity: 1; 
+      max-height: 0;
+      pointer-events: auto;
+      transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .dropdown-menu {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      gap: 5px;
+      margin: 0;
+      border-radius: 0;
+    }
+
+    /* Accordion Toggle */
+    .sub-toggle:checked ~ .dropdown-menu-wrapper {
+      max-height: 600px;
+      padding-bottom: 20px;
+    }
+
+    .sub-toggle:checked + .cat-header .active-arrow {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu span {
+      padding: 8px 0;
+      color: #8b8b8b !important;
+      font-size: 15px !important;
+    }
+
+    /* Hamburger Animation */
+    .nav-toggle:checked + .hamburger-label span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .nav-toggle:checked + .hamburger-label span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle:checked + .hamburger-label span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
   }
 </style>
