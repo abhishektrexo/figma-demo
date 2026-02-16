@@ -1,0 +1,268 @@
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Left side: Image (Design inspired by Image 2) -->
+      <div class="side-image-wrapper">
+        <img src="/images/contact_hero.png" alt="USA Skyscrapers" class="skyscrapers-img" />
+      </div>
+
+      <!-- Right side: Content & Form (Content from Image 1) -->
+      <div class="form-content-area">
+        <div class="header-section">
+          <h2 class="section-title">Get in touch</h2>
+          <p class="section-subtitle">
+            If you would like to speak with us, please let us know the nature of your requirement and we will ensure that you are matched up with the right professional to suit your needs.
+          </p>
+        </div>
+
+        <div class="form-and-info-container">
+          <!-- Form -->
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Name" required />
+            </div>
+            
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" id="title" name="title" placeholder="Title" required />
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" placeholder="Company" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="Phone" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Message" required></textarea>
+            </div>
+
+            <button type="submit" class="brand-submit-btn">CONTACT US</button>
+          </form>
+
+          <!-- Info Overlay (from Image 1 design) -->
+          <div class="info-card-overlay">
+            <div class="info-row">
+              <div class="icon-circle">📍</div>
+              <p>USA | India</p>
+            </div>
+            <div class="info-row">
+              <div class="icon-circle">📧</div>
+              <p>info@trexoglobal.com</p>
+            </div>
+            <div class="info-row">
+              <div class="icon-circle">📞</div>
+              <p>+1 (301) 509-6678</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  .contact-section {
+    background: #ffffff; /* Second image has a clean white look */
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    min-height: 100vh;
+  }
+
+  /* LEFT SIDE: IMAGE */
+  .side-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .skyscrapers-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* RIGHT SIDE: CONTENT */
+  .form-content-area {
+    padding: 80px 10%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .section-title {
+    color: #232427;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  .section-subtitle {
+    color: #666666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+    font-family: 'Lato', sans-serif;
+    max-width: 600px;
+  }
+
+  .form-and-info-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .contact-form {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-group label {
+    display: none; /* Using placeholders like in image 1/2 */
+  }
+
+  .form-group input, 
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    background: transparent;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .form-group input:focus, 
+  .form-group textarea:focus {
+    border-bottom-color: #005cb9;
+  }
+
+  .brand-submit-btn {
+    background: #ff7a00; /* Orange from image 1 */
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 99px;
+    font-weight: 700;
+    font-size: 14px;
+    width: fit-content;
+    margin-top: 24px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .brand-submit-btn:hover {
+    background: #e66e00;
+    transform: translateY(-2px);
+  }
+
+  /* INFO OVERLAY (Image 1 style box) */
+  .info-card-overlay {
+    flex: 1;
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    max-width: 250px;
+  }
+
+  .info-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .icon-circle {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #ff4d4d; /* Reddish icons in image 1 */
+    flex-shrink: 0;
+  }
+
+  .info-row p {
+    margin: 0;
+    font-size: 14px;
+    color: #444;
+    font-family: 'Lato', sans-serif;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .side-image-wrapper {
+      height: 400px;
+    }
+    
+    .form-content-area {
+      padding: 60px 5%;
+    }
+
+    .form-and-info-container {
+      flex-direction: column;
+    }
+
+    .info-card-overlay {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+</style>

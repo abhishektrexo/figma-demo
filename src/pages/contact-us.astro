@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout title="Contact Us | Trexo Global">
+  <Navbar theme="light" />
+  <main class="page-content">
+    <ContactForm />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  /* FONT CONSISTENCY */
+  .hero-title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    letter-spacing: -0.02em;
+    background: linear-gradient(to bottom, #ffffff 0%, #a1a1a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .hero-subtitle {
+    font-family: 'Lato', sans-serif !important;
+    line-height: 1.6;
+  }
+
+  /* HERO DESIGN */
+  .contact-hero {
+    position: relative;
+    overflow: hidden;
+    background: #1a1b1e;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Mesh Background Design */
+  .hero-mesh-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 92, 185, 0.12) 0%, rgba(0, 92, 185, 0.05) 50%, transparent 100%);
+    filter: blur(80px);
+    z-index: 1;
+  }
+
+  /* Subtle SVG Grid Pattern */
+  .hero-pattern-grid {
+    position: absolute;
+    inset: 0;
+    mask-image: linear-gradient(to bottom, transparent, black, transparent);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+    z-index: 2;
+  }
+
+  .hero-orbital-arc-1 {
+    position: absolute;
+    top: -150px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/9Z0iOdGFu2.png) no-repeat center;
+    background-size: contain;
+    opacity: 0.12;
+    z-index: 3;
+    filter: hue-rotate(180deg); /* Shift color slightly towards original landing theme */
+  }
+
+  .hero-orbital-arc-2 {
+    position: absolute;
+    bottom: -100px;
+    left: -200px;
+    width: 500px;
+    height: 500px;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/9Z0iOdGFu2.png) no-repeat center;
+    background-size: contain;
+    opacity: 0.08;
+    z-index: 3;
+    transform: rotate(180deg);
+  }
+
+  /* FEATURE PILLS */
+  .pill {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    padding: 14px 28px;
+    border-radius: 99px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: default;
+    z-index: 10;
+  }
+
+  .pill:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(0, 92, 185, 0.5);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  }
+
+  .pill .icon {
+    font-size: 20px;
+    filter: drop-shadow(0 0 8px rgba(0, 92, 185, 0.3));
+  }
+
+  .pill .pill-text {
+    color: #fdfdfd;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Lato', sans-serif !important;
+  }
+
+  /* Responsive Fixes */
+  @media (max-width: 768px) {
+    .hero-title { font-size: 3.5rem; }
+    .hero-subtitle { font-size: 1.15rem; }
+    .pill { padding: 10px 20px; }
+  }
+</style>

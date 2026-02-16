@@ -1,6 +1,7 @@
 ---
+const { theme = 'dark' } = Astro.props;
 ---
-<div class="frame">
+<div class={`frame ${theme === 'light' ? 'light-theme' : ''}`}>
   <div class="trexo-blue"></div>
   
   <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -11,7 +12,7 @@
   </label>
 
   <div class="frame-1 nav-menu">
-    <span class="home nav-link">Home</span>
+    <a href="/" class="home nav-link">Home</a>
     
     <div class="nav-item has-dropdown">
       <input type="checkbox" id="products-toggle" class="sub-toggle" />
@@ -306,6 +307,29 @@
     background: #fdfdfd;
     margin: 5px 0;
     transition: all 0.3s ease-in-out;
+  }
+
+  /* Light Theme Overrides */
+  .frame.light-theme {
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+
+  .frame.light-theme .nav-link {
+    color: #232427 !important;
+  }
+
+  .frame.light-theme .nav-link:hover {
+    color: #005cb9 !important;
+  }
+
+  .frame.light-theme .hamburger-label span {
+    background-color: #232427;
+  }
+
+  .frame.light-theme .cat-header::after {
+    border-color: #232427; /* If there's an arrow using borders */
   }
 
   /* Desktop Styles */

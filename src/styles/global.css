@@ -202,8 +202,8 @@ button {
     position: absolute;
     width: 435px;
     height: 118px;
-    top: 50%;
-    left: 50%;
+    top: 240px;
+    left: 156px;
     font-family: Lato, var(--default-font-family);
     font-size: 44.25px;
     font-weight: 400;
@@ -211,7 +211,6 @@ button {
     text-align: left;
     text-overflow: initial;
     white-space: nowrap;
-    transform: translate(-129.66%, -2183.9%);
     z-index: 112;
 }
 
