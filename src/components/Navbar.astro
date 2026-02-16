@@ -95,7 +95,191 @@
   });
 </script>
 
-<style>
+<style is:global>
+  /* ==========================================================
+     NAVBAR BASE STYLES (moved from global.css)
+     ========================================================== */
+  .frame {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    position: relative;
+    width: 90%;
+    max-width: 1128px;
+    margin: 58px auto 0 auto;
+    z-index: 9999;
+  }
+
+  .trexo-blue {
+    flex-shrink: 0;
+    position: relative;
+    width: 250px;
+    max-width: calc(100% - 60px);
+    height: 19.623px;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/gQGJiZwJhb.png) no-repeat left center;
+    background-size: contain;
+    z-index: 102;
+  }
+
+  .frame-1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 47px;
+    position: relative;
+    width: 433px;
+    z-index: 103;
+  }
+
+  .home {
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    height: 24px;
+    color: #fdfdfd;
+    font-family: Lato, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 104;
+  }
+
+  .frame-2 {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 4px;
+    position: relative;
+    width: 91px;
+    z-index: 105;
+  }
+
+  .products {
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    height: 24px;
+    color: #fdfdfd;
+    font-family: Lato, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 106;
+  }
+
+  .keyboard-arrow-down {
+    flex-shrink: 0;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/SrqyGhP3xr.png) no-repeat center;
+    background-size: 100% 100%;
+    z-index: 107;
+  }
+
+  .frame-3 {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 4px;
+    position: relative;
+    width: 86px;
+    z-index: 108;
+  }
+
+  .services {
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    height: 24px;
+    color: #fdfdfd;
+    font-family: Lato, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 109;
+  }
+
+  .keyboard-arrow-down-4 {
+    flex-shrink: 0;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/dYoC0azSJt.png) no-repeat center;
+    background-size: 100% 100%;
+    z-index: 110;
+  }
+
+  .resources {
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    height: 24px;
+    color: #fdfdfd;
+    font-family: Lato, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 111;
+  }
+
+  /* ==========================================================
+     NAVBAR RESPONSIVE OVERRIDES (moved from global.css)
+     ========================================================== */
+  @media (max-width: 992px) {
+    .frame {
+      width: 95% !important;
+      margin-top: 20px !important;
+    }
+
+    .frame-1 {
+      gap: 20px !important;
+      width: auto !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .frame {
+      flex-direction: column !important;
+      gap: 20px !important;
+      align-items: center !important;
+    }
+
+    .frame-1 {
+      width: 100% !important;
+      justify-content: center !important;
+      gap: 15px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .trexo-blue {
+      width: 180px !important;
+    }
+
+    .frame-1 {
+      flex-wrap: wrap !important;
+      gap: 10px 20px !important;
+    }
+  }
+
+  /* ==========================================================
+     NAVBAR INTERACTION STYLES (originally scoped)
+     ========================================================== */
+
   /* Hidden toggles - absolutely hidden */
   .nav-toggle, .sub-toggle {
     display: none !important;
