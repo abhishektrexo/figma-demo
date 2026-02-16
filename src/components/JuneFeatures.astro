@@ -1,0 +1,117 @@
+---
+const features = [
+  {
+    title: "Secure Encryption",
+    description: "Military-grade encryption for all your patent data and documents.",
+    icon: "Lock"
+  },
+  {
+    title: "2FA Authentication",
+    description: "Multi-layered security to ensure only authorized access.",
+    icon: "2FA"
+  },
+  {
+    title: "Smart Filtering",
+    description: "Advanced search and filter capabilities for massive IP portfolios.",
+    icon: "Filter"
+  },
+  {
+    title: "Full Audit Logs",
+    description: "Complete transparency with traceable history for every action.",
+    icon: "Audit"
+  }
+];
+---
+
+<section class="june-features">
+  <div class="container content">
+    <div class="header reveal">
+      <h2 class="font-serif">Engineered for Excellence</h2>
+      <p class="section-desc">JUNE combines power and security to deliver the ultimate IP assistant.</p>
+    </div>
+    
+    <div class="feature-grid">
+      {features.map((f, i) => (
+        <div class={`feature-card reveal delay-${i + 1}`}>
+          <div class="icon-box">
+            <span class="placeholder-icon">{f.icon}</span>
+          </div>
+          <h3>{f.title}</h3>
+          <p>{f.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .june-features {
+    padding: 120px 0;
+    background-color: #1a1a1c;
+  }
+  .content {
+    padding: var(--content-padding);
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  h2 {
+    font-size: 56px;
+    color: var(--color-white);
+    font-weight: 400;
+  }
+  .section-desc {
+    color: var(--color-text-muted);
+    font-size: 20px;
+    margin-top: 16px;
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  .feature-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px;
+    border-radius: 24px;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-primary);
+  }
+  .icon-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 92, 185, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .placeholder-icon {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+  }
+  h3 {
+    font-size: 24px;
+    color: var(--color-white);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  @media (max-width: 992px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    h2 { font-size: 40px; }
+  }
+</style>

@@ -1,0 +1,64 @@
+---
+const { 
+  title = "TREXO Renewals", 
+  subtitle = "Global Patent & Trademark Annuity Management",
+  description = "A comprehensive solution for managing your IP renewals worldwide. Seamless, transparent, and cost-effective renewal services powered by Trexo's advanced automation."
+} = Astro.props;
+---
+
+<section class="renewals-hero">
+  <div class="background-pattern"></div>
+  <div class="container hero-content">
+    <div class="text-side reveal">
+      <h1 class="font-display">{title}</h1>
+      <p class="subtitle">{subtitle}</p>
+      <p class="description">{description}</p>
+      <div class="actions">
+        <a href="#quote" class="btn-primary">Get a Renewal Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .renewals-hero {
+    position: relative;
+    padding: 180px 0 120px;
+    background-color: var(--color-dark);
+    overflow: hidden;
+    background: radial-gradient(circle at bottom right, rgba(234, 132, 7, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at top left, rgba(0, 92, 185, 0.05) 0%, transparent 50%);
+  }
+  .container {
+    padding: var(--content-padding);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+  }
+  h1 {
+    font-size: 80px;
+    color: var(--color-white);
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+  .subtitle {
+    font-size: 20px;
+    color: var(--color-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+  }
+  .description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin-bottom: 40px;
+  }
+  
+  @media (max-width: 768px) {
+    h1 { font-size: 48px; }
+  }
+</style>

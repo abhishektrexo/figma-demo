@@ -1,0 +1,137 @@
+---
+---
+
+<section class="landing-hero">
+  <div class="watermark-june" aria-hidden="true">JUNE</div>
+  
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="text-side reveal">
+        <h1 class="fade-in-up">Protecting Innovation <br/>Powering Insights</h1>
+        <div class="hero-actions fade-in-up delay-1">
+          <a href="/june" class="btn-primary">EXPLORE JUNE</a>
+          <a href="/contact" class="btn-link">Learn more</a>
+        </div>
+      </div>
+      
+      <div class="visual-side reveal delay-1">
+        <div class="mockup-wrapper">
+          <img src="/assets/landing-page/Website_img/image 1.png" alt="Trexo Product Mockup" class="main-mockup" />
+          <!-- Sliced elements can be added here if needed for layering -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .landing-hero {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--color-dark);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 100px;
+  }
+
+  .hero-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: var(--content-padding);
+    width: 100%;
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .text-side {
+    max-width: 600px;
+  }
+
+  h1 {
+    font-family: var(--font-primary);
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--color-white);
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 16px 36px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: background 0.3s;
+  }
+
+  .btn-primary:hover {
+    background-color: #004c99;
+  }
+
+  .btn-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .visual-side {
+    position: relative;
+  }
+
+  .mockup-wrapper {
+    position: relative;
+    width: 120%;
+    margin-right: -20%;
+  }
+
+  .main-mockup {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5));
+  }
+
+  .watermark-june {
+    position: absolute;
+    bottom: -10%;
+    left: -5%;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 40vw;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+    line-height: 0.8;
+    z-index: 1;
+    letter-spacing: -2vw;
+  }
+
+  @media (max-width: 1200px) {
+    .mockup-wrapper { width: 100%; margin-right: 0; }
+  }
+
+  @media (max-width: 992px) {
+    .hero-content { grid-template-columns: 1fr; text-align: center; }
+    .text-side { margin: 0 auto; }
+    .hero-actions { justify-content: center; }
+    h1 { font-size: 40px; }
+  }
+</style>

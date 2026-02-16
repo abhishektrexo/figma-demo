@@ -1,0 +1,173 @@
+---
+const features = [
+  { id: 1, title: "Manage Patent Collections", pos: "top-left" },
+  { id: 2, title: "Automating Routine Services", pos: "mid-left" },
+  { id: 3, title: "Drafting", pos: "bottom-left" },
+  { id: 4, title: "Prior Art Analysis", pos: "top-right" },
+  { id: 5, title: "Quick Information Retrieval", pos: "mid-right" },
+  { id: 6, title: "Translation Support", pos: "bottom-right" },
+  { id: 7, title: "Everything Else", pos: "bottom-center" },
+  { id: 8, title: "Generating Forms", pos: "bottom-bottom" }
+];
+---
+
+<section class="june-desk">
+  <div class="container reveal">
+    <div class="header">
+      <h2 class="color-primary">Everything on June's Desk</h2>
+      <p>June helps IP professionals focus on what matters most, <br/>providing effortless support throughout the entire cycle.</p>
+    </div>
+
+    <div class="grid-wrapper">
+      <div class="center-sphere">
+        <img src="/assets/landing-page/Website_icon/Trexo Blue.svg" alt="Trexo Core" class="core-icon" />
+      </div>
+
+      <div class="features-container">
+        <!-- Manual mapping to match the circular screenshot layout -->
+        <div class="feature-item tl">
+          <span class="num">01.</span>
+          <p>Manage Patent Collections</p>
+          <img src="/assets/landing-page/Website_icon/Arrow 3.svg" class="arrow" />
+        </div>
+        <div class="feature-item ml">
+          <span class="num">02.</span>
+          <p>Automating Routine Services</p>
+          <img src="/assets/landing-page/Website_icon/Arrow 3.svg" class="arrow" />
+        </div>
+        <div class="feature-item bl">
+          <span class="num">03.</span>
+          <p>Drafting</p>
+          <img src="/assets/landing-page/Website_icon/Arrow 3.svg" class="arrow" />
+        </div>
+        
+        <div class="feature-item tr">
+          <span class="num">04.</span>
+          <p>Prior Art Analysis</p>
+          <img src="/assets/landing-page/Website_icon/Arrow 3.svg" class="arrow" />
+        </div>
+        <div class="feature-item mr">
+          <span class="num">05.</span>
+          <p>Quick Information Retrieval</p>
+          <img src="/assets/landing-page/Website_icon/Arrow 3.svg" class="arrow" />
+        </div>
+        <div class="feature-item br">
+          <span class="num">06.</span>
+          <p>Translation Support</p>
+          <img src="/assets/landing-page/Website_icon/Arrow 3.svg" class="arrow" />
+        </div>
+
+        <div class="feature-item bc">
+          <span class="num">07.</span>
+          <p>Everything Else</p>
+          <img src="/assets/landing-page/Website_icon/Arrow 3.svg" class="arrow" />
+        </div>
+        <div class="feature-item bb">
+          <span class="num">08.</span>
+          <p>Generating Forms</p>
+          <img src="/assets/landing-page/Website_icon/Arrow 3.svg" class="arrow" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .june-desk {
+    background-color: white;
+    padding: 120px 0;
+    color: #333;
+    text-align: center;
+  }
+
+  .header h2 {
+    font-family: inherit;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .header p {
+    font-size: 18px;
+    line-height: 1.5;
+    opacity: 0.8;
+    margin-bottom: 80px;
+  }
+
+  .grid-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 600px;
+  }
+
+  .center-sphere {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+    z-index: 5;
+  }
+
+  .core-icon {
+    width: 60%;
+  }
+
+  .features-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .feature-item {
+    position: absolute;
+    text-align: left;
+    max-width: 200px;
+  }
+
+  .feature-item p {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 5px 0;
+    color: #444;
+  }
+
+  .num {
+    font-size: 12px;
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  .arrow {
+    width: 20px;
+    opacity: 0.5;
+  }
+
+  /* Manual Positioning to match screenshot */
+  .tl { top: 10%; left: 0%; }
+  .ml { top: 40%; left: -5%; }
+  .bl { bottom: 10%; left: 5%; }
+
+  .tr { top: 10%; right: 0%; text-align: right; }
+  .mr { top: 40%; right: -5%; text-align: right; }
+  .br { bottom: 10%; right: 5%; text-align: right; }
+
+  .bc { bottom: -10%; left: 10%; }
+  .bb { bottom: -10%; right: 10%; text-align: right; }
+
+  .color-primary { color: var(--color-primary); }
+
+  @media (max-width: 992px) {
+    .grid-wrapper { height: auto; display: flex; flex-direction: column; gap: 30px; }
+    .center-sphere { position: relative; top: 0; left: 0; transform: none; margin: 0 auto 40px; }
+    .feature-item { position: relative; top: 0; left: 0; right: 0; bottom: 0; transform: none; text-align: center; margin: 20 auto; max-width: none; }
+  }
+</style>

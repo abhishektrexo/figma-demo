@@ -1,0 +1,107 @@
+---
+const services = [
+  {
+    title: "Digital Rights Management",
+    short: "DRM",
+    description: "Automated protection and tracking of your global IP assets and digital certificates.",
+    features: ["Compliance Tracking", "Automated Alerts", "Global Coverage"]
+  },
+  {
+    title: "Document Generation",
+    short: "DocGen",
+    description: "Instant generation of legally compliant renewal documents and filing forms.",
+    features: ["One-Click Filings", "Template Library", "Bulk Processing"]
+  }
+];
+---
+
+<section class="renewals-services">
+  <div class="container content">
+    <div class="service-grid">
+      {services.map((s, i) => (
+        <div class={`service-card reveal delay-${i + 1}`}>
+          <div class="card-header">
+            <span class="service-short">{s.short}</span>
+            <h3>{s.title}</h3>
+          </div>
+          <p class="desc">{s.description}</p>
+          <ul class="feature-list">
+            {s.features.map(f => (
+              <li>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M13.3334 4L6.00008 11.3333L2.66675 8" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .renewals-services {
+    padding: 100px 0;
+    background-color: var(--color-dark);
+  }
+  .content {
+    padding: var(--content-padding);
+  }
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  .service-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px;
+    border-radius: 32px;
+    transition: all 0.3s ease;
+  }
+  .service-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-secondary);
+    transform: translateY(-5px);
+  }
+  .service-short {
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--color-secondary);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 12px;
+  }
+  h3 {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    color: var(--color-white);
+    margin-bottom: 24px;
+    font-weight: 400;
+  }
+  .desc {
+    color: var(--color-text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-white);
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 992px) {
+    .service-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 40px; }
+  }
+</style>

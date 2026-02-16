@@ -1,41 +1,37 @@
 ---
 ---
+
 <nav class="navbar">
   <div class="nav-container">
-    <div class="logo">
-      <a href="/" class="brand-text">TREXO GLOBAL</a>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li class="dropdown">
-        <a href="#">Products <span class="arrow">v</span></a>
-      </li>
-      <li class="dropdown">
-        <a href="#">Services <span class="arrow">v</span></a>
-      </li>
-      <li><a href="#">Resources</a></li>
-    </ul>
-    <div class="nav-actions">
-      <!-- Search Icon -->
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M21 21L16.65 16.65" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+    <a href="/" class="logo">
+      <span class="logo-text">TREXO GLOBAL</span>
+    </a>
+    
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/june">The JUNE</a>
+      <div class="dropdown">
+        <a href="#" class="drop-trigger">Tools <span class="arrow-down"></span></a>
+      </div>
+      <a href="/patent">Analytics</a>
+      <a href="/renewals">Renewals</a>
     </div>
   </div>
 </nav>
 
 <style>
   .navbar {
-    position: absolute;
-    top: 40px;
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    z-index: 50;
+    z-index: 1000;
+    padding: 30px 0;
+    background: transparent;
   }
 
   .nav-container {
-    max-width: var(--container-max-width);
+    max-width: 1440px;
     margin: 0 auto;
     padding: var(--content-padding);
     display: flex;
@@ -43,56 +39,49 @@
     align-items: center;
   }
 
-  .brand-text {
-    font-family: 'Lato', sans-serif;
-    font-size: 26px; /* Slightly larger */
-    font-weight: 900; /* Extra Black */
-    color: white;
-    text-decoration: none;
-    letter-spacing: 2px; /* Widen spacing */
-    text-transform: uppercase;
+  .logo-text {
+    font-family: var(--font-primary);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--color-white);
   }
 
   .nav-links {
     display: flex;
-    gap: 50px; /* Widen gap */
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    gap: 40px;
+    align-items: center;
   }
 
   .nav-links a {
     color: var(--color-white);
-    text-decoration: none;
-    font-family: var(--font-family);
-    font-size: 15px;
-    font-weight: 500; /* Slightly bolder links */
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .arrow {
-    font-size: 10px;
-    margin-top: 2px;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.3s;
   }
 
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  .nav-links a:hover {
+    opacity: 1;
   }
 
-  /* Mobile Responsive */
-  @media (max-width: 768px) {
-    .navbar {
-      top: 20px;
-    }
-    .nav-container {
-      padding: 0 20px;
-    }
-    .nav-links, .nav-actions {
-      display: none; /* Hide for now on mobile or add hamburger later */
-    }
+  .drop-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .arrow-down {
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(-45deg);
+    margin-top: -4px;
+    display: inline-block;
+  }
+
+  @media (max-width: 992px) {
+    .nav-links { display: none; }
   }
 </style>

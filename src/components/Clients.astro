@@ -1,0 +1,42 @@
+---
+---
+
+<section class="clients">
+  <div class="container reveal">
+    <p class="section-tag">Trusted by Industry Leaders</p>
+    <div class="client-graphic">
+      <img src="/assets/landing_clients.png" alt="Our Clients" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .clients {
+    padding: 80px 0;
+    background-color: var(--color-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+  }
+  .section-tag {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-secondary);
+    margin-bottom: 48px;
+  }
+  .client-graphic {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .client-graphic img {
+    width: 100%;
+    height: auto;
+    filter: invert(100%) opacity(0.6); /* Assuming dark background needs inverted/lighter logos */
+    transition: opacity 0.3s;
+  }
+  .client-graphic img:hover {
+    opacity: 1;
+  }
+</style>

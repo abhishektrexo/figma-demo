@@ -1,24 +1,26 @@
 :root {
-  /* Colors - Extracted from Figma */
+  /* Colors - High Fidelity Calibration */
   --color-primary: #005CB9;
-  /* Exact Figma Blue */
-  --color-secondary: #004C99;
-  /* Darker Blue for Watermark */
-  --color-dark: #232427;
-  /* Dark BG */
-  --color-light: #F3F8FC;
+  /* Corporate Blue */
+  --color-secondary: #EA8407;
+  /* Highlight Orange */
+  --color-dark: #000000;
+  /* Deep Black Background */
+  --color-dark-surface: #121212;
+  /* Section Backgrounds */
   --color-white: #FFFFFF;
+  --color-text-main: #FFFFFF;
+  --color-text-muted: rgba(255, 255, 255, 0.6);
 
   /* Typography */
-  --font-family: 'Lato', sans-serif;
-  --font-display: 'Dune Rise', sans-serif;
-  /* Fallback will handle if not available */
+  --font-primary: 'DM Sans', sans-serif;
+  --font-serif: 'Crimson Text', serif;
+  --font-display: 'DM Sans', sans-serif;
+  /* Fallback for JUNE watermark */
 
   --container-max-width: 1440px;
-  /* Full width frame */
   --content-padding: 0 156px;
-  /* 156px left margin from Figma */
-  --section-padding: 80px 20px;
+  --section-padding: 100px 0;
 }
 
 @media (max-width: 1200px) {

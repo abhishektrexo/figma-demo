@@ -1,0 +1,82 @@
+---
+const { 
+  title = "Patent Research and Analytics", 
+  tagline = "Providing client-oriented patent search and analytics services to meet desired objectives",
+  description = "Empowering your IP strategy with deep data insights, comprehensive search workflows, and expert analysis for patent professionals worldwide."
+} = Astro.props;
+---
+
+<section class="patent-hero">
+  <div class="glow-effect"></div>
+  <div class="container hero-content">
+    <div class="text-side reveal">
+      <span class="category-tag">Advanced Analytics</span>
+      <h1 class="font-serif">{title}</h1>
+      <p class="tagline">“{tagline}”</p>
+      <p class="description">{description}</p>
+      <div class="actions">
+        <a href="#services" class="btn-primary">Explore Analytics</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .patent-hero {
+    position: relative;
+    padding: 200px 0 120px;
+    background-color: var(--color-dark);
+    overflow: hidden;
+  }
+  .glow-effect {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 92, 185, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .container {
+    padding: var(--content-padding);
+  }
+  .hero-content {
+    max-width: 900px;
+  }
+  .category-tag {
+    display: inline-block;
+    color: var(--color-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: 72px;
+    color: var(--color-white);
+    margin-bottom: 30px;
+    line-height: 1.1;
+    font-weight: 400;
+  }
+  .tagline {
+    font-size: 24px;
+    color: var(--color-white);
+    font-style: italic;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    max-width: 700px;
+  }
+  .description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+  
+  @media (max-width: 768px) {
+    h1 { font-size: 44px; }
+    .tagline { font-size: 20px; }
+  }
+</style>

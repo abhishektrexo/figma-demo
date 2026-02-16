@@ -1,149 +1,118 @@
 ---
 ---
+
 <footer class="footer">
-  <div class="footer-grid">
-    <div class="footer-col">
-      <h4>Company Section</h4>
-      <ul>
-        <li><a href="#">About Trexo Global</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-      </ul>
+  <div class="container reveal">
+    <div class="footer-top">
+      <div class="brand-side">
+        <h2 class="logo-big">TREXO GLOBAL</h2>
+      </div>
+      
+      <div class="links-columns">
+        <div class="col">
+          <h4>Our Company</h4>
+          <a href="#">About Trexo</a>
+          <a href="#">Partners</a>
+          <a href="#">Security</a>
+          <a href="#">News & Media</a>
+          <a href="#">Contact Us</a>
+        </div>
+        <div class="col">
+          <h4>Services</h4>
+          <a href="#">Patent Research</a>
+          <a href="#">Patent Drafting</a>
+          <a href="#">Docket Management</a>
+          <a href="#">Translation Management</a>
+          <a href="#">IP Audit & Strategy</a>
+        </div>
+        <div class="col">
+          <h4>Products</h4>
+          <a href="#">JUNE</a>
+          <a href="#">Docketing Bot</a>
+          <a href="#">Trexo Analytics</a>
+          <a href="#">Renewal Portal</a>
+        </div>
+        <div class="col">
+          <h4>Support</h4>
+          <a href="#">Terms</a>
+          <a href="#">GDPR Policy</a>
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
     </div>
-    
-    <div class="footer-col">
-      <h4>Solutions</h4>
-      <ul>
-        <li><a href="#">IP Filing & Docketing</a></li>
-        <li><a href="#">Automated Document Generation</a></li>
-        <li><a href="#">IDS & OA Management</a></li>
-        <li><a href="#">Portfolio & Renewal Management</a></li>
-        <li><a href="#">Analytics & Reporting</a></li>
-      </ul>
-    </div>
-    
-    <div class="footer-col">
-      <h4>Resources</h4>
-      <ul>
-        <li><a href="#">FAQs</a></li>
-        <li><a href="#">Tutorials & Guides</a></li>
-        <li><a href="#">Release Notes</a></li>
-        <li><a href="#">Blog / Insights</a></li>
-        <li><a href="#">Case Studies</a></li>
-      </ul>
-    </div>
-    
-    <div class="footer-col">
-      <h4>Connect</h4>
-      <ul>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">X</a></li>
-        <li><a href="#">Instagram</a></li>
-      </ul>
-    </div>
-  </div>
-  
-  <div class="footer-brand">
-    <div class="container brand-container">
-      <h2 class="brand-bg">TREXO GLOBAL</h2>
-    </div>
-  </div>
-  
-  <div class="footer-bottom">
-    <div class="container bottom-container">
-      <p>&copy; 2025 Trexo Global</p>
-      <p>All Rights Reserved</p>
+
+    <div class="footer-bottom">
+      <p>Copyright © 2025. Trexo IP. All rights reserved.</p>
+      <div class="socials">
+        <!-- Social icons placeholder -->
+      </div>
     </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    background-color: #f8faff;
-    color: #333;
-    padding: 80px 0 20px;
-    position: relative;
-    overflow: hidden;
+    background-color: white;
+    padding: 100px 0 40px;
+    color: #1a1a1c;
+    border-top: 1px solid #eee;
   }
 
-  .footer-grid {
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-bottom: 80px;
+  }
+
+  .logo-big {
+    font-size: 8rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    letter-spacing: -2px;
+    line-height: 0.9;
+  }
+
+  .links-columns {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
-    margin-bottom: 60px;
-    position: relative;
-    z-index: 2;
   }
 
-  .footer-col h4 {
-    font-size: 1.1rem;
+  .col h4 {
+    font-size: 16px;
     font-weight: 700;
-    margin-bottom: 25px;
-    color: #2c3e50;
+    margin-bottom: 30px;
+    color: #1a1a1c;
   }
 
-  .footer-col ul {
-    list-style: none;
+  .col a {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    transition: color 0.3s;
   }
 
-  .footer-col ul li {
-    margin-bottom: 12px;
-  }
-
-  .footer-col ul a {
-    font-size: 0.9rem;
-    color: #555;
-    transition: color 0.2s;
-  }
-
-  .footer-col ul a:hover {
-    color: var(--color-primary);
-  }
-
-  .footer-brand {
-    position: relative;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .brand-bg {
-    font-size: 8rem;
-    font-weight: 900;
-    color: rgba(0, 86, 179, 0.05);
-    letter-spacing: 15px;
-    text-align: center;
-    white-space: nowrap;
-    user-select: none;
-  }
+  .col a:hover { color: var(--color-primary); }
 
   .footer-bottom {
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    padding-top: 20px;
-  }
-
-  .bottom-container {
     display: flex;
     justify-content: space-between;
-    font-size: 0.8rem;
-    color: #888;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 40px;
+    font-size: 13px;
+    color: #999;
   }
 
   @media (max-width: 992px) {
-    .footer-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .brand-bg {
-      font-size: 4rem;
-    }
+    .logo-big { font-size: 4rem; }
+    .links-columns { grid-template-columns: 1fr 1fr; }
   }
 
   @media (max-width: 576px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
-    }
+    .links-columns { grid-template-columns: 1fr; }
   }
 </style>

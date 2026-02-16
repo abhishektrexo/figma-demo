@@ -1,0 +1,90 @@
+---
+const analyticsFeatures = [
+  {
+    title: "Patent Landscape Analysis",
+    description: "Map out the entire technological landscape with deep-dive competitive analysis.",
+    icon: "Landscape"
+  },
+  {
+    title: "Infringement/FTO Search",
+    description: "Comprehensive freedom-to-operate searches to mitigate risks early in the lifecycle.",
+    icon: "FTO"
+  },
+  {
+    title: "Invalidity Research",
+    description: "Strategic searches to identify prior art and challenge patent validity.",
+    icon: "Prior Art"
+  }
+];
+---
+
+<section class="patent-grid">
+  <div class="container content">
+    <div class="grid">
+      {analyticsFeatures.map((f, i) => (
+        <div class={`feature-card reveal delay-${i + 1}`}>
+          <div class="icon-circle">
+            <span class="icon-text">{f.icon[0]}</span>
+          </div>
+          <h3>{f.title}</h3>
+          <p>{f.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .patent-grid {
+    padding: 100px 0;
+    background-color: var(--color-dark);
+  }
+  .content {
+    padding: var(--content-padding);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .feature-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  .feature-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--color-primary);
+    transform: translateY(-5px);
+  }
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: white;
+    font-weight: 700;
+  }
+  h3 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    color: var(--color-white);
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+  p {
+    color: var(--color-text-muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 992px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>

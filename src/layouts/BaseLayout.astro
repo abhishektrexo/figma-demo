@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "JUNE - Automated Patent Drafting & Analytics" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+		
+		<style is:global>
+			/* Custom font Dune Rise would need a local file or @font-face if not on Google Fonts */
+			/* Using a high-quality fallback for now or assuming user has provisioned it */
+		</style>
+	</head>
+	<body>
+		<div class="site-wrapper">
+			<slot />
+		</div>
+		
+		<script>
+			// Reveal on Scroll Logic
+			const observerOptions = {
+				threshold: 0.1
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('active');
+					}
+				});
+			}, observerOptions);
+
+			document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+		</script>
+	</body>
+</html>
+
+<style>
+	.site-wrapper {
+		min-height: 100vh;
+		background-color: var(--color-dark);
+	}
+</style>
