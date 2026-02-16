@@ -1,92 +1,36 @@
-<section class="hero reveal">
-  <div class="watermark-june font-june" aria-hidden="true">june</div>
-  
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <p class="kicker fade-in-up">IP Technology Reimagined</p>
-      <h1 class="fade-in-up delay-1">Protecting <span class="font-serif italic text-[#8dbbff]">Innovation</span> <br/>Powering <span class="font-serif italic text-[#8dbbff]">Insights</span></h1>
-      <p class="fade-in-up delay-2">
-        Built for modern IP teams that need speed, accuracy, and visibility across filings, renewals, portfolio actions, and compliance.
-      </p>
-      <div class="hero-actions fade-in-up delay-3">
-        <a class="btn btn-primary" href="/june">Book a Demo</a>
-        <a class="btn btn-secondary" href="#products">See How it Works</a>
-      </div>
-    </div>
-    
-    <div class="hero-visual fade-in-up delay-2">
-      {/* Visual layers will be styled via global.css or local overrides using master patterns */}
-      <div class="mockup-layered">
-        <div class="layer-base">
-          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/c1cmUZnZY2.png" alt="Main Dashboard Mockup" />
-        </div>
-        <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/NcvkK9PP5E.png" alt="Overlay 1" class="layer-overlay overlay-1" />
-        <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/MgRk99KZk3.png" alt="Overlay 2" class="layer-overlay overlay-2" />
-        <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/fif70SBut5.png" alt="Overlay 3" class="layer-overlay overlay-3" />
-      </div>
+---
+---
+<div class="landing-hero-container">
+  <!-- These elements are part of the Hero in the original Codia structure -->
+  <div class="property-component"></div>
+  <div class="arrow">
+    <div class="arrow-6"></div>
+  </div>
+  <div class="image">
+    <div class="arrow-7"></div>
+  </div>
+  <div class="protecting-innovation-powering-insights">
+    <span class="protecting">Protecting </span><span class="innovation">Innovation</span><span
+      class="powering-insights"> <br />Powering</span><span class="insights"> Insights</span>
+  </div>
+  <div class="group">
+    <div class="form"></div>
+  </div>
+  <div class="frame-8">
+    <div class="buttons"><span class="book-a-demo">Book a Demo</span></div>
+    <div class="see-how-it-works">
+      <span class="property-variant">See How it Works</span>
     </div>
   </div>
-</section>
+  <div class="component"></div>
+  <div class="frame-9"></div>
+</div>
 
 <style>
-  /* Preservation of complex layering that isn't in global.css */
-  .mockup-layered {
-    position: relative;
-    width: 100%;
-    min-height: 400px;
-  }
-
-  .layer-base {
-    position: relative;
-    border-radius: var(--radius);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: var(--shadow);
-    background: linear-gradient(180deg, #e9eef8 0%, #d2dcec 100%);
-    overflow: hidden;
-    z-index: 1;
-  }
-
-  .layer-base img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .layer-overlay {
-    position: absolute;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-    border-radius: 10px;
-    border: 1px solid rgba(17, 19, 25, 0.15);
-    background: #fff;
-    z-index: 2;
-    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-  }
-
-  .overlay-1 { width: 70%; bottom: -15%; left: -20%; z-index: 5; }
-  .overlay-2 { width: 60%; top: -10%; right: -10%; z-index: 4; }
-  .overlay-3 { width: 50%; right: -25%; top: 40%; z-index: 3; }
-
-  .watermark-june {
-    position: absolute;
-    bottom: -10%;
-    left: -5%;
-    font-size: 40vw;
-    color: rgba(255, 255, 255, 0.035);
-    pointer-events: none;
-    line-height: 0.7;
-    z-index: 1;
-    letter-spacing: -2vw;
-    text-transform: lowercase;
-  }
-
-  @media (max-width: 1024px) {
-    .mockup-layered { min-height: 350px; max-width: 600px; margin: 0 auto; }
-    .overlay-1 { left: -5%; bottom: -10%; }
-    .overlay-2 { right: -5%; }
-    .overlay-3 { right: -10%; }
-  }
-
-  @media (max-width: 768px) {
-    .layer-overlay { display: none; }
+  /* Master CSS in global.css handles the absolute positioning of these elements */
+  /* based on their relationship to .main-container in BaseLayout.astro */
+  .landing-hero-container {
+    /* This component just acts as a logical grouping for the absolute elements */
+    /* Master styles target these classes directly. */
   }
 </style>

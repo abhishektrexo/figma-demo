@@ -9,14 +9,14 @@ import Compliance from '../components/Compliance.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<BaseLayout title="TREXO GLOBAL | Protecting Innovation Powering Insights">
+<BaseLayout title="Trexo Global | AI-Powered IP Operations">
+  {/* The order here follows the original index.html exactly */}
   <Navbar />
-  <main>
-    <LandingHero />
-    <JuneDesk />
-    <OtherServices />
-    <Testimonials />
-    <Compliance />
-  </main>
+  
+  <OtherServices />
+  <Compliance />
+  <LandingHero />
+  <JuneDesk />
+  <Testimonials />
   <Footer />
 </BaseLayout>
