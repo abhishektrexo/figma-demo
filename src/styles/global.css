@@ -397,7 +397,7 @@ button {
     left: 799px;
     background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/9Z0iOdGFu2.png) no-repeat center;
     background-size: cover;
-    z-index: 10;
+    z-index: 200;
 }
 
 .form {
