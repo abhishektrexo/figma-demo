@@ -23,95 +23,159 @@ const features = [
 ];
 ---
 
-<section class="june-features">
-  <div class="container content">
-    <div class="header reveal">
-      <h2 class="font-serif">Engineered for Excellence</h2>
-      <p class="section-desc">JUNE combines power and security to deliver the ultimate IP assistant.</p>
+<section class="june-section reveal" id="products">
+  <div class="container">
+    <div class="section-head center">
+      <h2 id="june-heading">Everything on June's Desk</h2>
+      <p>
+        From foreign filings to renewals, June manages deadlines, jurisdictions, documents, and compliance every day.
+      </p>
     </div>
-    
-    <div class="feature-grid">
-      {features.map((f, i) => (
-        <div class={`feature-card reveal delay-${i + 1}`}>
-          <div class="icon-box">
-            <span class="placeholder-icon">{f.icon}</span>
-          </div>
-          <h3>{f.title}</h3>
-          <p>{f.description}</p>
-        </div>
-      ))}
+
+    <div class="june-layout">
+      <ul class="feature-list left-list">
+        <li class="reveal delay-1">Managing IDS Workflows</li>
+        <li class="reveal delay-2">Generating OA Shell Response</li>
+        <li class="reveal delay-3">AppGen</li>
+        <li class="reveal delay-1">Bibliographic Data</li>
+      </ul>
+
+      <div class="june-core reveal delay-2">
+        <div class="orbital-icon">AI</div>
+        <div class="pulse-ring"></div>
+      </div>
+
+      <ul class="feature-list right-list">
+        <li class="reveal delay-1">Claims Formatter</li>
+        <li class="reveal delay-2">Oath/Dec & ADS Downloader</li>
+        <li class="reveal delay-3">Patent File Wrapper</li>
+        <li class="reveal delay-1">Generating Forms</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <style>
-  .june-features {
-    padding: 120px 0;
-    background-color: #1a1a1c;
-  }
-  .content {
-    padding: var(--content-padding);
-  }
-  .header {
-    text-align: center;
-    margin-bottom: 80px;
-  }
-  h2 {
-    font-size: 56px;
-    color: var(--color-white);
-    font-weight: 400;
-  }
-  .section-desc {
-    color: var(--color-text-muted);
-    font-size: 20px;
-    margin-top: 16px;
-  }
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-  .feature-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 60px;
-    border-radius: 24px;
-    transition: transform 0.3s, border-color 0.3s;
-  }
-  .feature-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--color-primary);
-  }
-  .icon-box {
-    width: 60px;
-    height: 60px;
-    background: rgba(0, 92, 185, 0.1);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-  }
-  .placeholder-icon {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--color-primary);
-    text-transform: uppercase;
-  }
-  h3 {
-    font-size: 24px;
-    color: var(--color-white);
-    margin-bottom: 16px;
-    font-weight: 500;
-  }
-  p {
-    color: var(--color-text-muted);
-    line-height: 1.6;
-    font-size: 16px;
+  .june-section {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    padding: 100px 0;
   }
 
-  @media (max-width: 992px) {
-    .feature-grid { grid-template-columns: 1fr; }
-    h2 { font-size: 40px; }
+  .section-head {
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .section-head h2 {
+    color: var(--text-dark);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .section-head p {
+    color: #4e5870;
+    max-width: 68ch;
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
+
+  .june-layout {
+    display: grid;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+  }
+
+  .feature-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 20px;
+  }
+
+  .feature-list li {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px 24px;
+    box-shadow: 0 10px 30px rgba(9, 20, 52, 0.05);
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+  }
+
+  .feature-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(9, 20, 52, 0.1);
+    border-color: var(--primary);
+  }
+
+  .june-core {
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+    background: radial-gradient(circle at 50% 45%, #fff 0%, #edf1f8 100%);
+    border-radius: 50%;
+    border: 1px solid #d4daea;
+    z-index: 2;
+  }
+
+  .orbital-icon {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #fff;
+    background: linear-gradient(160deg, #0b65e0, #2ea0ff);
+    box-shadow: 0 20px 50px rgba(13, 110, 253, 0.4);
+    position: relative;
+    z-index: 5;
+  }
+
+  .pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(13, 110, 253, 0.2);
+    animation: pulse 3s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.4); opacity: 0; }
+  }
+
+  @media (min-width: 992px) {
+    .june-layout {
+      grid-template-columns: 1fr auto 1fr;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .june-layout {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .feature-list li {
+      justify-content: center;
+    }
+    .june-core {
+      order: -1;
+      width: 280px;
+      height: 280px;
+    }
   }
 </style>

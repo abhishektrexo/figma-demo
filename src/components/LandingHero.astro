@@ -1,193 +1,76 @@
-<section class="landing-hero">
-  <div class="watermark-june" aria-hidden="true">june</div>
+<section class="hero reveal">
+  <div class="watermark-june font-june" aria-hidden="true">june</div>
   
-  <div class="hero-container">
-    <div class="hero-content">
-      <div class="text-side reveal">
-        <h1 class="fade-in-up">Protecting <span class="accent">Innovation</span> <br/>Powering <span class="accent">Insights</span></h1>
-        <p class="hero-subtext fade-in-up delay-1">
-          The Future of Intellectual Property is here. From managing complex portfolios to accelerating innovation, our AI-powered ecosystem simplifies every stage of the patent lifecycle.
-        </p>
-        <div class="hero-actions fade-in-up delay-2">
-          <a href="/june" class="btn-primary">Book a Demo</a>
-          <a href="/contact" class="btn-outline">See How it Works</a>
-        </div>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="kicker fade-in-up">IP Technology Reimagined</p>
+      <h1 class="fade-in-up delay-1">Protecting <span class="font-serif italic text-[#8dbbff]">Innovation</span> <br/>Powering <span class="font-serif italic text-[#8dbbff]">Insights</span></h1>
+      <p class="fade-in-up delay-2">
+        Built for modern IP teams that need speed, accuracy, and visibility across filings, renewals, portfolio actions, and compliance.
+      </p>
+      <div class="hero-actions fade-in-up delay-3">
+        <a class="btn btn-primary" href="/june">Book a Demo</a>
+        <a class="btn btn-secondary" href="#products">See How it Works</a>
       </div>
-      
-      <div class="visual-side reveal delay-1">
-        <div class="mockup-layered">
-          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/c1cmUZnZY2.png" alt="Main Dashboard Mockup" class="layer-base" />
-          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/NcvkK9PP5E.png" alt="Overlay Element 1" class="layer-overlay overlay-1" />
-          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/MgRk99KZk3.png" alt="Overlay Element 2" class="layer-overlay overlay-2" />
-          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/fif70SBut5.png" alt="Overlay Element 3" class="layer-overlay overlay-3" />
+    </div>
+    
+    <div class="hero-visual fade-in-up delay-2">
+      {/* Visual layers will be styled via global.css or local overrides using master patterns */}
+      <div class="mockup-layered">
+        <div class="layer-base">
+          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/c1cmUZnZY2.png" alt="Main Dashboard Mockup" />
         </div>
+        <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/NcvkK9PP5E.png" alt="Overlay 1" class="layer-overlay overlay-1" />
+        <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/MgRk99KZk3.png" alt="Overlay 2" class="layer-overlay overlay-2" />
+        <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/fif70SBut5.png" alt="Overlay 3" class="layer-overlay overlay-3" />
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .landing-hero {
-    position: relative;
-    min-height: 100vh;
-    background-color: var(--color-dark);
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    padding: 120px 0;
-  }
-
-  .hero-container {
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-    padding: var(--content-padding);
-    width: 100%;
-    position: relative;
-    z-index: 10;
-  }
-
-  .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .text-side {
-    max-width: 600px;
-  }
-
-  h1 {
-    font-family: var(--font-primary);
-    font-size: clamp(48px, 6.5vw, 84px);
-    font-weight: 400;
-    line-height: 1.0;
-    color: var(--color-white);
-    margin-bottom: 24px;
-    letter-spacing: -3px;
-  }
-
-  h1 .accent {
-    font-family: var(--font-serif);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--color-primary-light);
-    letter-spacing: -1px;
-    margin: 0 4px;
-  }
-
-  .hero-subtext {
-    font-size: 18px;
-    color: var(--color-text-muted);
-    margin-bottom: 48px;
-    max-width: 520px;
-    line-height: 1.6;
-    font-weight: 400;
-  }
-
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .btn-primary {
-    background-color: var(--color-primary);
-    color: white;
-    padding: 18px 40px;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 16px;
-    text-transform: capitalize;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-  }
-
-  .btn-primary:hover {
-    background-color: var(--color-primary-light);
-    transform: translateY(-2px);
-    box-shadow: 0 15px 30px rgba(0, 92, 185, 0.3);
-  }
-
-  .btn-outline {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--color-white);
-    padding: 18px 40px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 16px;
-    transition: all 0.3s;
-  }
-
-  .btn-outline:hover {
-    border-color: var(--color-primary-light);
-    background-color: rgba(0, 120, 242, 0.05);
-    transform: translateY(-2px);
-  }
-
-  /* Layered Mockup */
-  .visual-side {
-    position: relative;
-    padding-left: 40px;
-  }
-
+  /* Preservation of complex layering that isn't in global.css */
   .mockup-layered {
     position: relative;
     width: 100%;
-    transform: translateX(20px);
+    min-height: 400px;
   }
 
   .layer-base {
+    position: relative;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow);
+    background: linear-gradient(180deg, #e9eef8 0%, #d2dcec 100%);
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .layer-base img {
     width: 100%;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: block;
   }
 
   .layer-overlay {
     position: absolute;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    border: 1px solid rgba(17, 19, 25, 0.15);
+    background: #fff;
     z-index: 2;
-    transition: transform 0.5s ease-out;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  .overlay-1 {
-    width: 55%;
-    bottom: -8%;
-    left: -18%;
-    z-index: 10;
-  }
-
-  .overlay-2 {
-    width: 45%;
-    top: -12%;
-    right: -12%;
-    z-index: 5;
-  }
-
-  .overlay-3 {
-    width: 40%;
-    top: 15%;
-    right: -25%;
-    z-index: 8;
-  }
-
-  @keyframes floating {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
-  }
+  .overlay-1 { width: 70%; bottom: -15%; left: -20%; z-index: 5; }
+  .overlay-2 { width: 60%; top: -10%; right: -10%; z-index: 4; }
+  .overlay-3 { width: 50%; right: -25%; top: 40%; z-index: 3; }
 
   .watermark-june {
     position: absolute;
-    bottom: -5%;
-    left: -10%;
-    font-family: var(--font-june);
+    bottom: -10%;
+    left: -5%;
     font-size: 40vw;
-    font-weight: 400;
     color: rgba(255, 255, 255, 0.035);
     pointer-events: none;
     line-height: 0.7;
@@ -196,31 +79,14 @@
     text-transform: lowercase;
   }
 
-  @media (max-width: 1200px) {
-    .visual-side { padding-left: 0; }
-    .overlay-3 { right: -15%; }
-  }
-
   @media (max-width: 1024px) {
-    .hero-content {
-      grid-template-columns: 1fr;
-      text-align: center;
-      gap: 120px;
-    }
-    .text-side { margin: 0 auto; }
-    .hero-actions { justify-content: center; }
-    .mockup-layered { max-width: 500px; margin: 0 auto; transform: none; }
-    .overlay-1 { left: -10%; }
-    .overlay-2 { right: -10%; }
-    .overlay-3 { right: -15%; }
-    .watermark-june { font-size: 55vw; }
+    .mockup-layered { min-height: 350px; max-width: 600px; margin: 0 auto; }
+    .overlay-1 { left: -5%; bottom: -10%; }
+    .overlay-2 { right: -5%; }
+    .overlay-3 { right: -10%; }
   }
 
   @media (max-width: 768px) {
-    h1 { font-size: 48px; letter-spacing: -1.5px; }
-    .hero-actions { flex-direction: column; width: 100%; gap: 16px; }
-    .btn-primary, .btn-outline { width: 100%; }
-    .watermark-june { font-size: 70vw; }
     .layer-overlay { display: none; }
   }
 </style>

@@ -6,28 +6,54 @@ interface Props {
 	description?: string;
 }
 
-const { title, description = "JUNE - Automated Patent Drafting & Analytics" } = Astro.props;
+const { title, description = "Trexo Global delivers AI-powered IP operations across filing, docketing, renewals, and compliance workflows." } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		
+		<meta name="robots" content="index, follow" />
+		<meta name="theme-color" content="#111319" />
+		<link rel="canonical" href="https://trexoglobal.com/" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Trexo Global" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content="https://trexoglobal.com/" />
+		<meta property="og:image" content="https://trexoglobal.com/og-image.jpg" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+
 		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 		
-		<style is:global>
-			/* Custom font Dune Rise would need a local file or @font-face if not on Google Fonts */
-			/* Using a high-quality fallback for now or assuming user has provisioned it */
-		</style>
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "Trexo Global",
+			"url": "https://trexoglobal.com",
+			"description": "AI-powered technology and services for intellectual property operations.",
+			"sameAs": [
+				"https://www.linkedin.com/company/trexo-global",
+				"https://x.com/trexoglobal",
+				"https://www.instagram.com/trexoglobal"
+			]
+		}
+		</script>
 	</head>
 	<body>
 		<div class="site-wrapper">
@@ -56,6 +82,6 @@ const { title, description = "JUNE - Automated Patent Drafting & Analytics" } = 
 <style>
 	.site-wrapper {
 		min-height: 100vh;
-		background-color: var(--color-dark);
+		background-color: var(--bg-dark);
 	}
 </style>

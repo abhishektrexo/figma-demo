@@ -8,63 +8,39 @@
 }
 
 :root {
-  /* Colors - High Fidelity Figma Calibration */
-  --color-primary: #005CB9;
-  --color-primary-light: #0078F2;
-  --color-secondary: #EA8407;
-  --color-dark: #232427;
-  /* Dark background from screenshot */
-  --color-dark-surface: #1C1E21;
-  --color-white: #FDFDFD;
-  --color-text-main: #FDFDFD;
-  --color-text-muted: rgba(253, 253, 253, 0.6);
-  --color-border: rgba(253, 253, 253, 0.1);
-
-  /* Typography - Calibrated to Screenshot 2 */
-  --font-primary: 'Plus Jakarta Sans', sans-serif;
-  --font-serif: 'Crimson Text', serif;
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-june: 'Dune Rise', sans-serif;
-
-  /* Spacing System */
-  --space-unit: 8px;
-  --space-xs: calc(var(--space-unit) * 1);
-  --space-sm: calc(var(--space-unit) * 2);
-  --space-md: calc(var(--space-unit) * 4);
-  --space-lg: calc(var(--space-unit) * 8);
-  --space-xl: calc(var(--space-unit) * 12);
-
-  /* Layout */
-  --container-max-width: 1440px;
-  --content-padding: 0 156px;
-  --section-padding: 120px 0;
+  --bg-dark: #111319;
+  --bg-dark-2: #161a24;
+  --bg-light: #f4f6fb;
+  --surface: #ffffff;
+  --text-dark: #111319;
+  --text-light: #e9edf8;
+  --text-muted: #a8b2c9;
+  --line: #dbe1ef;
+  --primary: #0d6efd;
+  --primary-strong: #0056d6;
+  --radius: 16px;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  --container: 1160px;
 }
 
-@media (max-width: 1200px) {
-  :root {
-    --content-padding: 0 40px;
-    --section-padding: 100px 0;
-  }
-}
-
-@media (max-width: 768px) {
-  :root {
-    --content-padding: 0 24px;
-    --section-padding: 80px 0;
-  }
-}
-
+/* Global resets and typography from master reference */
 * {
   box-sizing: border-box;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--font-family);
-  background-color: var(--color-dark);
-  color: var(--color-text-main);
-  line-height: 1.6;
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text-dark);
+  background: var(--bg-light);
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
@@ -72,87 +48,69 @@ h1,
 h2,
 h3,
 h4 {
-  line-height: 1.2;
+  line-height: 1.1;
+  color: inherit;
+  margin: 0;
+}
+
+h1 {
+  color: #fff;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
-  transition: opacity 0.2s;
-}
-
-a:hover {
-  opacity: 0.8;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: 0 20px;
+  width: min(var(--container), calc(100% - 2rem));
+  margin-inline: auto;
 }
 
-section {
-  padding: var(--section-padding);
+/* Base Components and Utility classes from Codia */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .btn-primary {
-  display: inline-block;
-  background-color: var(--color-white);
-  color: var(--color-primary);
-  padding: 12px 24px;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s, background-color 0.2s;
+  background: var(--primary);
+  color: #fff;
 }
 
 .btn-primary:hover {
+  background: var(--primary-strong);
   transform: translateY(-2px);
-  background-color: var(--color-light);
+  box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
 }
 
-/* Watermark Text */
-.watermark {
-  position: absolute;
-  font-family: var(--font-display);
-  font-size: 20rem;
-  font-weight: 400;
-  /* Dune Rise is typically lighter/custom */
-  color: rgba(0, 76, 153, 0.05);
-  /* Match darker blue tint */
-  pointer-events: none;
-  z-index: 0;
-  text-transform: lowercase;
-  /* Matches Figma text content "june" */
+.btn-secondary {
+  border-color: rgba(141, 187, 255, 0.65);
+  color: #cfe2ff;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.btn-secondary:hover {
+  border-color: #fff;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
+/* Reveal on scroll animations */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .reveal.active {
@@ -161,11 +119,19 @@ section {
 }
 
 .fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.active .fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.fade-in {
-  animation: fadeIn 1s ease-out forwards;
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .delay-1 {
@@ -178,4 +144,17 @@ section {
 
 .delay-3 {
   animation-delay: 0.6s;
+}
+
+/* Custom Font Integrations */
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-serif {
+  font-family: 'Crimson Text', serif;
+}
+
+.font-june {
+  font-family: 'Dune Rise', sans-serif;
 }
