@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Trexo Global | Protecting Innovation (Responsive)">
+  <div class="codia-container">
+    <section class="main-container">
+      <header class="header">
+        <div class="logo-container">
+          <img src="/assets/landing-page/codia/U6o68kPyFq.png" alt="Trexo Logo" class="logo-icon" />
+          <span class="logo-text">TREXO GLOBAL</span>
+        </div>
+        <nav class="nav">
+          <a href="#solutions">Solutions</a>
+          <a href="#about">About us</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn-login">Log In</button>
+          <button class="btn-get-started">Get Started</button>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Protecting Innovation.</h1>
+          <p>The Future of Intellectual Property is here. From managing complex portfolios to accelerating innovation, our AI-powered ecosystem simplifies every stage of the patent lifecycle.</p>
+          <div class="hero-btns">
+            <button class="btn-primary">Get Started</button>
+            <button class="btn-secondary">Request Demo</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="/assets/landing-page/codia/NcvkK9PP5E.png" alt="Protecting Innovation Visual" />
+        </div>
+      </section>
+
+      <!-- Remaining sections will be added incrementally -->
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  :root {
+    --bg-dark: #0d1117;
+    --text-light: #ffffff;
+    --accent-blue: #238636; /* Placeholder, will update from CSS */
+  }
+
+  .codia-container {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .main-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .logo-text {
+    font-family: 'Dune Rise', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .nav {
+    display: flex;
+    gap: 40px;
+  }
+
+  .nav a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+
+  .nav a:hover {
+    color: #fff;
+  }
+
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 0;
+    gap: 60px;
+  }
+
+  .hero-content {
+    flex: 1;
+  }
+
+  .hero-content h1 {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 40px;
+    max-width: 500px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 20px;
+  }
+
+  .hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .hero-visual img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Responsive Queries */
+  @media (max-width: 1024px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+      padding: 60px 0;
+    }
+    .hero-content p {
+      margin: 0 auto 40px;
+    }
+    .hero-btns {
+      justify-content: center;
+    }
+    .hero-visual {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav {
+      display: none; /* Mobile menu needed */
+    }
+    .hero-content h1 {
+      font-size: 48px;
+    }
+  }
+</style>

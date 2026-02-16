@@ -1,23 +1,25 @@
----
----
-
 <section class="landing-hero">
-  <div class="watermark-june" aria-hidden="true">JUNE</div>
+  <div class="watermark-june" aria-hidden="true">june</div>
   
   <div class="hero-container">
     <div class="hero-content">
       <div class="text-side reveal">
-        <h1 class="fade-in-up">Protecting Innovation <br/>Powering Insights</h1>
-        <div class="hero-actions fade-in-up delay-1">
-          <a href="/june" class="btn-primary">EXPLORE JUNE</a>
-          <a href="/contact" class="btn-link">Learn more</a>
+        <h1 class="fade-in-up">Protecting <span class="accent">Innovation</span> <br/>Powering <span class="accent">Insights</span></h1>
+        <p class="hero-subtext fade-in-up delay-1">
+          The Future of Intellectual Property is here. From managing complex portfolios to accelerating innovation, our AI-powered ecosystem simplifies every stage of the patent lifecycle.
+        </p>
+        <div class="hero-actions fade-in-up delay-2">
+          <a href="/june" class="btn-primary">Book a Demo</a>
+          <a href="/contact" class="btn-outline">See How it Works</a>
         </div>
       </div>
       
       <div class="visual-side reveal delay-1">
-        <div class="mockup-wrapper">
-          <img src="/assets/landing-page/Website_img/image 1.png" alt="Trexo Product Mockup" class="main-mockup" />
-          <!-- Sliced elements can be added here if needed for layering -->
+        <div class="mockup-layered">
+          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/c1cmUZnZY2.png" alt="Main Dashboard Mockup" class="layer-base" />
+          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/NcvkK9PP5E.png" alt="Overlay Element 1" class="layer-overlay overlay-1" />
+          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/MgRk99KZk3.png" alt="Overlay Element 2" class="layer-overlay overlay-2" />
+          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/fif70SBut5.png" alt="Overlay Element 3" class="layer-overlay overlay-3" />
         </div>
       </div>
     </div>
@@ -32,11 +34,11 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding-top: 100px;
+    padding: 120px 0;
   }
 
   .hero-container {
-    max-width: 1440px;
+    max-width: var(--container-max-width);
     margin: 0 auto;
     padding: var(--content-padding);
     width: 100%;
@@ -46,8 +48,8 @@
 
   .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
     align-items: center;
   }
 
@@ -57,81 +59,168 @@
 
   h1 {
     font-family: var(--font-primary);
-    font-size: clamp(40px, 5vw, 64px);
-    font-weight: 500;
-    line-height: 1.1;
+    font-size: clamp(48px, 6.5vw, 84px);
+    font-weight: 400;
+    line-height: 1.0;
     color: var(--color-white);
-    margin-bottom: 40px;
+    margin-bottom: 24px;
+    letter-spacing: -3px;
+  }
+
+  h1 .accent {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-primary-light);
     letter-spacing: -1px;
+    margin: 0 4px;
+  }
+
+  .hero-subtext {
+    font-size: 18px;
+    color: var(--color-text-muted);
+    margin-bottom: 48px;
+    max-width: 520px;
+    line-height: 1.6;
+    font-weight: 400;
   }
 
   .hero-actions {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 24px;
   }
 
   .btn-primary {
     background-color: var(--color-primary);
     color: white;
-    padding: 16px 36px;
-    border-radius: 4px;
+    padding: 18px 40px;
+    border-radius: 12px;
     font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    transition: background 0.3s;
+    font-size: 16px;
+    text-transform: capitalize;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
   .btn-primary:hover {
-    background-color: #004c99;
+    background-color: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 92, 185, 0.3);
   }
 
-  .btn-link {
-    color: var(--color-primary);
+  .btn-outline {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+    padding: 18px 40px;
+    border-radius: 12px;
     font-weight: 600;
-    font-size: 14px;
-    text-decoration: underline;
-    text-underline-offset: 4px;
+    font-size: 16px;
+    transition: all 0.3s;
   }
 
+  .btn-outline:hover {
+    border-color: var(--color-primary-light);
+    background-color: rgba(0, 120, 242, 0.05);
+    transform: translateY(-2px);
+  }
+
+  /* Layered Mockup */
   .visual-side {
     position: relative;
+    padding-left: 40px;
   }
 
-  .mockup-wrapper {
+  .mockup-layered {
     position: relative;
-    width: 120%;
-    margin-right: -20%;
+    width: 100%;
+    transform: translateX(20px);
   }
 
-  .main-mockup {
+  .layer-base {
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5));
+    border-radius: 12px;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .layer-overlay {
+    position: absolute;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    z-index: 2;
+    transition: transform 0.5s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .overlay-1 {
+    width: 55%;
+    bottom: -8%;
+    left: -18%;
+    z-index: 10;
+  }
+
+  .overlay-2 {
+    width: 45%;
+    top: -12%;
+    right: -12%;
+    z-index: 5;
+  }
+
+  .overlay-3 {
+    width: 40%;
+    top: 15%;
+    right: -25%;
+    z-index: 8;
+  }
+
+  @keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
   }
 
   .watermark-june {
     position: absolute;
-    bottom: -10%;
-    left: -5%;
-    font-family: 'DM Sans', sans-serif;
+    bottom: -5%;
+    left: -10%;
+    font-family: var(--font-june);
     font-size: 40vw;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.03);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.035);
     pointer-events: none;
-    line-height: 0.8;
+    line-height: 0.7;
     z-index: 1;
     letter-spacing: -2vw;
+    text-transform: lowercase;
   }
 
   @media (max-width: 1200px) {
-    .mockup-wrapper { width: 100%; margin-right: 0; }
+    .visual-side { padding-left: 0; }
+    .overlay-3 { right: -15%; }
   }
 
-  @media (max-width: 992px) {
-    .hero-content { grid-template-columns: 1fr; text-align: center; }
+  @media (max-width: 1024px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 120px;
+    }
     .text-side { margin: 0 auto; }
     .hero-actions { justify-content: center; }
-    h1 { font-size: 40px; }
+    .mockup-layered { max-width: 500px; margin: 0 auto; transform: none; }
+    .overlay-1 { left: -10%; }
+    .overlay-2 { right: -10%; }
+    .overlay-3 { right: -15%; }
+    .watermark-june { font-size: 55vw; }
+  }
+
+  @media (max-width: 768px) {
+    h1 { font-size: 48px; letter-spacing: -1.5px; }
+    .hero-actions { flex-direction: column; width: 100%; gap: 16px; }
+    .btn-primary, .btn-outline { width: 100%; }
+    .watermark-june { font-size: 70vw; }
+    .layer-overlay { display: none; }
   }
 </style>

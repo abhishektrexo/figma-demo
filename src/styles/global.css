@@ -1,38 +1,56 @@
+@font-face {
+  font-family: 'Dune Rise';
+  src: url('https://assets.website-files.com/65742d13149179213710492c/65742d131491792137104936_DuneRise-Regular.woff2') format('woff2'),
+    url('https://assets.website-files.com/65742d13149179213710492c/65742d131491792137104936_DuneRise-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  /* Colors - High Fidelity Calibration */
+  /* Colors - High Fidelity Figma Calibration */
   --color-primary: #005CB9;
-  /* Corporate Blue */
+  --color-primary-light: #0078F2;
   --color-secondary: #EA8407;
-  /* Highlight Orange */
-  --color-dark: #000000;
-  /* Deep Black Background */
-  --color-dark-surface: #121212;
-  /* Section Backgrounds */
-  --color-white: #FFFFFF;
-  --color-text-main: #FFFFFF;
-  --color-text-muted: rgba(255, 255, 255, 0.6);
+  --color-dark: #232427;
+  /* Dark background from screenshot */
+  --color-dark-surface: #1C1E21;
+  --color-white: #FDFDFD;
+  --color-text-main: #FDFDFD;
+  --color-text-muted: rgba(253, 253, 253, 0.6);
+  --color-border: rgba(253, 253, 253, 0.1);
 
-  /* Typography */
-  --font-primary: 'DM Sans', sans-serif;
+  /* Typography - Calibrated to Screenshot 2 */
+  --font-primary: 'Plus Jakarta Sans', sans-serif;
   --font-serif: 'Crimson Text', serif;
-  --font-display: 'DM Sans', sans-serif;
-  /* Fallback for JUNE watermark */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-june: 'Dune Rise', sans-serif;
 
+  /* Spacing System */
+  --space-unit: 8px;
+  --space-xs: calc(var(--space-unit) * 1);
+  --space-sm: calc(var(--space-unit) * 2);
+  --space-md: calc(var(--space-unit) * 4);
+  --space-lg: calc(var(--space-unit) * 8);
+  --space-xl: calc(var(--space-unit) * 12);
+
+  /* Layout */
   --container-max-width: 1440px;
   --content-padding: 0 156px;
-  --section-padding: 100px 0;
+  --section-padding: 120px 0;
 }
 
 @media (max-width: 1200px) {
   :root {
     --content-padding: 0 40px;
+    --section-padding: 100px 0;
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    --content-padding: 0 20px;
-    --section-padding: 60px 20px;
+    --content-padding: 0 24px;
+    --section-padding: 80px 0;
   }
 }
 
