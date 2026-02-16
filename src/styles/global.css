@@ -2997,8 +2997,8 @@ button {
    Keep absolute positioning, just scale/reposition for viewport
    ============================================================ */
 
-/* --- Tablet (≤992px) --- */
-@media (max-width: 992px) {
+/* --- Tablet (≤1024px) — includes iPad Pro --- */
+@media (max-width: 1024px) {
 
     /* Heading: reposition to visible area, allow wrapping */
     .protecting-innovation-powering-insights {
@@ -3126,22 +3126,32 @@ button {
         justify-content: center !important;
     }
 
-    /* HIDE all original background-image hero elements on mobile
-       — replaced by .mobile-hero-showcase with real <img> tags */
+    /* HIDE original hero images on mobile — replaced by .mobile-hero-showcase */
     .image,
     .property-component,
     .component,
     .arrow,
-    .group,
     .form {
         display: none !important;
+    }
+
+    /* Orbital arcs — below JUNE text, right side (like desktop) */
+    .group {
+        width: 200vw !important;
+        height: 200vw !important;
+        top: 600px !important;
+        left: 50vw !important;
+        opacity: 0.5 !important;
+        z-index: 5 !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
     }
 
     /* JUNE text below the showcase */
     .frame-9 {
         width: 90% !important;
-        height: 60px !important;
-        top: 750px !important;
+        height: 120px !important;
+        top: 850px !important;
         left: 5% !important;
     }
 }
