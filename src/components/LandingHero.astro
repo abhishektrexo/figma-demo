@@ -24,13 +24,141 @@
   </div>
   <div class="component"></div>
   <div class="frame-9"></div>
+
+  <!-- Mobile-only: Image showcase strip (hidden on desktop) -->
+  <div class="mobile-hero-showcase">
+    <div class="showcase-main">
+      <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/c1cmUZnZY2.png" alt="June Dashboard" class="showcase-img" />
+    </div>
+    <div class="showcase-connectors">
+      <div class="connector-line left"></div>
+      <div class="connector-line right"></div>
+      <div class="connector-dot left"></div>
+      <div class="connector-dot center"></div>
+      <div class="connector-dot right"></div>
+    </div>
+    <div class="showcase-strip">
+      <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/MgRk99KZk3.png" alt="Bibliographic Data Extraction" class="showcase-thumb" />
+      <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/fif70SBut5.png" alt="Correspondence Address" class="showcase-thumb" />
+      <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/NcvkK9PP5E.png" alt="Form Interface" class="showcase-thumb" />
+    </div>
+  </div>
 </div>
 
 <style>
-  /* Master CSS in global.css handles the absolute positioning of these elements */
-  /* based on their relationship to .main-container in BaseLayout.astro */
   .landing-hero-container {
-    /* This component just acts as a logical grouping for the absolute elements */
-    /* Master styles target these classes directly. */
+    /* Logical grouping */
+  }
+
+  /* Mobile showcase: HIDDEN on desktop */
+  .mobile-hero-showcase {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-hero-showcase {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      position: absolute;
+      top: 310px;
+      left: 0;
+      width: 100%;
+      padding: 0 16px;
+      box-sizing: border-box;
+      z-index: 180;
+    }
+
+    .showcase-main {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    .showcase-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    /* === Dotted connection lines between main image and thumbnails === */
+    .showcase-connectors {
+      position: relative;
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    /* Horizontal baseline */
+    .showcase-connectors::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 15%;
+      right: 15%;
+      border-bottom: 2px dashed rgba(0, 92, 185, 0.4);
+    }
+
+    /* Vertical center line from main image  */
+    .showcase-connectors::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 0;
+      height: 100%;
+      border-left: 2px dashed rgba(0, 92, 185, 0.4);
+    }
+
+    /* Individual connector dots for left and right */
+    .connector-dot {
+      position: absolute;
+      bottom: -4px;
+      width: 8px;
+      height: 8px;
+      background: #005cb9;
+      border-radius: 50%;
+      z-index: 5;
+    }
+
+    .connector-dot.left { left: 15%; transform: translateX(-50%); }
+    .connector-dot.center { left: 50%; transform: translateX(-50%); }
+    .connector-dot.right { right: 15%; transform: translateX(50%); }
+
+    /* Vertical lines from the horizontal bar to each thumb */
+    .connector-line {
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 100%;
+      border-left: 2px dashed rgba(0, 92, 185, 0.4);
+    }
+
+    .connector-line.left { left: 15%; }
+    .connector-line.right { right: 15%; }
+
+    .showcase-strip {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      justify-content: center;
+      margin-top: 4px;
+      padding-top: 4px;
+    }
+
+    .showcase-thumb {
+      width: 30%;
+      max-width: 120px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
   }
 </style>

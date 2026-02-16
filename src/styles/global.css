@@ -13,6 +13,13 @@
         "Source Han Sans CN", sans-serif;
 }
 
+html,
+body {
+    background: #232427;
+    margin: 0;
+    padding: 0;
+}
+
 .main-container {
     overflow: hidden;
 }
@@ -279,7 +286,7 @@ button {
     left: 853px;
     background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/MgRk99KZk3.png) no-repeat center;
     background-size: cover;
-    z-index: 175;
+    z-index: 200;
 }
 
 .arrow {
@@ -486,7 +493,7 @@ button {
     left: 698px;
     background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/fif70SBut5.png) no-repeat center;
     background-size: cover;
-    z-index: 176;
+    z-index: 200;
 }
 
 .frame-9 {
@@ -2981,5 +2988,183 @@ button {
     .frame-1 {
         flex-wrap: wrap !important;
         gap: 10px 20px !important;
+    }
+}
+
+/* ============================================================
+   SECTION 2: Landing Hero — Responsive Overrides
+   Keep absolute positioning, just scale/reposition for viewport
+   ============================================================ */
+
+/* --- Tablet (≤992px) --- */
+@media (max-width: 992px) {
+
+    /* Heading: reposition to visible area, allow wrapping */
+    .protecting-innovation-powering-insights {
+        transform: none !important;
+        top: 140px !important;
+        left: 5% !important;
+        width: 50% !important;
+        white-space: normal !important;
+        font-size: 32px !important;
+        line-height: 44px !important;
+    }
+
+    .protecting,
+    .innovation,
+    .powering-insights,
+    .insights {
+        font-size: 32px !important;
+        line-height: 44px !important;
+    }
+
+    /* CTA Buttons */
+    .frame-8 {
+        top: 330px !important;
+        left: 5% !important;
+    }
+
+    /* Center dashboard image - scale to fit */
+    .image {
+        width: 50vw !important;
+        max-width: 450px !important;
+        height: auto !important;
+        aspect-ratio: 644 / 341;
+        top: 160px !important;
+        left: 45% !important;
+    }
+
+    /* Top-right card - reposition within viewport */
+    .property-component {
+        width: 150px !important;
+        height: 90px !important;
+        top: 110px !important;
+        left: 70% !important;
+        z-index: 200 !important;
+    }
+
+    /* Bottom card */
+    .component {
+        width: 140px !important;
+        height: 84px !important;
+        top: 380px !important;
+        left: 48% !important;
+        z-index: 200 !important;
+    }
+
+    /* Hide decorative arrows */
+    .arrow {
+        display: none !important;
+    }
+
+    /* Scale orbital background */
+    .group {
+        width: 500px !important;
+        height: 500px !important;
+        top: 300px !important;
+        left: 55% !important;
+        opacity: 0.2;
+    }
+
+    .form {
+        display: none !important;
+    }
+
+    /* JUNE text */
+    .frame-9 {
+        width: 80% !important;
+        height: 100px !important;
+        top: 500px !important;
+        left: 5% !important;
+    }
+}
+
+/* --- Mobile/Tablet Hero Redesign (≤768px) --- */
+@media (max-width: 768px) {
+
+    /* Let hero content overflow vertically */
+    .main-container {
+        overflow: visible !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Heading: reposition for mobile */
+    .protecting-innovation-powering-insights {
+        transform: none !important;
+        top: 100px !important;
+        left: 5% !important;
+        width: 90% !important;
+        font-size: 24px !important;
+        line-height: 34px !important;
+        text-align: center !important;
+        white-space: normal !important;
+    }
+
+    .protecting,
+    .innovation,
+    .powering-insights,
+    .insights {
+        font-size: 24px !important;
+        line-height: 34px !important;
+    }
+
+    /* CTA Buttons: center below heading */
+    .frame-8 {
+        top: 210px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        align-items: center !important;
+        width: 200px !important;
+    }
+
+    .buttons,
+    .see-how-it-works {
+        width: 200px !important;
+        justify-content: center !important;
+    }
+
+    /* HIDE all original background-image hero elements on mobile
+       — replaced by .mobile-hero-showcase with real <img> tags */
+    .image,
+    .property-component,
+    .component,
+    .arrow,
+    .group {
+        display: none !important;
+    }
+
+    /* JUNE text below the showcase */
+    .frame-9 {
+        width: 90% !important;
+        height: 60px !important;
+        top: 680px !important;
+        left: 5% !important;
+    }
+}
+
+/* --- Small Mobile (≤480px) --- */
+@media (max-width: 480px) {
+    .protecting-innovation-powering-insights {
+        font-size: 22px !important;
+        line-height: 30px !important;
+    }
+
+    .protecting,
+    .innovation,
+    .powering-insights,
+    .insights {
+        font-size: 22px !important;
+        line-height: 30px !important;
+    }
+
+    .frame-8 {
+        top: 190px !important;
+    }
+
+    .frame-9 {
+        top: 620px !important;
+        height: 50px !important;
     }
 }
