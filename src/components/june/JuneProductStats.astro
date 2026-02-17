@@ -1,0 +1,157 @@
+---
+const stats = [
+  {
+    value: "96%",
+    label: "Automated SLA Compliance",
+    description: "On-time delivery against agreed service levels."
+  },
+  {
+    value: "80%",
+    label: "Reduced Time",
+    description: "Minimized turnaround for quicker delivery."
+  },
+  {
+    value: "110X",
+    label: "Faster Turnaround",
+    description: "Quick delivery with improved speed."
+  },
+  {
+    value: "70%",
+    label: "Better Utilisation",
+    description: "Maximizing efficiency through smarter resource use."
+  },
+  {
+    value: "85%",
+    label: "Efficiency Gain",
+    description: "Improved performance through smarter processes."
+  },
+  {
+    value: "631%",
+    label: "Volume Throughput via Automation",
+    description: "The amount of workload or transactions processed within a given time."
+  }
+];
+---
+<section class="june-stats section-padding">
+  <div class="centered-container stats-flex">
+    <div class="stats-grid">
+      {stats.map(stat => (
+        <div class="stat-item">
+          <div class="stat-value">{stat.value}</div>
+          <div class="stat-label">{stat.label}</div>
+          <div class="stat-description">{stat.description}</div>
+        </div>
+      ))}
+    </div>
+    <div class="stats-visual">
+      <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/xuEARU20rC.png" alt="Statistics Visualization" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .june-stats {
+    background-color: var(--bg-dark);
+    padding: 100px 0;
+  }
+
+  .stats-flex {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    max-width: 1200px;
+    padding: 0 40px;
+  }
+
+  .stats-grid {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 40px;
+    z-index: 2;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stat-value {
+    font-family: 'Lato', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--text-white);
+    line-height: 1.2;
+  }
+
+  .stat-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-white);
+    line-height: 1.4;
+  }
+
+  .stat-description {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-muted);
+    line-height: 1.5;
+    max-width: 220px;
+  }
+
+  .stats-visual {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .stats-visual img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .stats-flex {
+      flex-direction: column;
+      gap: 60px;
+    }
+    
+    .stats-grid {
+      width: 100%;
+      order: 2;
+    }
+    
+    .stats-visual {
+      width: 100%;
+      order: 1;
+      justify-content: center;
+    }
+
+    .stats-visual img {
+      max-width: 300px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .stat-description {
+      max-width: 100%;
+    }
+  }
+</style>

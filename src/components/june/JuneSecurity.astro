@@ -1,0 +1,272 @@
+---
+const securityFeatures = [
+  {
+    title: "Audit Trails & Logs",
+    description: "Complete traceability for every action",
+    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/VV9QjdDbam.png" // Using representative placeholder from repo
+  },
+  {
+    title: "Two-Factor Authentication (2FA)",
+    description: "Adds an extra layer of security by requiring a second verification step during login.",
+    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/VV9QjdDbam.png"
+  },
+  {
+    title: "SOC 2 Type II",
+    description: "Independently audited to meet SOC 2 standards for security, availability, and confidentiality of customer data.",
+    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/VV9QjdDbam.png"
+  }
+];
+
+const highlights = [
+  {
+    title: "USPTO / WIPO aligned workflows",
+    description: "Aligned with USPTO and WIPO filing standards."
+  },
+  {
+    title: "Data Isolation",
+    description: "Each client’s data is logically isolated—no cross-client access"
+  }
+];
+---
+<section class="june-security section-padding">
+  <div class="centered-container">
+    <div class="security-intro">
+      <p class="trusted-text">JUNE is your trusted assistant for smarter IP management—delivering efficiency, compliance, and results at scale.</p>
+    </div>
+
+    <div class="orbital-viz-container">
+      <div class="orbital-hub">
+        <div class="central-lock">
+          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/xd1iCWeoek.png" alt="Lock icon" class="lock-icon" />
+        </div>
+        
+        <div class="orbit-points">
+            {highlights.map((h, i) => (
+                <div class={`orbit-point point-${i}`}>
+                    <div class="point-dot"></div>
+                    <div class="point-label">
+                        <h4>{h.title}</h4>
+                        <p>{h.description}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="security-cards-grid">
+      {securityFeatures.map(f => (
+        <div class="security-card">
+          <div class="card-icon">
+             <img src={f.icon} alt={f.title} />
+          </div>
+          <h3 class="card-title">{f.title}</h3>
+          <p class="card-description">{f.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .june-security {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    padding: 120px 0;
+  }
+
+  .security-intro {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 120px auto;
+    padding: 0 40px;
+  }
+
+  .trusted-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 28px;
+    line-height: 1.5;
+    opacity: 0.95;
+    font-weight: 500;
+  }
+
+  .orbital-viz-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 150px;
+    position: relative;
+    padding: 0 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .orbital-hub {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .central-lock {
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 0 60px rgba(0, 92, 185, 0.5);
+  }
+
+  .lock-icon {
+    width: 60px;
+    height: auto;
+  }
+
+  .orbit-points {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .orbit-point {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 250px;
+  }
+
+  .point-dot {
+    width: 20px;
+    height: 20px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 15px var(--primary-blue);
+  }
+
+  .point-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--primary-blue);
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+
+  .point-label h4 {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-white);
+  }
+
+  .point-label p {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--text-muted);
+  }
+
+  .point-0 {
+    top: 20%;
+    left: 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .point-1 {
+    bottom: 20%;
+    right: 0;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .security-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .security-card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .card-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .card-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-white);
+  }
+
+  .card-description {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .security-cards-grid {
+      grid-template-columns: 1fr;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .orbital-hub {
+      width: 100%;
+      height: auto;
+      flex-direction: column;
+      gap: 40px;
+    }
+    
+    .orbit-points {
+      position: static;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      align-items: center;
+    }
+    
+    .orbit-point {
+      position: static;
+      width: 100%;
+      align-items: center !important;
+      text-align: center !important;
+    }
+  }
+</style>

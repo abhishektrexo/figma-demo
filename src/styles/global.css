@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Dune Rise";
-    src: url("https://assets.website-files.com/65742d13149179213710492c/65742d131491792137104936_DuneRise-Regular.woff2") format("woff2");
+    src: url("/fonts/Dune_Rise.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -11,6 +11,31 @@
         Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
         "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
         "Source Han Sans CN", sans-serif;
+
+    /* Design System Tokens */
+    --primary-blue: #005cb9;
+    --primary-blue-dark: #004c99;
+    --bg-dark: #232427;
+    --bg-dark-alt: #242428;
+    --bg-light: #f3f7fc;
+    --text-white: #fdfdfd;
+    --text-muted: #8b8b8b;
+    --text-dark: #232427;
+
+    --max-width: 1440px;
+    --section-spacing: 100px;
+}
+
+.centered-container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.section-padding {
+    padding: var(--section-spacing) 0;
 }
 
 html,
@@ -18,6 +43,7 @@ body {
     background: #232427;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 .main-container {

@@ -1,0 +1,240 @@
+---
+const reasons = [
+  {
+    id: "01",
+    title: "Faster, automated IP workflows",
+    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/OiU70MQibJ.png"
+  },
+  {
+    id: "02",
+    title: "Standardized, error-free processes",
+    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/OiU70MQibJ.png"
+  },
+  {
+    id: "03",
+    title: "Scalable for growing IP portfolios",
+    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/OiU70MQibJ.png"
+  },
+  {
+    id: "04",
+    title: "Improved compliance & accuracy",
+    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/OiU70MQibJ.png"
+  },
+  {
+    id: "05",
+    title: "Competitive advantage through efficiency",
+    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/OiU70MQibJ.png"
+  }
+];
+---
+<section class="june-why section-padding">
+  <div class="centered-container">
+    <div class="why-header">
+      <h2 class="why-title">Why Choose JUNE</h2>
+      <p class="why-subtitle">Built for IP professionals who demand accuracy, June simplifies complex filings with intelligent automation and complete transparency.</p>
+    </div>
+    
+    <div class="why-content">
+      <div class="reasons-list">
+        {reasons.map(reason => (
+          <div class="reason-item">
+            <div class="reason-id">{reason.id}</div>
+            <div class="reason-title">{reason.title}</div>
+            <div class="reason-arrow">
+              <img src={reason.icon} alt="arrow" />
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="why-imagery">
+        <div class="image-stack">
+          <div class="image-large">
+            <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/xd1iCWeoek.png" alt="Branding" class="image-watermark-bg" />
+            <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/xd1iCWeoek.png" alt="High-rise" />
+          </div>
+          <div class="image-small-top">
+            <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/xd1iCWeoek.png" alt="Laptop" />
+          </div>
+          <div class="image-small-bottom">
+            <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/xd1iCWeoek.png" alt="Office Collaboration" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .june-why {
+    background-color: var(--bg-dark);
+    padding: 100px 0;
+  }
+
+  .why-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 100px auto;
+    padding: 0 40px;
+  }
+
+  .why-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 32px;
+  }
+
+  .why-subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--text-white);
+    opacity: 0.9;
+  }
+
+  .why-content {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .reasons-list {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .reason-item {
+    display: flex;
+    align-items: center;
+    background: var(--text-white);
+    padding: 28px 40px;
+    border-radius: 16px;
+    gap: 24px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .reason-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .reason-id {
+    font-family: 'Lato', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-blue);
+  }
+
+  .reason-title {
+    flex: 1;
+    font-family: 'Lato', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+
+  .reason-arrow {
+    width: 28px;
+    height: 28px;
+  }
+
+  .reason-arrow img {
+    width: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .why-imagery {
+    flex: 1;
+    position: relative;
+    height: 650px;
+  }
+
+  .image-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Placeholder logic for the image collage - will use actual URLs if they were distinctive, 
+     but currently the data-astro-pid attributes point to the same file in the diff. 
+     I'll use the provided skyscraper image for the main one. */
+  .image-large {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .image-small-top {
+    position: absolute;
+    width: 50%;
+    height: 45%;
+    right: 0;
+    top: 55%;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 2;
+    border: 4px solid var(--bg-dark);
+  }
+
+  .image-small-bottom {
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    right: 15%;
+    top: 5%;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 3;
+    border: 4px solid var(--bg-dark);
+  }
+
+  .image-stack img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1100px) {
+    .why-content {
+      flex-direction: column;
+      gap: 60px;
+    }
+    
+    .why-imagery {
+      width: 100%;
+      height: 500px;
+    }
+    
+    .reasons-list {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .why-title {
+      font-size: 32px;
+    }
+    
+    .reason-item {
+      padding: 16px 24px;
+    }
+    
+    .reason-title {
+      font-size: 18px;
+    }
+  }
+</style>

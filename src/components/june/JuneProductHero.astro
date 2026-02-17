@@ -1,0 +1,179 @@
+---
+---
+<section class="june-hero">
+  <div class="watermark watermark-top">JUNE</div>
+  <div class="watermark watermark-bottom">JUNE</div>
+  
+  <div class="centered-container hero-content">
+    <div class="text-side">
+      <h1 class="hero-description">
+        JUNE is Trexo’s latest innovation in IP management, built to simplify and accelerate patent and trademark prosecution workflows. By automating critical tasks, JUNE saves time, reduces costs, and ensures unmatched accuracy—helping IP teams work smarter, faster, and more efficiently.
+      </h1>
+      <a href="/contact-us" class="btn-demo">Book a Demo</a>
+    </div>
+    <div class="image-side">
+      <div class="mockup-frame">
+        <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/VV9QjdDbam.png" alt="JUNE Interface Mockup" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .june-hero {
+    position: relative;
+    background-color: var(--primary-blue);
+    min-height: 850px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 160px 0 100px;
+    border-radius: 0 0 100px 100px;
+  }
+
+  .watermark {
+    position: absolute;
+    color: #004C9A;
+    font-family: "Dune Rise", sans-serif;
+    font-size: 240px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    pointer-events: none;
+    z-index: 1;
+    white-space: nowrap;
+    opacity: 0.15;
+  }
+
+  .watermark-top {
+    top: 20px;
+    left: -150px;
+  }
+
+  .watermark-bottom {
+    bottom: -80px;
+    right: -200px;
+  }
+
+  .hero-content {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    z-index: 2;
+    position: relative;
+    max-width: 1200px;
+    padding: 40px 40px 0;
+  }
+
+  .text-side {
+    flex: 1;
+    max-width: 500px;
+  }
+
+  .june-branding {
+    font-family: "Dune Rise", sans-serif;
+    font-size: 32px;
+    color: var(--text-white);
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+  }
+
+  .hero-description {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text-white);
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  .btn-demo {
+    display: inline-block;
+    padding: 14px 40px;
+    background-color: var(--text-white);
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-demo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .image-side {
+    flex: 1.3;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .mockup-frame {
+    width: 100%;
+    max-width: 750px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mockup-frame img {
+    width: 100%;
+    display: block;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .watermark-bottom {
+      left: 10%;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .june-hero {
+        min-height: auto;
+        padding-top: 140px;
+    }
+    .hero-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 60px;
+    }
+    
+    .text-side {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .image-side {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .brand-image {
+      height: 48px;
+    }
+    
+    .hero-description {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+    
+    .june-hero {
+      border-radius: 0 0 60px 60px;
+    }
+    
+    .btn-demo {
+        width: 100%;
+        max-width: 300px;
+    }
+  }
+</style>
