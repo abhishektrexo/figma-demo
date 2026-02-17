@@ -118,14 +118,12 @@ const juneSteps = [
 
   .timeline-container {
     position: relative;
-    padding-left: 20px;
+    padding-left: 40px; /* Increased padding to make room for the line at 20px */
   }
 
   .vertical-line {
     position: absolute;
-        margin-left: 20px;
-
-    left: 0;
+    left: 20px; /* Precise absolute position */
     top: 8px;
     bottom: 8px;
     width: 2px;
@@ -150,7 +148,7 @@ const juneSteps = [
 
   .timeline-dot {
     position: absolute;
-    left: -4px;
+    left: 16px; /* Centered on 20px line: 20px - (10px/2) + (2px/2) = 16px */
     top: 8px;
     width: 10px;
     height: 10px;
@@ -163,7 +161,7 @@ const juneSteps = [
     color: #000000;
     line-height: 1.4;
     font-weight: 400;
-    padding-left: 30px;
+    padding-left: 20px; /* Text starts after bullet space */
   }
 
   /* Responsive Design */

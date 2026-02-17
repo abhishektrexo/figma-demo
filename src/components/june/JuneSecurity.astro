@@ -1,81 +1,94 @@
----
-const securityFeatures = [
-  {
-    id: "data-isolation",
-    title: "Data Isolation",
-    description: "Each client's data is logically isolated—no cross-client access",
-    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/9PGrSqRY1Q.png", // Filter icon
-    color: "#00c389", // Green
-    position: "left-top"
-  },
-  {
-    id: "audit-trails",
-    title: "Audit Trails & Logs",
-    description: "Complete traceability for every action",
-    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/rovX2BixQL.png", // Audit icon
-    color: "#00a3e0", // Light Blue
-    position: "left-bottom"
-  },
-  {
-    id: "soc2",
-    title: "SOC 2 Type II",
-    description: "Independently audited to meet SOC 2 standards for security, availability, and confidentiality of customer data.",
-    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/GFVbR42syk.png", // SOC 2 icon
-    color: "#ffc72c", // Yellow
-    position: "center-bottom"
-  },
-  {
-    id: "2fa",
-    title: "Two-Factor Authentication (2FA)",
-    description: "Adds an extra layer of security by requiring a second verification step during login.",
-    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/0AcUZL78hQ.png", // 2FA icon
-    color: "#005cb9", // Trexo Blue
-    position: "right-bottom"
-  },
-  {
-    id: "uspto",
-    title: "USPTO / WIPO aligned workflows",
-    description: "Aligned with USPTO and WIPO filing standards.",
-    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/jpFwUzR9ed.png", // Workflow icon
-    color: "#ff8200", // Orange
-    position: "right-top"
-  }
-];
----
 <section class="june-security">
   <div class="centered-container">
     <div class="security-intro">
       <p class="trusted-text">JUNE is your trusted assistant for smarter IP management—delivering efficiency, compliance, and results at scale.</p>
     </div>
 
-    <div class="orbital-graphic">
-      <!-- Background Arc -->
-      <div class="orbit-arc"></div>
+    <!-- 1:1 Restoration of the Security Visualization -->
+    <div class="security-viz-root">
       
-      <!-- Central Hub -->
-      <div class="central-hub">
-        <div class="hub-circle">
-          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/ZaWWyzxdEZ.png" alt="Lock" class="lock-icon" />
+      <!-- Primary Container (.flex-row-f in original) -->
+      <div class="sec-primary">
+        <!-- Hub Glow (341px) -->
+        <div class="hub-glow"></div>
+        
+        <!-- Hub Core (203px) -->
+        <div class="hub-core"></div>
+        
+        <!-- Lock & Dot -->
+        <div class="lock-wrapper">
+          <div class="lock-main"></div>
+          <div class="lock-dot"></div>
+        </div>
+
+        <!-- Marker Dots -->
+        <div class="dot d1"></div>
+        <div class="dot d2"></div>
+        <div class="dot d3"></div>
+        <div class="dot d4"></div>
+        <div class="dot d5"></div>
+
+        <!-- Bubbles & Pointers -->
+        
+        <!-- Data Isolation (Wrapped in a single asset in original but we'll use the components) -->
+        <div class="bubble data-iso-bubble">
+          <div class="bubble-icon icon-iso"></div>
+        </div>
+
+        <!-- USPTO Bubble -->
+        <div class="bubble uspto-bubble">
+          <div class="bubble-icon icon-uspto"></div>
+        </div>
+        <div class="pointer p-uspto"></div>
+
+        <!-- Audit Trails Bubble -->
+        <div class="bubble audit-bubble">
+           <div class="bubble-icon icon-audit"></div>
+        </div>
+        <div class="pointer p-audit"></div>
+
+        <!-- 2FA Bubble -->
+        <div class="bubble twofa-bubble">
+           <div class="bubble-icon icon-2fa"></div>
+        </div>
+        <div class="pointer p-twofa"></div>
+
+        <!-- Text Blocks (Top features) -->
+        <div class="text-card data-iso-text">
+          <h3>Data Isolation</h3>
+          <p>Each client’s data is logically isolated—no cross-client access</p>
+        </div>
+
+        <div class="text-card uspto-text">
+          <h3>USPTO / WIPO aligned workflows</h3>
+          <p>Aligned with USPTO and WIPO filing standards.</p>
         </div>
       </div>
 
-      <!-- Security Bubbles -->
-      <div class="bubbles-container">
-        {securityFeatures.map(f => (
-          <div class={`security-bubble ${f.id} ${f.position}`}>
-            <div class="bubble-content">
-              <div class="icon-circle" style={`border-color: ${f.color}`}>
-                <img src={f.icon} alt={f.title} />
-                <div class="connecting-dot" style={`background-color: ${f.color}`}></div>
-              </div>
-              <div class="bubble-text">
-                <h3>{f.title}</h3>
-                <p>{f.description}</p>
-              </div>
-            </div>
-          </div>
-        ))}
+      <!-- Secondary Container (.flex-row-eaac in original) -->
+      <div class="sec-secondary">
+        <!-- SOC 2 Bubble -->
+        <div class="soc2-wrapper">
+          <div class="soc2-icon"></div>
+        </div>
+
+        <!-- Bottom Feature Text -->
+        <div class="text-card audit-text">
+          <h3>Audit Trails & Logs</h3>
+          <p>Complete traceability for every action</p>
+        </div>
+
+        <div class="text-card twofa-text">
+          <h3>Two-Factor Authentication (2FA)</h3>
+          <p>Adds an extra layer of security by requiring a second verification step during login.</p>
+        </div>
+
+        <div class="text-card soc2-text">
+          <h3>SOC 2 Type II</h3>
+          <p>Independently audited to meet SOC 2 standards for security, availability, and confidentiality of customer data.</p>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -84,7 +97,7 @@ const securityFeatures = [
   .june-security {
     background-color: #242428;
     color: white;
-    padding: 120px 0 160px;
+    padding: 100px 0 200px;
     overflow: hidden;
   }
 
@@ -97,193 +110,206 @@ const securityFeatures = [
 
   .trusted-text {
     font-family: 'Lato', sans-serif;
-    font-size: 28px;
+    font-size: 26px;
     line-height: 1.5;
     font-weight: 500;
-    color: #ffffff;
   }
 
-  .orbital-graphic {
+  /* 1:1 Layout Container */
+  .security-viz-root {
     position: relative;
-    max-width: 1200px;
-    height: 600px;
+    max-width: 1200px; /* Centered relative space */
+    height: 900px;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
   }
 
-  .orbit-arc {
+  /* Container 1: flex-row-f (mapped to 985x513) */
+  .sec-primary {
     position: absolute;
-    top: 150px;
-    width: 600px;
-    height: 300px;
-    border: 2px dashed rgba(255, 255, 255, 0.2);
-    border-radius: 300px 300px 0 0;
-    border-bottom: 0;
-    transform: rotate(180deg); /* Flip to be a bottom arc */
+    width: 985px;
+    height: 513px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
   }
 
-  .central-hub {
+  /* Hub & Lock */
+  .hub-glow {
     position: absolute;
-    top: 50px;
+    width: 341px;
+    height: 341px;
+    top: 0;
+    left: 294px;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/59DW4T1dx2.png) no-repeat center;
+    background-size: cover;
     z-index: 10;
   }
 
-  .hub-circle {
-    width: 200px;
-    height: 200px;
-    background-color: white;
+  .hub-core {
+    position: absolute;
+    width: 203px;
+    height: 203px;
+    top: 62px;
+    left: 363px;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/aRJW19qSHk.png) no-repeat center;
+    background-size: cover;
+    z-index: 20;
+    border-radius: 50%;
+  }
+
+  .lock-wrapper {
+    position: absolute;
+    width: 110px;
+    height: 137px;
+    top: 101px;
+    left: 410px;
+    z-index: 30;
+  }
+
+  .lock-main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/ZaWWyzxdEZ.png) no-repeat center;
+    background-size: contain;
+  }
+
+  .lock-dot {
+    position: absolute;
+    width: 8.33%;
+    height: 10%;
+    top: 46.67%;
+    left: 45.83%;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/YR7pcxk5B8.png) no-repeat center;
+    background-size: contain;
+    z-index: 31;
+  }
+
+  /* Marker Dots (24x24) */
+  .dot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    z-index: 15;
+    background-size: cover;
+  }
+  .d1 { background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/1VCb5x0Mrw.png); top: 218px; left: 319px; }
+  .d2 { background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/soPuG7GZ0Y.png); top: 218px; left: 590px; }
+  .d3 { background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/w0RdXKqyUq.png); top: 279px; left: 365px; }
+  .d4 { background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/L4yH3xts6r.png); top: 279px; left: 542px; }
+  .d5 { background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/g9HcFeod7Y.png); top: 306px; left: 457px; }
+
+  /* Bubbles (141x141) */
+  .bubble {
+    position: absolute;
+    width: 141px;
+    height: 141px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 50px rgba(0, 92, 185, 0.3);
-  }
-
-  .lock-icon {
-    width: 80px;
-    height: auto;
-  }
-
-  /* Bubbles Positioning Logic */
-  .bubbles-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  .security-bubble {
-    position: absolute;
-    width: 280px;
-  }
-
-  .bubble-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    text-align: center;
-  }
-
-  .icon-circle {
-    width: 120px;
-    height: 120px;
     background-color: white;
-    border-radius: 50%;
-    padding: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid transparent;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 40;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
 
-  .icon-circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  .bubble-icon {
+    width: 64px;
+    height: 64px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
-  .connecting-dot {
+  /* Bubble Positioning */
+  .data-iso-bubble {
+    width: 171px; /* Special assets for data isolation include tail? No, original had .group-45 */
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/MnQaExQ2bX.png) no-repeat center;
+    background-size: contain;
+    background-color: transparent;
+    box-shadow: none;
+    top: 189px;
+    left: 128px;
+  }
+
+  .uspto-bubble { top: 177px; left: 674px; border: 4px solid #ff8200; }
+  .audit-bubble { top: 372px; left: 202px; border: 4px solid #00a3e0; }
+  .twofa-bubble { top: 372px; left: 586px; border: 4px solid #005cb9; }
+
+  /* Icons */
+  .icon-iso { background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/9PGrSqRY1Q.png); }
+  .icon-uspto { background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/jpFwUzR9ed.png); }
+  .icon-audit { background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/rovX2BixQL.png); }
+  .icon-2fa { background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/0AcUZL78hQ.png); }
+
+  /* Pointers */
+  .pointer {
     position: absolute;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    top: -6px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 35;
+  }
+  .p-uspto { width: 40px; height: 40px; top: 222px; left: 639px; background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/gTOS0YYCpK.png); }
+  .p-audit { width: 49px; height: 49px; top: 351px; left: 294px; background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/9EsMPfixXY.png); }
+  .p-twofa { width: 49px; height: 49px; top: 350px; left: 583px; background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/hWmbeH39jK.png); }
+
+  /* Container 2: flex-row-eaac (mapped to bottom area) */
+  .sec-secondary {
+    position: absolute;
+    width: 792px;
+    height: 328px;
     left: 50%;
     transform: translateX(-50%);
+    top: 407px; /* Matches relative gap */
   }
 
-  .bubble-text h3 {
-    font-family: 'Lato', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 8px;
+  .soc2-wrapper {
+    position: absolute;
+    width: 141px;
+    height: 172px;
+    top: 0;
+    left: 323px;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/BLOwFUrCHZ.png) no-repeat center;
+    background-size: contain;
+    z-index: 45;
   }
 
-  .bubble-text p {
-    font-family: 'Lato', sans-serif;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.4;
+  .soc2-icon {
+    width: 73px;
+    height: 92px;
+    margin: 55px auto 0;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/GFVbR42syk.png) no-repeat center;
+    background-size: contain;
   }
 
-  /* Specific Bubble Placement based on Figma/HTML coordinates approx */
-  .data-isolation {
-    left: 10%;
-    top: 150px;
+  /* Text Blocks */
+  .text-card {
+    position: absolute;
+    width: 220px;
+    text-align: left;
+    z-index: 50;
   }
+  .text-card h3 { font-family: 'Lato', sans-serif; font-size: 18px; font-weight: 700; color: white; margin-bottom: 6px; }
+  .text-card p { font-family: 'Lato', sans-serif; font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.4; }
 
-  .audit-trails {
-    left: 20%;
-    top: 350px;
-  }
+  /* 1:1 Text Positions */
+  .data-iso-text { top: 298px; left: 0; } 
+  .uspto-text { top: 290px; left: 821px; } 
+  
+  /* Bottom Text relative to sec-secondary */
+  .audit-text { top: 113px; left: 0; }
+  .twofa-text { top: 121px; left: 628px; }
+  .soc2-text { top: 200px; left: 331px; width: 240px; }
 
-  .soc2 {
-    left: 50%;
-    top: 450px;
-    transform: translateX(-50%);
-  }
-
-  .2fa {
-    right: 20%;
-    top: 350px;
-  }
-
-  .uspto {
-    right: 10%;
-    top: 150px;
-  }
-
-  /* Responsive - simpler layout for smaller screens */
   @media (max-width: 1100px) {
-    .orbital-graphic {
-      height: auto;
-      flex-direction: column;
-      align-items: center;
-      gap: 50px;
-    }
-    
-    .orbit-arc { display: none; }
-    
-    .central-hub {
-      position: relative;
-      top: 0;
-    }
-
-    .bubbles-container {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      padding: 0 20px;
-    }
-
-    .security-bubble {
-      position: relative;
-      left: auto !important;
-      right: auto !important;
-      top: auto !important;
-      transform: none !important;
-      width: 100%;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .trusted-text {
-      font-size: 22px;
-    }
-    
-    .hub-circle {
-      width: 140px;
-      height: 140px;
-    }
-    
-    .lock-icon {
-      width: 50px;
-    }
+    .june-security { padding-bottom: 100px; }
+    .security-viz-root { height: auto; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+    .sec-primary, .sec-secondary { position: relative; left: auto; top: auto; transform: none; width: 100%; height: auto; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+    .hub-glow, .dot, .pointer, .lock-dot { display: none; }
+    .hub-core { position: relative; left: auto; top: auto; margin-bottom: 20px; }
+    .lock-wrapper { position: relative; left: auto; top: -170px; margin-bottom: -130px; }
+    .bubble { position: relative; left: auto; top: auto; }
+    .text-card { position: relative; left: auto; top: auto; width: 100%; text-align: center; padding: 0 20px; }
+    .soc2-wrapper { position: relative; left: auto; top: auto; }
   }
 </style>
