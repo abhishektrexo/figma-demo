@@ -4,9 +4,14 @@ import '../styles/global.css';
 interface Props {
 	title: string;
 	description?: string;
+	containerClass?: string;
 }
 
-const { title, description = "Trexo Global delivers AI-powered IP operations across filing, docketing, renewals, and compliance workflows." } = Astro.props;
+const { 
+	title, 
+	description = "Trexo Global delivers AI-powered IP operations across filing, docketing, renewals, and compliance workflows.",
+	containerClass = ""
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -56,7 +61,7 @@ const { title, description = "Trexo Global delivers AI-powered IP operations acr
 		</script>
 	</head>
 	<body>
-		<div class="main-container">
+		<div class={`main-container ${containerClass}`}>
 			<slot />
 		</div>
 		

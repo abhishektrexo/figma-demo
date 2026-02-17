@@ -40,10 +40,15 @@ button {
     position: relative;
     width: 100%;
     max-width: 1440px;
-    min-height: 5820px;
+    height: auto;
     margin: 0 auto;
     background: #232427;
     overflow-x: hidden !important;
+}
+
+/* Landing Page specific height stabilization (True Codia Restoration) */
+.main-container.landing-page {
+    min-height: 5820px;
 }
 
 /* Navbar CSS moved to Navbar.astro */
@@ -2746,6 +2751,10 @@ button {
     }
 
     /* Services & Compliance sections - Reset from absolute margins */
+    .main-container.landing-page {
+        min-height: auto !important;
+    }
+
     .frame-5,
     .our-clients-intro {
         position: relative !important;
