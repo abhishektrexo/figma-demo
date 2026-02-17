@@ -1,3 +1,6 @@
+---
+import Button from './shared/Button.astro';
+---
 <section class="contact-section">
   <div class="container">
     <div class="contact-grid">
@@ -42,10 +45,12 @@
               <textarea id="message" name="message" rows="3" placeholder="Message"></textarea>
             </div>
 
-            <button type="submit" class="brand-submit-btn" id="submitBtn">
-              <span class="btn-text">CONTACT US</span>
-              <div class="btn-loader"></div>
-            </button>
+            <Button 
+              text="Contact Us" 
+              type="submit" 
+              id="submitBtn" 
+              className="brand-submit-btn" 
+            />
           </form>
 
           <!-- Premium Info Card (Glassmorphism) -->
@@ -56,7 +61,17 @@
               </div>
               <div class="info-text">
                 <span class="info-label">Locations</span>
-                <span class="info-value">USA | India</span>
+                <span class="info-value">
+                  <span class="flag-item">
+                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/us.svg" alt="USA Flag" class="flat-flag" />
+                    USA
+                  </span>
+                  <span class="divider">|</span>
+                  <span class="flag-item">
+                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/in.svg" alt="India Flag" class="flat-flag" />
+                    India
+                  </span>
+                </span>
               </div>
             </div>
 
@@ -117,7 +132,7 @@
     e.preventDefault();
     
     // 1. Client-side Email format validation (Regex)
-    const emailInput = document.getElementById('email') as HTMLInputElement;
+    const emailInput = document.getElementById('email');
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
     if (emailInput && !emailRegex.test(emailInput.value)) {
@@ -246,56 +261,8 @@
     border-bottom-color: #005cb9;
   }
 
-  /* BUTTON FIX (Matching Landing Page) */
   .brand-submit-btn {
-    position: relative;
-    background: #005cb9; /* Trexo Blue */
-    color: white;
-    border: none;
-    padding: 16px 48px;
-    border-radius: 99px; /* Pill shape */
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    width: fit-content;
     margin-top: 32px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'Lato', sans-serif;
-    overflow: hidden;
-  }
-
-  .brand-submit-btn:hover {
-    background: #004a95;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(0, 92, 185, 0.25);
-  }
-
-  .brand-submit-btn.loading .btn-text {
-    opacity: 0;
-  }
-
-  .btn-loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255,255,255,0.3);
-    border-top-color: #fff;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .brand-submit-btn.loading .btn-loader {
-    opacity: 1;
-    animation: btn-spin 0.8s linear infinite;
-  }
-
-  @keyframes btn-spin {
-    to { transform: translate(-50%, -50%) rotate(360deg); }
   }
 
   /* PREMIUM GLASS INFO CARD */
@@ -352,6 +319,29 @@
     font-size: 17px;
     font-weight: 500;
     color: #232427;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+  }
+
+  .flag-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .flat-flag {
+    width: 22px;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 0.5px solid #eee;
+  }
+
+  .divider {
+    color: #ddd;
+    font-weight: 300;
   }
 
   /* TOAST SYSTEM */
@@ -428,7 +418,6 @@
 
   @media (max-width: 640px) {
     .section-title { font-size: 36px; }
-    .brand-submit-btn { width: 100%; }
     .side-image-wrapper { height: 320px; }
   }
 </style>

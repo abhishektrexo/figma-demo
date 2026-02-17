@@ -1,4 +1,5 @@
 ---
+import Button from '../shared/Button.astro';
 ---
 <div class="landing-hero-container">
   <!-- These elements are part of the Hero in the original Codia structure -->
@@ -16,10 +17,8 @@
   <div class="group"></div>
   <div class="form"></div>
   <div class="frame-8">
-    <a href="/contact-us" class="buttons"><span class="book-a-demo">Book a Demo</span></a>
-    <a href="#june-desk" class="see-how-it-works">
-      <span class="property-variant">See How it Works</span>
-    </a>
+    <Button text="Book a Demo" href="/contact-us" />
+    <Button text="See How it Works" href="#june-desk" variant="secondary" />
   </div>
   <div class="component"></div>
   <div class="frame-9"></div>
@@ -45,12 +44,8 @@
 </div>
 
 <style>
-  .see-how-it-works {
-    text-decoration: none !important;
-  }
-
   .landing-hero-container {
-    /* Logical grouping */
+    /* Logical grouping styles are in global.css */
   }
 
   /* Mobile showcase: HIDDEN on desktop */

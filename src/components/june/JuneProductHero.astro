@@ -1,4 +1,5 @@
 ---
+import Button from '../shared/Button.astro';
 ---
 <section class="june-hero">
   <div class="watermark watermark-top">JUNE</div>
@@ -9,7 +10,7 @@
       <h1 class="hero-description">
         JUNE is Trexo’s latest innovation in IP management, built to simplify and accelerate patent and trademark prosecution workflows. By automating critical tasks, JUNE saves time, reduces costs, and ensures unmatched accuracy—helping IP teams work smarter, faster, and more efficiently.
       </h1>
-      <a href="/contact-us" class="btn-demo">Book a Demo</a>
+      <Button text="Book a Demo" href="/contact-us" className="btn-demo" />
     </div>
     <div class="image-side">
       <div class="mockup-frame">
@@ -87,20 +88,22 @@
     font-weight: 400;
   }
 
-  .btn-demo {
-    display: inline-block;
-    padding: 14px 40px;
-    background-color: var(--text-white);
-    color: var(--primary-blue);
+  /* btn-demo is now passed as className to Button */
+  :global(.btn-demo) {
+    background-color: var(--text-white) !important;
     text-decoration: none;
-    font-family: 'Lato', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 8px;
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
-  .btn-demo:hover {
+  :global(.btn-demo .btn-text) {
+    color: var(--Colors-Primary-Primary, #005CB9) !important;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  :global(.btn-demo:hover) {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   }
@@ -158,10 +161,6 @@
   }
 
   @media (max-width: 768px) {
-    .brand-image {
-      height: 48px;
-    }
-    
     .hero-description {
       font-size: 18px;
       margin-bottom: 40px;
@@ -171,7 +170,7 @@
       border-radius: 0 0 60px 60px;
     }
     
-    .btn-demo {
+    :global(.btn-demo) {
         width: 100%;
         max-width: 300px;
     }
