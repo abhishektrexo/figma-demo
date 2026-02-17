@@ -13,7 +13,7 @@ const juneSteps = [
   "OA shell Draft Prepared with Cited References"
 ];
 ---
-<section class="workflow-sample section-padding">
+<section class="workflow-sample">
   <div class="centered-container">
     <div class="workflow-card">
       <div class="workflow-header">
@@ -22,28 +22,36 @@ const juneSteps = [
         </h2>
       </div>
       
-      <div class="comparison-grid">
-        <div class="workflow-column manual">
-          <h3 class="column-title">Manual Way</h3>
-          <div class="steps-container">
-            {manualSteps.map((step, i) => (
-              <div class="step-box">
-                <span class="step-text">{step}</span>
-              </div>
-            ))}
-            <div class="connector-line"></div>
+      <div class="workflow-grid">
+        <!-- Manual Column -->
+        <div class="workflow-col">
+          <h3 class="col-title">Manual Way</h3>
+          <div class="timeline-container">
+            <div class="vertical-line grey-bg"></div>
+            <div class="steps-list">
+              {manualSteps.map((step) => (
+                <div class="step-item">
+                  <div class="timeline-dot grey-bg"></div>
+                  <span class="step-label">{step}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         
-        <div class="workflow-column june">
-          <h3 class="column-title">June Way</h3>
-          <div class="steps-container">
-            {juneSteps.map((step, i) => (
-              <div class="step-box highlight">
-                <span class="step-text">{step}</span>
-              </div>
-            ))}
-            <div class="connector-line highlight"></div>
+        <!-- June Column -->
+        <div class="workflow-col">
+          <h3 class="col-title">June Way</h3>
+          <div class="timeline-container">
+            <div class="vertical-line blue-bg"></div>
+            <div class="steps-list">
+              {juneSteps.map((step) => (
+                <div class="step-item">
+                  <div class="timeline-dot blue-bg"></div>
+                  <span class="step-label">{step}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -53,129 +61,133 @@ const juneSteps = [
 
 <style>
   .workflow-sample {
-    background-color: var(--bg-dark);
-    padding: 100px 0;
+    background-color: #242428;
+    padding: 100px 0 150px; /* Added more bottom padding to avoid footer overlap */
+    position: relative;
+    z-index: 1;
   }
 
   .workflow-card {
-    background-color: var(--bg-light);
+    background-color: #f3f7fc;
     border-radius: 24px;
-    padding: 80px 60px;
-    max-width: 1200px;
+    padding: 80px 100px;
+    max-width: 1128px;
     margin: 0 auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
   }
 
   .workflow-header {
     text-align: center;
-    margin-bottom: 80px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 60px;
   }
 
   .workflow-title {
     font-family: 'Lato', sans-serif;
     font-size: 36px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: #232427;
     line-height: 1.3;
   }
 
   .workflow-title .highlight {
-    color: var(--primary-blue);
+    color: #005cb9;
   }
 
-  .comparison-grid {
-    display: flex;
-    gap: 100px;
-    justify-content: center;
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
   }
 
-  .workflow-column {
-    flex: 1;
-    max-width: 450px;
-  }
-
-  .column-title {
-    font-family: 'Lato', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--primary-blue);
-    margin-bottom: 40px;
-    text-align: center;
-  }
-
-  .steps-container {
-    position: relative;
+  .workflow-col {
     display: flex;
     flex-direction: column;
-    gap: 16px;
   }
 
-  .step-box {
-    background: #ffffff;
-    border: 1px solid #eef2f6;
-    padding: 18px 24px;
-    border-radius: 12px;
-    z-index: 2;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
-
-  .step-box.highlight {
-    border-color: var(--primary-blue);
-    background: #f0f7ff;
-    box-shadow: 0 4px 12px rgba(0, 92, 185, 0.1);
-  }
-
-  .step-text {
+  .col-title {
     font-family: 'Lato', sans-serif;
-    font-size: 17px;
-    color: var(--text-dark);
-    line-height: 1.4;
-    font-weight: 500;
+    font-size: 24px;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 40px;
+    text-align: left;
+    padding-left: 20px;
   }
 
-  .connector-line {
+  .timeline-container {
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .vertical-line {
     position: absolute;
-    left: 24px;
-    top: 24px;
-    bottom: 24px;
+        margin-left: 20px;
+
+    left: 0;
+    top: 8px;
+    bottom: 8px;
     width: 2px;
-    background-color: #eef2f6;
     z-index: 1;
   }
 
-  .connector-line.highlight {
-    background-color: var(--primary-blue);
-    opacity: 0.3;
+  .grey-bg { background-color: #999999; }
+  .blue-bg { background-color: #005cb9; }
+
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .step-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    z-index: 2;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -4px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .step-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: 1.4;
+    font-weight: 400;
+    padding-left: 30px;
   }
 
   /* Responsive Design */
-  @media (max-width: 1024px) {
-    .comparison-grid {
-      flex-direction: column;
-      align-items: center;
+  @media (max-width: 900px) {
+    .workflow-grid {
+      grid-template-columns: 1fr;
       gap: 60px;
     }
     
-    .workflow-column {
-      width: 100%;
+    .workflow-card {
+      padding: 60px 40px;
+    }
+
+    .workflow-sample {
+        padding-bottom: 100px;
     }
   }
 
   @media (max-width: 640px) {
     .workflow-title {
-      font-size: 24px;
+      font-size: 28px;
     }
-    
     .workflow-card {
       padding: 40px 20px;
-    }
-    
-    .step-text {
-      font-size: 14px;
     }
   }
 </style>

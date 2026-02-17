@@ -1,84 +1,97 @@
 ---
 const securityFeatures = [
   {
+    id: "data-isolation",
+    title: "Data Isolation",
+    description: "Each client's data is logically isolated—no cross-client access",
+    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/9PGrSqRY1Q.png", // Filter icon
+    color: "#00c389", // Green
+    position: "left-top"
+  },
+  {
+    id: "audit-trails",
     title: "Audit Trails & Logs",
     description: "Complete traceability for every action",
-    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/VV9QjdDbam.png" // Using representative placeholder from repo
+    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/rovX2BixQL.png", // Audit icon
+    color: "#00a3e0", // Light Blue
+    position: "left-bottom"
   },
   {
-    title: "Two-Factor Authentication (2FA)",
-    description: "Adds an extra layer of security by requiring a second verification step during login.",
-    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/VV9QjdDbam.png"
-  },
-  {
+    id: "soc2",
     title: "SOC 2 Type II",
     description: "Independently audited to meet SOC 2 standards for security, availability, and confidentiality of customer data.",
-    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/VV9QjdDbam.png"
-  }
-];
-
-const highlights = [
-  {
-    title: "USPTO / WIPO aligned workflows",
-    description: "Aligned with USPTO and WIPO filing standards."
+    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/GFVbR42syk.png", // SOC 2 icon
+    color: "#ffc72c", // Yellow
+    position: "center-bottom"
   },
   {
-    title: "Data Isolation",
-    description: "Each client’s data is logically isolated—no cross-client access"
+    id: "2fa",
+    title: "Two-Factor Authentication (2FA)",
+    description: "Adds an extra layer of security by requiring a second verification step during login.",
+    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/0AcUZL78hQ.png", // 2FA icon
+    color: "#005cb9", // Trexo Blue
+    position: "right-bottom"
+  },
+  {
+    id: "uspto",
+    title: "USPTO / WIPO aligned workflows",
+    description: "Aligned with USPTO and WIPO filing standards.",
+    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/jpFwUzR9ed.png", // Workflow icon
+    color: "#ff8200", // Orange
+    position: "right-top"
   }
 ];
 ---
-<section class="june-security section-padding">
+<section class="june-security">
   <div class="centered-container">
     <div class="security-intro">
       <p class="trusted-text">JUNE is your trusted assistant for smarter IP management—delivering efficiency, compliance, and results at scale.</p>
     </div>
 
-    <div class="orbital-viz-container">
-      <div class="orbital-hub">
-        <div class="central-lock">
-          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/xd1iCWeoek.png" alt="Lock icon" class="lock-icon" />
-        </div>
-        
-        <div class="orbit-points">
-            {highlights.map((h, i) => (
-                <div class={`orbit-point point-${i}`}>
-                    <div class="point-dot"></div>
-                    <div class="point-label">
-                        <h4>{h.title}</h4>
-                        <p>{h.description}</p>
-                    </div>
-                </div>
-            ))}
+    <div class="orbital-graphic">
+      <!-- Background Arc -->
+      <div class="orbit-arc"></div>
+      
+      <!-- Central Hub -->
+      <div class="central-hub">
+        <div class="hub-circle">
+          <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/ZaWWyzxdEZ.png" alt="Lock" class="lock-icon" />
         </div>
       </div>
-    </div>
 
-    <div class="security-cards-grid">
-      {securityFeatures.map(f => (
-        <div class="security-card">
-          <div class="card-icon">
-             <img src={f.icon} alt={f.title} />
+      <!-- Security Bubbles -->
+      <div class="bubbles-container">
+        {securityFeatures.map(f => (
+          <div class={`security-bubble ${f.id} ${f.position}`}>
+            <div class="bubble-content">
+              <div class="icon-circle" style={`border-color: ${f.color}`}>
+                <img src={f.icon} alt={f.title} />
+                <div class="connecting-dot" style={`background-color: ${f.color}`}></div>
+              </div>
+              <div class="bubble-text">
+                <h3>{f.title}</h3>
+                <p>{f.description}</p>
+              </div>
+            </div>
           </div>
-          <h3 class="card-title">{f.title}</h3>
-          <p class="card-description">{f.description}</p>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .june-security {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    padding: 120px 0;
+    background-color: #242428;
+    color: white;
+    padding: 120px 0 160px;
+    overflow: hidden;
   }
 
   .security-intro {
     text-align: center;
     max-width: 900px;
-    margin: 0 auto 120px auto;
+    margin: 0 auto 100px;
     padding: 0 40px;
   }
 
@@ -86,187 +99,191 @@ const highlights = [
     font-family: 'Lato', sans-serif;
     font-size: 28px;
     line-height: 1.5;
-    opacity: 0.95;
     font-weight: 500;
+    color: #ffffff;
   }
 
-  .orbital-viz-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 150px;
+  .orbital-graphic {
     position: relative;
-    padding: 0 40px;
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .orbital-hub {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    height: 450px;
+    height: 600px;
+    margin: 0 auto;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: flex-start;
   }
 
-  .central-lock {
-    width: 120px;
-    height: 120px;
-    background: white;
+  .orbit-arc {
+    position: absolute;
+    top: 150px;
+    width: 600px;
+    height: 300px;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 300px 300px 0 0;
+    border-bottom: 0;
+    transform: rotate(180deg); /* Flip to be a bottom arc */
+  }
+
+  .central-hub {
+    position: absolute;
+    top: 50px;
+    z-index: 10;
+  }
+
+  .hub-circle {
+    width: 200px;
+    height: 200px;
+    background-color: white;
     border-radius: 50%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    z-index: 10;
-    box-shadow: 0 0 60px rgba(0, 92, 185, 0.5);
+    align-items: center;
+    box-shadow: 0 0 50px rgba(0, 92, 185, 0.3);
   }
 
   .lock-icon {
-    width: 60px;
+    width: 80px;
     height: auto;
   }
 
-  .orbit-points {
-    position: absolute;
+  /* Bubbles Positioning Logic */
+  .bubbles-container {
+    position: relative;
     width: 100%;
     height: 100%;
   }
 
-  .orbit-point {
+  .security-bubble {
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 250px;
+    width: 280px;
   }
 
-  .point-dot {
-    width: 20px;
-    height: 20px;
-    background: var(--primary-blue);
+  .bubble-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .icon-circle {
+    width: 120px;
+    height: 120px;
+    background-color: white;
     border-radius: 50%;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid transparent;
     position: relative;
-    box-shadow: 0 0 15px var(--primary-blue);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
   }
 
-  .point-dot::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--primary-blue);
-    border-radius: 50%;
-    opacity: 0.3;
-  }
-
-  .point-label h4 {
-    font-family: 'Lato', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--text-white);
-  }
-
-  .point-label p {
-    font-family: 'Lato', sans-serif;
-    font-size: 14px;
-    line-height: 1.4;
-    color: var(--text-muted);
-  }
-
-  .point-0 {
-    top: 20%;
-    left: 0;
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .point-1 {
-    bottom: 20%;
-    right: 0;
-    align-items: flex-end;
-    text-align: right;
-  }
-
-  .security-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
-  }
-
-  .security-card {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .card-icon {
-    width: 70px;
-    height: 70px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  .card-icon img {
+  .icon-circle img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: brightness(0) invert(1);
   }
 
-  .card-title {
+  .connecting-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .bubble-text h3 {
     font-family: 'Lato', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
-    color: var(--text-white);
+    color: #ffffff;
+    margin-bottom: 8px;
   }
 
-  .card-description {
+  .bubble-text p {
     font-family: 'Lato', sans-serif;
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.6;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.4;
   }
 
-  /* Responsive Design */
-  @media (max-width: 1024px) {
-    .security-cards-grid {
-      grid-template-columns: 1fr;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .orbital-hub {
-      width: 100%;
+  /* Specific Bubble Placement based on Figma/HTML coordinates approx */
+  .data-isolation {
+    left: 10%;
+    top: 150px;
+  }
+
+  .audit-trails {
+    left: 20%;
+    top: 350px;
+  }
+
+  .soc2 {
+    left: 50%;
+    top: 450px;
+    transform: translateX(-50%);
+  }
+
+  .2fa {
+    right: 20%;
+    top: 350px;
+  }
+
+  .uspto {
+    right: 10%;
+    top: 150px;
+  }
+
+  /* Responsive - simpler layout for smaller screens */
+  @media (max-width: 1100px) {
+    .orbital-graphic {
       height: auto;
       flex-direction: column;
-      gap: 40px;
-    }
-    
-    .orbit-points {
-      position: static;
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
       align-items: center;
+      gap: 50px;
     }
     
-    .orbit-point {
-      position: static;
+    .orbit-arc { display: none; }
+    
+    .central-hub {
+      position: relative;
+      top: 0;
+    }
+
+    .bubbles-container {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    .security-bubble {
+      position: relative;
+      left: auto !important;
+      right: auto !important;
+      top: auto !important;
+      transform: none !important;
       width: 100%;
-      align-items: center !important;
-      text-align: center !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .trusted-text {
+      font-size: 22px;
+    }
+    
+    .hub-circle {
+      width: 140px;
+      height: 140px;
+    }
+    
+    .lock-icon {
+      width: 50px;
     }
   }
 </style>
