@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import RenewalsHero from '../../components/renewals/RenewalsHero.astro';
+import RenewalsIntro from '../../components/renewals/RenewalsIntro.astro';
+import RenewalsBenefits from '../../components/renewals/RenewalsBenefits.astro';
+import RenewalsWorkflow from '../../components/renewals/RenewalsWorkflow.astro';
+import RenewalsWhoWeServe from '../../components/renewals/RenewalsWhoWeServe.astro';
+import RenewalsSummary from '../../components/renewals/RenewalsSummary.astro';
+import RenewalsGetStarted from '../../components/renewals/RenewalsGetStarted.astro';
+import RenewalsCTA from '../../components/renewals/RenewalsCTA.astro';
+---
+
+<BaseLayout title="Professional Patent Renewal Services | Trexo Global">
+  <Navbar theme="dark" />
+  
+  <main>
+    <RenewalsHero />
+    <RenewalsIntro />
+    <RenewalsBenefits />
+    <RenewalsWorkflow />
+    <RenewalsWhoWeServe />
+    <RenewalsSummary />
+    <RenewalsGetStarted />
+    <RenewalsCTA />
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  main {
+    background-color: #242428;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+</style>

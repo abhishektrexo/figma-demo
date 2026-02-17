@@ -1,0 +1,195 @@
+---
+const steps = [
+  {
+    num: "01",
+    title: "Portfolio Setup",
+    desc: "– Upload your patents or let us migrate them for you."
+  },
+  {
+    num: "02",
+    title: "Renewal Tracking",
+    desc: "– Get real-time updates on upcoming due dates."
+  },
+  {
+    num: "03",
+    title: "Secure Payments",
+    desc: "– Pay official fees and service charges with full transparency."
+  },
+  {
+    num: "04",
+    title: "Confirmation & Records",
+    desc: "– Receive renewal confirmations and store documents in one place."
+  }
+];
+---
+<section class="renewals-workflow">
+  <div class="container">
+    <div class="features-carousel">
+      <div class="text-d">
+        <div class="title">
+          <h2 class="how-it-works">How It Works</h2>
+          <p class="area-turns-data">Area turns your data into clear, vibrant visuals that show you exactly what's happening in each region.</p>
+        </div>
+        
+        <div class="list">
+          {steps.map(step => (
+            <div class="list-item">
+              <span class="item-num">{step.num}</span>
+              <div class="step-copy">
+                <span class="step-title-bold">{step.title}</span>
+                <span class="step-desc-inline">{step.desc}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <div class="features-carousel-15">
+        <div class="image-wrapper"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .renewals-workflow {
+    background-color: #242428;
+    padding: 0 0 120px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    max-width: 1500px;
+    width: 100%;
+    padding: 0 40px;
+  }
+
+  .features-carousel {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 20px;
+    position: relative;
+    padding: 0;
+  }
+
+  .text-d {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    gap: 40px;
+    padding: 60px 0 80px 0;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 80px 0 0;
+  }
+
+  .how-it-works {
+    color: #fdfdfd;
+    font-family: 'Lato', sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 54px;
+    text-align: left;
+    white-space: nowrap;
+    letter-spacing: -1.8px;
+    margin: 0;
+  }
+
+  .area-turns-data {
+    color: #6e6e6e;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    letter-spacing: -0.07px;
+    margin: 0;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 20px 80px 20px 0;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .item-num {
+    color: #f9f9f9;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    letter-spacing: -0.07px;
+  }
+
+  .step-copy {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .step-title-bold {
+    color: #fdfdfd;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 21px;
+  }
+
+  .step-desc-inline {
+    color: #fdfdfd;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 21px;
+  }
+
+  .features-carousel-15 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-wrapper {
+    width: 100%;
+    height: 711px;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/C8OFoFxncr.png) no-repeat center;
+    background-size: cover;
+    border-radius: 30px;
+  }
+
+  @media (max-width: 1024px) {
+    .features-carousel {
+      flex-direction: column;
+    }
+    .title {
+      padding: 0;
+    }
+    .how-it-works {
+      font-size: 40px;
+    }
+    .image-wrapper {
+        height: 400px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .how-it-works {
+      font-size: 32px;
+    }
+  }
+</style>
