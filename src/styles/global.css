@@ -40,7 +40,7 @@ button {
     position: relative;
     width: 100%;
     max-width: 1440px;
-    height: auto;
+    min-height: 5800px;
     margin: 0 auto;
     background: #232427;
     overflow-x: hidden !important;
@@ -2679,6 +2679,14 @@ button {
         overflow-x: hidden !important;
     }
 
+    .landing-hero-container {
+        position: relative !important;
+        width: 100% !important;
+        min-height: 850px !important;
+        /* Reserve space for absolute hero elements */
+        background: #232427 !important;
+    }
+
     /* Heading: reposition for mobile */
     .protecting-innovation-powering-insights {
         transform: none !important;
@@ -2737,12 +2745,121 @@ button {
         background-repeat: no-repeat !important;
     }
 
-    /* JUNE text below the showcase */
-    .frame-9 {
+    /* Services & Compliance sections - Reset from absolute margins */
+    .frame-5,
+    .our-clients-intro {
+        position: relative !important;
         width: 90% !important;
-        height: 120px !important;
-        top: 850px !important;
-        left: 5% !important;
+        max-width: 600px !important;
+        height: auto !important;
+        margin: 60px auto !important;
+        top: 0 !important;
+        left: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .other-products-services,
+    .compliance-certifications {
+        font-size: 24px !important;
+        line-height: 32px !important;
+        white-space: normal !important;
+        height: auto !important;
+    }
+
+    .comprehensive-suite-ip,
+    .global-compliance-standards {
+        width: 100% !important;
+        height: auto !important;
+        font-size: 16px !important;
+        line-height: 24px !important;
+    }
+
+    /* June's Desk - Mobile Transformation */
+    .empty {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        top: 0 !important;
+        left: 0 !important;
+        padding: 40px 20px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0px !important;
+        /* Managed by component margins */
+        background: #fdfdfd !important;
+        z-index: 50 !important;
+    }
+
+    .frame-a {
+        display: none !important;
+    }
+
+    /* Central Orb - Miniaturized as a 50% smaller badge */
+    .frame-35 {
+        position: relative !important;
+        width: 457px !important;
+        /* Scale from its natural size */
+        height: 457px !important;
+        top: 0 !important;
+        left: 0 !important;
+        margin: -185px auto -205px auto !important;
+        /* Pull up/tighten space after scale */
+        transform: scale(0.12) !important;
+        /* ~50% smaller than previous */
+        transform-origin: center center !important;
+        z-index: 10 !important;
+        order: -1 !important;
+    }
+
+    .empty-b {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        order: 0 !important;
+        margin-bottom: 20px !important;
+        text-align: center !important;
+    }
+
+    .junes-desk {
+        font-size: 24px !important;
+        line-height: 32px !important;
+        white-space: normal !important;
+    }
+
+    .foreign-filings-renewals {
+        width: 100% !important;
+        font-size: 16px !important;
+        line-height: 22px !important;
+    }
+
+    /* List Containers - Merge into single column */
+    .frame-c,
+    .line-20 {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        top: 0 !important;
+        left: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        order: 1 !important;
+    }
+
+    /* Hide the huge JUNE background text */
+    .june {
+        display: none !important;
+    }
+
+    .frame-9 {
+        display: none !important;
     }
 }
 
