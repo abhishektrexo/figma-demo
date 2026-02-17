@@ -1,73 +1,79 @@
 ---
-const { theme = 'dark' } = Astro.props;
+const { theme = 'dark', minimal = false } = Astro.props;
 ---
 <div class={`frame ${theme === 'light' ? 'light-theme' : ''}`}>
   <a href="/" class="logo-link">
     <div class="trexo-blue"></div>
   </a>
   
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-  <label for="nav-toggle" class="hamburger-label">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
-
-  <div class="frame-1 nav-menu">
-    <a href="/" class="home nav-link">Home</a>
-    
-    <div class="nav-item has-dropdown">
-      <input type="checkbox" id="products-toggle" class="sub-toggle" />
-      <label for="products-toggle" class="cat-header">
-        <span class="products nav-link">Products</span>
-        <div class="keyboard-arrow-down active-arrow"></div>
+  {!minimal && (
+    <>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger-label">
+        <span></span>
+        <span></span>
+        <span></span>
       </label>
-      <div class="dropdown-menu-wrapper">
-        <div class="dropdown-menu">
-          <a href="/product/june" class="dropdown-link">June- Your IP Assistant</a>
-          <a href="#" class="dropdown-link">AppGen</a>
-          <a href="#" class="dropdown-link">DocGen</a>
-          <a href="#" class="dropdown-link">OA Shell</a>
-          <a href="#" class="dropdown-link">DRM</a>
-          <a href="#" class="dropdown-link">ADIM</a>
-          <a href="#" class="dropdown-link">IDS</a>
+    </>
+  )}
+
+  {!minimal && (
+    <div class="frame-1 nav-menu">
+      <a href="/" class="home nav-link">Home</a>
+      
+      <div class="nav-item has-dropdown">
+        <input type="checkbox" id="products-toggle" class="sub-toggle" />
+        <label for="products-toggle" class="cat-header">
+          <span class="products nav-link">Products</span>
+          <div class="keyboard-arrow-down active-arrow"></div>
+        </label>
+        <div class="dropdown-menu-wrapper">
+          <div class="dropdown-menu">
+            <a href="/product/june" class="dropdown-link">June- Your IP Assistant</a>
+            <a href="#" class="dropdown-link">AppGen</a>
+            <a href="#" class="dropdown-link">DocGen</a>
+            <a href="#" class="dropdown-link">OA Shell</a>
+            <a href="#" class="dropdown-link">DRM</a>
+            <a href="#" class="dropdown-link">ADIM</a>
+            <a href="#" class="dropdown-link">IDS</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <input type="checkbox" id="services-toggle" class="sub-toggle" />
+        <label for="services-toggle" class="cat-header">
+          <span class="services nav-link">Services</span>
+          <div class="keyboard-arrow-down-4 active-arrow"></div>
+        </label>
+        <div class="dropdown-menu-wrapper">
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-link">Patent Support Services</a>
+            <a href="#" class="dropdown-link">Trademark Support Services</a>
+            <a href="#" class="dropdown-link">IP Data Validation Services</a>
+            <a href="#" class="dropdown-link">Patent Search & Analytics</a>
+            <a href="#" class="dropdown-link">Patent Drafting & Illustration</a>
+            <a href="#" class="dropdown-link">IP Consulting</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <input type="checkbox" id="resources-toggle" class="sub-toggle" />
+        <label for="resources-toggle" class="cat-header">
+          <span class="resources nav-link">Resources</span>
+          <div class="keyboard-arrow-down active-arrow"></div>
+        </label>
+        <div class="dropdown-menu-wrapper">
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-link">Thought Leadership</a>
+            <a href="#" class="dropdown-link">Quality Policy</a>
+            <a href="#" class="dropdown-link">Partnerships</a>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="nav-item has-dropdown">
-      <input type="checkbox" id="services-toggle" class="sub-toggle" />
-      <label for="services-toggle" class="cat-header">
-        <span class="services nav-link">Services</span>
-        <div class="keyboard-arrow-down-4 active-arrow"></div>
-      </label>
-      <div class="dropdown-menu-wrapper">
-        <div class="dropdown-menu">
-          <a href="#" class="dropdown-link">Patent Support Services</a>
-          <a href="#" class="dropdown-link">Trademark Support Services</a>
-          <a href="#" class="dropdown-link">IP Data Validation Services</a>
-          <a href="#" class="dropdown-link">Patent Search & Analytics</a>
-          <a href="#" class="dropdown-link">Patent Drafting & Illustration</a>
-          <a href="#" class="dropdown-link">IP Consulting</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="nav-item has-dropdown">
-      <input type="checkbox" id="resources-toggle" class="sub-toggle" />
-      <label for="resources-toggle" class="cat-header">
-        <span class="resources nav-link">Resources</span>
-        <div class="keyboard-arrow-down active-arrow"></div>
-      </label>
-      <div class="dropdown-menu-wrapper">
-        <div class="dropdown-menu">
-          <a href="#" class="dropdown-link">Thought Leadership</a>
-          <a href="#" class="dropdown-link">Quality Policy</a>
-          <a href="#" class="dropdown-link">Partnerships</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  )}
 </div>
 
 <script is:inline>

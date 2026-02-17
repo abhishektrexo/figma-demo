@@ -1,12 +1,12 @@
 <section class="contact-section">
   <div class="container">
     <div class="contact-grid">
-      <!-- Left side: Image (Design inspired by Image 2) -->
+      <!-- Left side: Hero Image -->
       <div class="side-image-wrapper">
         <img src="/images/contact_hero.png" alt="USA Skyscrapers" class="skyscrapers-img" />
       </div>
 
-      <!-- Right side: Content & Form (Content from Image 1) -->
+      <!-- Right side: Content & Form -->
       <div class="form-content-area">
         <div class="header-section">
           <h2 class="section-title">Get in touch</h2>
@@ -17,53 +17,67 @@
 
         <div class="form-and-info-container">
           <!-- Form -->
-          <form class="contact-form">
+          <form class="contact-form" id="contactForm">
             <div class="form-group">
-              <label for="name">Name</label>
               <input type="text" id="name" name="name" placeholder="Name" required />
             </div>
             
             <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" id="title" name="title" placeholder="Title" required />
+              <input type="text" id="title" name="title" placeholder="Title" />
             </div>
 
             <div class="form-group">
-              <label for="company">Company</label>
               <input type="text" id="company" name="company" placeholder="Company" required />
             </div>
 
             <div class="form-group">
-              <label for="email">Email</label>
               <input type="email" id="email" name="email" placeholder="Email" required />
             </div>
 
             <div class="form-group">
-              <label for="phone">Phone</label>
               <input type="tel" id="phone" name="phone" placeholder="Phone" required />
             </div>
 
             <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="4" placeholder="Message" required></textarea>
+              <textarea id="message" name="message" rows="3" placeholder="Message"></textarea>
             </div>
 
-            <button type="submit" class="brand-submit-btn">CONTACT US</button>
+            <button type="submit" class="brand-submit-btn" id="submitBtn">
+              <span class="btn-text">CONTACT US</span>
+              <div class="btn-loader"></div>
+            </button>
           </form>
 
-          <!-- Info Overlay (from Image 1 design) -->
-          <div class="info-card-overlay">
-            <div class="info-row">
-              <div class="icon-circle">📍</div>
-              <p>USA | India</p>
+          <!-- Premium Info Card (Glassmorphism) -->
+          <div class="premium-info-card">
+            <div class="info-item">
+              <div class="info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="info-text">
+                <span class="info-label">Locations</span>
+                <span class="info-value">USA | India</span>
+              </div>
             </div>
-            <div class="info-row">
-              <div class="icon-circle">📧</div>
-              <p>info@trexoglobal.com</p>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="info-text">
+                <span class="info-label">Email</span>
+                <span class="info-value">info@trexoglobal.com</span>
+              </div>
             </div>
-            <div class="info-row">
-              <div class="icon-circle">📞</div>
-              <p>+1 (301) 509-6678</p>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="info-text">
+                <span class="info-label">Phone</span>
+                <span class="info-value">+1 (301) 509-6678</span>
+              </div>
             </div>
           </div>
         </div>
@@ -72,10 +86,72 @@
   </div>
 </section>
 
+<!-- Toast Portal -->
+<div id="toast-container" class="toast-container"></div>
+
+<script>
+  // Dummy API Call Simulation
+  const form = document.getElementById('contactForm');
+  const btn = document.getElementById('submitBtn');
+  const toastContainer = document.getElementById('toast-container');
+
+  function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerHTML = `
+      <div class="toast-content">
+        <span class="toast-icon">${type === 'success' ? '✓' : '✕'}</span>
+        <span class="toast-msg">${message}</span>
+      </div>
+    `;
+    toastContainer.appendChild(toast);
+    
+    // Auto-remove
+    setTimeout(() => {
+      toast.classList.add('fade-out');
+      setTimeout(() => toast.remove(), 500);
+    }, 4000);
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // 1. Client-side Email format validation (Regex)
+    const emailInput = document.getElementById('email') as HTMLInputElement;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (emailInput && !emailRegex.test(emailInput.value)) {
+      showToast('Please enter a valid email address.', 'error');
+      emailInput.focus();
+      return;
+    }
+
+    btn.classList.add('loading');
+    
+    // Simulation of network visibility
+    try {
+      await fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'Contact Page Redesign',
+          timestamp: new Date().toISOString()
+        })
+      });
+      
+      showToast('Thank you! We will get back to you soon.');
+      form.reset();
+    } catch (err) {
+      showToast('Something went wrong. Please try again later.', 'error');
+    } finally {
+      btn.classList.remove('loading');
+    }
+  });
+</script>
+
 <style is:global>
   .contact-section {
-    background: #ffffff; /* Second image has a clean white look */
-    padding: 0;
+    background: #ffffff;
     min-height: 100vh;
     display: flex;
     align-items: stretch;
@@ -84,7 +160,6 @@
 
   .container {
     width: 100%;
-    max-width: 100%;
     margin: 0;
     padding: 0;
   }
@@ -112,7 +187,7 @@
 
   /* RIGHT SIDE: CONTENT */
   .form-content-area {
-    padding: 80px 10%;
+    padding: 120px 8%;
     background: #ffffff;
     display: flex;
     flex-direction: column;
@@ -120,61 +195,50 @@
   }
 
   .section-title {
-    color: #232427;
-    font-size: 40px;
-    font-weight: 700;
+    color: #1a1b1e;
+    font-size: 48px;
+    font-weight: 800;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    margin-bottom: 24px;
-    text-align: left;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
   }
 
   .section-subtitle {
     color: #666666;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.6;
-    margin-bottom: 48px;
+    margin-bottom: 60px;
     font-family: 'Lato', sans-serif;
     max-width: 600px;
   }
 
   .form-and-info-container {
     display: flex;
-    gap: 40px;
+    gap: 60px;
     align-items: flex-start;
-    position: relative;
   }
 
   .contact-form {
     flex: 2;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
     width: 100%;
-    max-width: 500px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .form-group label {
-    display: none; /* Using placeholders like in image 1/2 */
+    max-width: 480px;
   }
 
   .form-group input, 
   .form-group textarea {
     width: 100%;
-    padding: 12px 0;
+    padding: 14px 0;
     border: none;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 2px solid #f0f0f0;
     background: transparent;
     font-size: 16px;
     font-family: 'Lato', sans-serif;
-    color: #333;
+    color: #111;
     outline: none;
-    transition: border-color 0.3s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .form-group input:focus, 
@@ -182,87 +246,189 @@
     border-bottom-color: #005cb9;
   }
 
+  /* BUTTON FIX (Matching Landing Page) */
   .brand-submit-btn {
-    background: #ff7a00; /* Orange from image 1 */
+    position: relative;
+    background: #005cb9; /* Trexo Blue */
     color: white;
     border: none;
-    padding: 14px 40px;
-    border-radius: 99px;
+    padding: 16px 48px;
+    border-radius: 99px; /* Pill shape */
     font-weight: 700;
-    font-size: 14px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
     width: fit-content;
-    margin-top: 24px;
+    margin-top: 32px;
     cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
+    transition: all 0.3s ease;
     font-family: 'Lato', sans-serif;
+    overflow: hidden;
   }
 
   .brand-submit-btn:hover {
-    background: #e66e00;
+    background: #004a95;
     transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 92, 185, 0.25);
   }
 
-  /* INFO OVERLAY (Image 1 style box) */
-  .info-card-overlay {
+  .brand-submit-btn.loading .btn-text {
+    opacity: 0;
+  }
+
+  .btn-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .brand-submit-btn.loading .btn-loader {
+    opacity: 1;
+    animation: btn-spin 0.8s linear infinite;
+  }
+
+  @keyframes btn-spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  /* PREMIUM GLASS INFO CARD */
+  .premium-info-card {
     flex: 1;
-    background: #f9f9f9;
-    border-radius: 12px;
-    padding: 40px 30px;
+    background: rgba(245, 247, 250, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 92, 185, 0.05);
+    border-radius: 20px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
-    max-width: 250px;
+    gap: 32px;
+    min-width: 320px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
   }
 
-  .info-row {
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .info-icon {
+    width: 48px;
+    height: 48px;
+    background: #ffffff;
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    gap: 16px;
+    justify-content: center;
+    color: #005cb9;
+    box-shadow: 0 8px 16px rgba(0, 92, 185, 0.08);
+    flex-shrink: 0;
   }
 
-  .icon-circle {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #e0e0e0;
+  .info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .info-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .info-value {
+    font-family: 'Lato', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #232427;
+  }
+
+  /* TOAST SYSTEM */
+  .toast-container {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .toast {
+    background: #005cb9;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: toast-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-width: 300px;
+  }
+
+  .toast.error { background: #e53e3e; }
+
+  .toast-content {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .toast-icon {
+    width: 24px;
+    height: 24px;
+    background: rgba(255,255,255,0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
-    color: #ff4d4d; /* Reddish icons in image 1 */
-    flex-shrink: 0;
+    font-weight: bold;
+    font-size: 14px;
   }
 
-  .info-row p {
-    margin: 0;
-    font-size: 14px;
-    color: #444;
+  .toast-msg {
     font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  @keyframes toast-in {
+    from { transform: translateX(100%) scale(0.9); opacity: 0; }
+    to { transform: translateX(0) scale(1); opacity: 1; }
+  }
+
+  .toast.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
   }
 
   /* RESPONSIVE */
+  @media (max-width: 1200px) {
+    .form-and-info-container { gap: 40px; }
+  }
+
   @media (max-width: 1024px) {
-    .contact-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .side-image-wrapper {
-      height: 400px;
-    }
-    
-    .form-content-area {
-      padding: 60px 5%;
-    }
+    .contact-grid { grid-template-columns: 1fr; }
+    .side-image-wrapper { height: 450px; }
+    .form-content-area { padding: 80px 10%; }
+    .form-and-info-container { flex-direction: column-reverse; }
+    .premium-info-card { width: 100%; min-width: auto; }
+    .contact-form { max-width: 100%; }
+  }
 
-    .form-and-info-container {
-      flex-direction: column;
-    }
-
-    .info-card-overlay {
-      max-width: 100%;
-      width: 100%;
-    }
+  @media (max-width: 640px) {
+    .section-title { font-size: 36px; }
+    .brand-submit-btn { width: 100%; }
+    .side-image-wrapper { height: 320px; }
   }
 </style>
