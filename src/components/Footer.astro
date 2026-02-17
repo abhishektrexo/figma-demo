@@ -47,12 +47,11 @@
   .rectangle-75 {
     position: absolute;
     width: 100%;
-    min-height: 496px;
-    top: 5250px;
+    height: 496px; /* Restored original Codia height */
+    top: 5236px;   /* Restored original Codia top */
     left: 0;
     background: #fdfdfd;
-    z-index: 200; /* High z-index to stay above background artifacts */
-    padding-bottom: 60px;
+    z-index: 200;
     border-top: 1px solid #eeeeee;
   }
 
@@ -221,7 +220,7 @@
     width: 90%;
     max-width: 1128px;
     height: 1px;
-    margin: 60px auto 30px auto;
+    margin: 105px auto 16px auto; /* Tightened to match reference baseline */
     background: #eeeeee;
     z-index: 129;
   }
@@ -269,11 +268,33 @@
   }
 
   .trexo-blue-7b {
-    display: none;
+    position: absolute;
+    width: 100%;
+    max-width: 1440px;
+    height: 112px;
+    top: 250px; /* Moved up to reduce gap from links */
+    left: 0;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/zgZJ71Uygz.png) no-repeat center;
+    background-size: cover;
+    z-index: 127;
   }
 
   .trexo-blue-7c {
-    display: none;
+    position: absolute;
+    width: 90%;
+    max-width: 1128px;
+    height: 88px;
+    top: 274px; /* Moved up proportionally */
+    left: 156px;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/EK7BwxSqcK.png) no-repeat center;
+    background-size: cover;
+    z-index: 130;
+  }
+
+  @media (max-width: 768px) {
+    .trexo-blue-7b, .trexo-blue-7c {
+      display: none !important;
+    }
   }
 </style>
 
