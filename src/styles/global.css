@@ -308,6 +308,7 @@ button {
     background: #005cb9;
     z-index: 6;
     border-radius: 8px;
+    text-decoration: none !important;
 }
 
 .book-a-demo {
@@ -323,6 +324,7 @@ button {
     text-align: left;
     white-space: nowrap;
     z-index: 7;
+    text-decoration: none !important;
 }
 
 .see-how-it-works {
@@ -387,7 +389,8 @@ button {
     left: 0;
     background: #fdfdfd;
     z-index: 11;
-    overflow: hidden;
+    overflow: visible;
+    /* Changed to allow watermark text to be visible */
 }
 
 .frame-a {
@@ -1231,22 +1234,16 @@ button {
 }
 
 .june {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
     position: absolute;
-    height: 338px;
-    top: 852px;
-    left: -35px;
-    color: #8b8b8b;
-    font-family: Dune Rise, var(--default-font-family);
-    font-size: 253.21783447265625px;
-    font-weight: 400;
-    line-height: 337.624px;
-    text-align: left;
-    white-space: nowrap;
-    opacity: 0.3;
-    z-index: 13;
+    width: 100%;
+    height: 300px;
+    bottom: 0;
+    left: 0;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/xd1iCWeoek.png) no-repeat center bottom;
+    background-size: contain;
+    opacity: 0.15;
+    z-index: 25;
+    pointer-events: none;
 }
 
 .frame-39 {
@@ -2318,10 +2315,11 @@ button {
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
-    flex-shrink: 0;
-    gap: 20px;
     position: relative;
-    width: 158.889px;
+    width: 100%;
+    /* Take full width for centering */
+    margin: 40px auto;
+    gap: 20px;
     z-index: 90;
 }
 
@@ -2416,7 +2414,10 @@ button {
     text-align: left;
     white-space: nowrap;
     opacity: 0.3;
-    z-index: 113;
+    z-index: 10;
+    /* Lowered significantly to stay behind controls */
+    pointer-events: none;
+    /* Crucial: allows clicks to pass through to the slider */
 }
 
 .rectangle-6e {

@@ -1,4 +1,31 @@
 ---
+const testimonials = [
+  {
+    quote: "Trexo has built amazing technology that gives us better access to accurate IP information. We are able to avoid potential issues with our IP data in a purely automated fashion.",
+    author: "David L.",
+    role: "Business Owner"
+  },
+  {
+    quote: "The JUNE assistant has transformed how we handle docketing. What used to take hours now takes minutes with incredible accuracy.",
+    author: "Sarah J.",
+    role: "IP Paralegal"
+  },
+  {
+    quote: "Unmatched fidelity and speed. Trexo's AI-powered insights have given our firm a significant competitive edge in patent prosecution.",
+    author: "Michael R.",
+    role: "Patent Attorney"
+  },
+  {
+    quote: "The interface is intuitive and the automation is seamless. It's the most reliable IP management tool we've ever used.",
+    author: "Elena C.",
+    role: "Director of Innovation"
+  },
+  {
+    quote: "Reliable, fast, and highly accurate. Trexo is clearly the future of intellectual property operations.",
+    author: "Robert T.",
+    role: "Chief Technology Officer"
+  }
+];
 ---
 <div class="rectangle-68">
   <div class="our-clients-content">
@@ -8,26 +35,26 @@
         quality of our services. Here's what some of them have to
         say:</span>
     </div>
-    <div class="carousel-slides">
-      <div class="carousel-content">
-        <div class="our-clients-quote">
-          <span class="client-testimonial">Trexo has built amazing technology that gives us better
-            access to accurate IP information. We are able to avoid
-            potential issues with our IP data in a purely automated
-            fashion. This frees up our valuable docketing staff to spend
-            more time on their core day-to-day duties.</span><span class="business-owner">— David
-            L., Business Owner</span>
-        </div>
+    <div class="carousel-container">
+      <div class="carousel-track" id="testimonial-track">
+        {testimonials.map((t, i) => (
+          <div class="testimonial-slide">
+            <div class="our-clients-quote">
+              <span class="client-testimonial">{t.quote}</span>
+              <span class="business-owner">— {t.author}, {t.role}</span>
+            </div>
+          </div>
+        ))}
       </div>
+      
       <div class="slideshow-nav-bar">
-        <div class="left-arrow"></div>
-        <div class="slideshow-navigation">
-          <div class="ellipse-6a"></div>
-          <div class="ellipse-6b"></div>
-          <div class="ellipse-6c"></div>
-          <div class="ellipse-6d"></div>
+        <div class="left-arrow" id="prev-btn"></div>
+        <div class="slideshow-navigation" id="nav-dots">
+          {testimonials.map((_, i) => (
+            <div class={`ellipse-dot ${i === 0 ? 'active' : ''}`} data-index={i}></div>
+          ))}
         </div>
-        <div class="right-arrow"></div>
+        <div class="right-arrow" id="next-btn"></div>
       </div>
     </div>
   </div>
@@ -35,4 +62,122 @@
 <span class="testimonials">Testimonials</span>
 
 <style>
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-top: 40px;
+  }
+  
+  .carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+  }
+  
+  .testimonial-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+
+  .ellipse-dot {
+    width: 8px;
+    height: 8px;
+    background: #dddddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .ellipse-dot.active {
+    background: #005cb9;
+    transform: scale(1.2);
+  }
+
+  .slideshow-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  .left-arrow, .right-arrow {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+  }
+  
+  .left-arrow:hover, .right-arrow:hover {
+    opacity: 1;
+  }
 </style>
+
+<script>
+  function initCarousel() {
+    const track = document.getElementById('testimonial-track');
+    const dots = document.querySelectorAll('.ellipse-dot');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    
+    if (!track) return;
+    
+    let currentIndex = 0;
+    const count = dots.length;
+    let autoScrollTimer;
+
+    function updateCarousel(index) {
+      if (index < 0) index = count - 1;
+      if (index >= count) index = 0;
+      
+      currentIndex = index;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    function startAutoScroll() {
+      stopAutoScroll();
+      autoScrollTimer = setInterval(() => {
+        updateCarousel(currentIndex + 1);
+      }, 5000);
+    }
+
+    function stopAutoScroll() {
+      if (autoScrollTimer) clearInterval(autoScrollTimer);
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      updateCarousel(currentIndex - 1);
+      startAutoScroll();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      updateCarousel(currentIndex + 1);
+      startAutoScroll();
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        updateCarousel(i);
+        startAutoScroll();
+      });
+    });
+
+    // Start auto-scroll
+    startAutoScroll();
+    
+    // Pause on hover
+    track.addEventListener('mouseenter', stopAutoScroll);
+    track.addEventListener('mouseleave', startAutoScroll);
+  }
+
+  // Handle Astro page loads & transitions
+  initCarousel();
+  document.addEventListener('astro:after-swap', initCarousel);
+</script>

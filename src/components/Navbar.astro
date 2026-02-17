@@ -121,6 +121,11 @@ const { theme = 'dark' } = Astro.props;
     background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/gQGJiZwJhb.png) no-repeat left center;
     background-size: contain;
     z-index: 102;
+    filter: brightness(0) invert(1); /* Default to white logo for dark background */
+  }
+
+  .frame.light-theme .trexo-blue {
+    filter: none; /* Original color for light backgrounds */
   }
 
   .frame-1 {
@@ -309,11 +314,11 @@ const { theme = 'dark' } = Astro.props;
     transition: all 0.3s ease-in-out;
   }
 
-  /* Light Theme Overrides */
+  /* Light Theme Overrides - No background, just text contrast */
   .frame.light-theme {
-    background: #ffffff;
-    border-bottom: 1px solid #eeeeee;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
   }
 
   .frame.light-theme .nav-link {
