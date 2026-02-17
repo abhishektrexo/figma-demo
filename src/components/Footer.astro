@@ -45,13 +45,25 @@
   }
 
   .rectangle-75 {
-    position: relative;
+    position: absolute;
     width: 100%;
     min-height: 496px;
+    top: 5250px;
+    left: 0;
     background: #fdfdfd;
-    z-index: 2;
+    z-index: 200; /* High z-index to stay above background artifacts */
     padding-bottom: 60px;
     border-top: 1px solid #eeeeee;
+  }
+
+  @media (max-width: 768px) {
+    .rectangle-75 {
+      position: relative !important;
+      top: 0 !important;
+      left: 0 !important;
+      margin-top: 60px !important;
+      z-index: 100 !important;
+    }
   }
 
   .frame-76 {
