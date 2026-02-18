@@ -65,7 +65,7 @@
     background: #005cb9;
     z-index: 13;
     border-radius: 30px;
-    margin-bottom: 141px; /* Keep margin for spacing flow */
+    margin-bottom: 0; /* Removed margin as iPad is bottom-aligned */
   }
 
   .ipad {
@@ -86,13 +86,6 @@
     box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.1);
   }
 
-  /* Why is this here? Probably legacy spacer. Updating to match height just in case. */
-  .hero-image::after {
-    content: '';
-    display: block;
-    height: 141px; 
-    margin-top: 420px; /* Updated to match new height */
-  }
 
   .inner-screen {
     position: relative;

@@ -21,7 +21,7 @@ const audiences = [
     </div>
     
     <div class="table">
-      <div class="column highlighted">
+      <div class="column">
         <div class="table-item">
           <h3 class="individual-inventors">Individual Inventors</h3>
         </div>
@@ -97,14 +97,18 @@ const audiences = [
     flex-direction: column;
     min-width: 200px;
     border-top: 1px solid #929292;
+    transition: all 0.3s ease; /* Added smooth transition */
+    border-radius: 20px; /* Ensure radius is always there for smooth hover */
+    border: 3px solid transparent; /* Reserve border space to prevent layout shift */
+    margin: -3px 0 0 0; /* Negate border width to align with line */
   }
 
-  .column.highlighted {
+  .column:hover {
     background: #f3f7fc;
     border: 3px solid #005cb9;
-    border-radius: 20px;
     box-shadow: 2px 2px 14px 0 #005cb9;
     z-index: 2;
+    cursor: default;
   }
 
   .table-item {
@@ -125,7 +129,7 @@ const audiences = [
   }
 
   .individual-inventors {
-    color: #232427;
+    color: #fdfdfd; /* Changed to white to match dark theme default */
     font-family: 'Lato', sans-serif;
     font-size: 25px;
     font-weight: 500;
@@ -133,6 +137,14 @@ const audiences = [
     letter-spacing: -1.8px;
     text-align: center;
     margin: 0;
+    transition: color 0.3s ease;
+  }
+
+  /* Invert color on hover for all headings */
+  .column:hover .individual-inventors,
+  .column:hover .startups-enterprises,
+  .column:hover .law-firms-attorneys {
+    color: #232427;
   }
 
   .startups-enterprises, .law-firms-attorneys {
@@ -144,13 +156,22 @@ const audiences = [
     letter-spacing: -1.8px;
     text-align: center;
     margin: 0;
+    transition: color 0.3s ease;
   }
 
   .protect-your-innovations {
-    color: #232427;
+    color: #fdfdfd; /* Changed to white */
     font-family: 'Roboto Mono', monospace;
     font-size: 12px;
     text-align: center;
+    transition: color 0.3s ease;
+  }
+
+  /* Invert color on hover for all descriptions */
+  .column:hover .protect-your-innovations,
+  .column:hover .text-23,
+  .column:hover .outsource-annuities {
+    color: #232427;
   }
 
   .text-23, .outsource-annuities {
@@ -158,6 +179,7 @@ const audiences = [
     font-family: 'Roboto Mono', monospace;
     font-size: 12px;
     text-align: center;
+    transition: color 0.3s ease;
   }
 
   @media (max-width: 1024px) {
