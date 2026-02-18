@@ -74,7 +74,8 @@ button {
 
 /* Landing Page specific height stabilization (True Codia Restoration) */
 .main-container.landing-page {
-    min-height: 5820px;
+    min-height: 5920px;
+    /* Incremented by 100px from 5820px */
 }
 
 /* Navbar CSS moved to Navbar.astro */
@@ -88,7 +89,8 @@ button {
     gap: 16px;
     position: relative;
     width: 480px;
-    margin: 2040px 0 0 480px;
+    margin: 2140px 0 0 480px;
+    /* Was 2040px */
     z-index: 78;
 }
 
@@ -135,7 +137,8 @@ button {
     gap: 32px;
     position: relative;
     width: 738px;
-    margin: 2173px 0 0 351px;
+    margin: 2273px 0 0 351px;
+    /* Was 2173px */
     z-index: 98;
 }
 
@@ -1280,7 +1283,8 @@ button {
     position: absolute;
     width: 752px;
     height: 359px;
-    top: 2260px;
+    top: 2360px;
+    /* Was 2260px */
     left: 50%;
     transform: translate(-75.53%, 0);
     z-index: 139;
@@ -1566,7 +1570,8 @@ button {
     position: absolute;
     width: 360px;
     height: 1020px;
-    top: 2267px;
+    top: 2367px;
+    /* Was 2267px */
     left: 924px;
     background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/AVEzHjGeXs.png) no-repeat center;
     background-size: cover;
@@ -1583,7 +1588,8 @@ button {
     position: absolute;
     width: 744px;
     height: 655px;
-    top: 2676px;
+    top: 2776px;
+    /* Was 2676px */
     left: 156px;
     z-index: 170;
 }
@@ -2180,7 +2186,8 @@ button {
     position: absolute;
     width: 1250.942px;
     height: 1180.522px;
-    top: 2914px;
+    top: 3014px;
+    /* Was 2914px */
     left: 828px;
     background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/7ixMmjzxq8.png) no-repeat center;
     background-size: cover;
@@ -2190,7 +2197,8 @@ button {
     position: absolute;
     width: 1440px;
     height: 865px;
-    top: 3457px;
+    top: 3557px;
+    /* Was 3457px */
     left: 0;
     background: #fdfdfd;
     z-index: 3;
@@ -2430,7 +2438,8 @@ button {
     justify-content: flex-start;
     position: absolute;
     height: 256px;
-    top: 4066px;
+    top: 4166px;
+    /* Was 4066px */
     left: 138px;
     color: #8b8b8b;
     font-family: Lato, var(--default-font-family);
@@ -2450,7 +2459,8 @@ button {
     position: absolute;
     width: 1440px;
     height: 711px;
-    top: 4523px;
+    top: 4623px;
+    /* Was 4523px */
     left: 0;
     z-index: 115;
 }
