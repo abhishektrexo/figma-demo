@@ -1,24 +1,24 @@
 ---
 const benefits = [
   {
-    title: "Automated Renewal Management",
+    title: "Centralized Management",
     description: "Unlock data-driven decisions with comprehensive analytics, revealing key opportunities for strategic regional growth.",
-    icon: "lock"
+    iconUrl: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/vum0jOYV7S.png"
   },
   {
-    title: "Cost Transparency",
+    title: "Automated Renewal Management",
     description: "Manage and track satellite offices, ensuring consistent performance and streamlined operations everywhere.",
-    icon: "globe"
+    iconUrl: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/dfH6iQ6KGT.png"
   },
   {
-    title: "Global Coverage",
+    title: "Flexible Coverage",
     description: "Adapt to diverse markets with built-in localization for clear communication and enhanced user experience.",
-    icon: "users"
+    iconUrl: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/f7NgZx8PRz.png"
   },
   {
-    title: "Expert Support",
+    title: "Secure Support",
     description: "Generate precise, visually compelling reports that illustrate your growth trajectories across all regions.",
-    icon: "chart"
+    iconUrl: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/puQukFjkSO.png"
   }
 ];
 ---
@@ -32,12 +32,7 @@ const benefits = [
       <div class="icons-module">
         {benefits.map(benefit => (
           <div class="icon-lockup">
-            <div class={`benefit-icon ${benefit.icon}`}>
-              {benefit.icon === "lock" && <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>}
-              {benefit.icon === "globe" && <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>}
-              {benefit.icon === "users" && <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>}
-              {benefit.icon === "chart" && <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>}
-            </div>
+            <div class="benefit-icon" style={`background-image: url(${benefit.iconUrl})`}></div>
             <div class="lockup-text">
               <span class="benefit-title-text">{benefit.title}</span>
               <p class="benefit-desc-text">{benefit.description}</p>
@@ -112,7 +107,9 @@ const benefits = [
   .benefit-icon {
     width: 24px;
     height: 24px;
-    color: #005cb9;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   .lockup-text {
@@ -145,7 +142,7 @@ const benefits = [
     background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/szRKUpANNt.png) no-repeat center;
     background-size: cover;
     border-radius: 30px;
-    margin-top: 50px;
+    margin-top: 80px;
   }
 
   @media (max-width: 1024px) {

@@ -19,25 +19,23 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    overflow: hidden;
+    /* Removed overflow: hidden to allow iPad to overlap next section */
   }
 
   .header {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     align-self: stretch;
     flex-wrap: nowrap;
     flex-shrink: 0;
-    gap: 180px;
+    gap: 160px;
     position: relative;
-    min-width: 0;
     z-index: 11;
-    overflow: hidden;
     max-width: 1500px;
     margin: 0 auto;
     width: 100%;
-    padding-top: 140px; /* Offset for Navbar */
+    padding-top: 100px;
   }
 
   .renewal-services {
@@ -66,31 +64,35 @@
     background: #005cb9;
     z-index: 13;
     border-radius: 30px;
-    margin-bottom: 300px; /* Room for overlapping iPad */
   }
 
   .ipad {
     position: absolute;
     width: 907px;
     height: 644px;
-    top: -141px;
+    top: -141px; /* Overlap upwards into header */
     left: 50%;
     transform: translateX(-50%);
     background: #000000;
-    border-right: 2px solid rgba(255, 255, 255, 0.5);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.5);
     z-index: 14;
     overflow: hidden;
     border-radius: 24px;
-    box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Added a spacer to ensure the next section doesn't hide the overlapping iPad */
+  .hero-image::after {
+    content: '';
+    display: block;
+    height: 503px; /* total ipad height (644) - top overlap (141) */
   }
 
   .inner-screen {
     position: relative;
-    width: 869.742px;
-    height: 607.439px;
-    margin: 18.504px auto 0;
+    width: 869px;
+    height: 607px;
+    margin: 18px auto 0;
     background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-17/PEkeyfMcPe.png) no-repeat center;
     background-size: cover;
     z-index: 15;
@@ -102,11 +104,16 @@
     .renewal-services {
       font-size: 100px;
       letter-spacing: -4px;
+      height: auto;
+      line-height: 1.1;
     }
     .ipad {
       width: 700px;
       height: 500px;
       top: -100px;
+    }
+    .hero-image::after {
+        height: 400px;
     }
     .inner-screen {
       width: 660px;
@@ -118,14 +125,15 @@
     .renewal-services {
       font-size: 60px;
       letter-spacing: -2px;
-      height: auto;
-      line-height: 1.2;
     }
     .header {
         gap: 80px;
     }
     .hero-image {
         height: 200px;
+    }
+    .hero-image::after {
+        height: 300px;
     }
     .ipad {
       width: 90%;
