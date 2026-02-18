@@ -35,7 +35,7 @@
     margin: 0 auto;
     width: 100%;
     padding-top: 150px; /* Restored and increased to prevent overlap */
-    gap: 320px; /* Increased to accommodate iPad upward extension (282px) + buffer */
+    gap: 250px; /* Adjusted for 420px height (iPad top align) */
   }
 
   .renewal-services {
@@ -61,11 +61,11 @@
     align-self: stretch;
     flex-shrink: 0;
     position: relative;
-    height: 362px;
+    height: 420px; /* Adjusted height per user feedback */
     background: #005cb9;
     z-index: 13;
     border-radius: 30px;
-    margin-bottom: 141px; /* Push content down to account for iPad overlap */
+    margin-bottom: 141px; /* Keep margin for spacing flow */
   }
 
   .ipad {
@@ -86,12 +86,12 @@
     box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.1);
   }
 
-  /* Correct spacer to allow for bottom overlap (644 - 141 - 362 = 141) */
+  /* Why is this here? Probably legacy spacer. Updating to match height just in case. */
   .hero-image::after {
     content: '';
     display: block;
     height: 141px; 
-    margin-top: 362px;
+    margin-top: 420px; /* Updated to match new height */
   }
 
   .inner-screen {
